@@ -3,7 +3,7 @@
 namespace NET.W._2018.Bey._03.Tests.NUnitTests
 {
     [TestFixture]
-    public class BinaryViewTest
+    public class BinaryViewTests
     {
         [TestCase(-0.255, ExpectedResult = "111111111110100000101000111101011100001010001111010111000010100")]
         [TestCase(-255.255, ExpectedResult = "1100000001101111111010000010100011110101110000101000111101011100")]

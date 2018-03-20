@@ -47,7 +47,8 @@ namespace NET.W._2018.Bey._01
         /// <param name="startIndex">Start index </param>
         /// <param name="endIndex">End index</param>
         /// <returns>Sorted array</returns>
-        /// <exception cref="ArgumentException">Invalid input parameters</exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static int[] QuickSort(int[] inputArray, int startIndex, int endIndex)
         {
             if (inputArray == null || inputArray.Length == 0)
@@ -93,7 +94,7 @@ namespace NET.W._2018.Bey._01
         /// <param name="leftArray">Array for merge</param>
         /// <param name="rightArray">Array for merge</param>
         /// <returns>Sorted merged array</returns>
-        /// <exception cref="ArgumentException">Invalid input parameters</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Invalid input parameters</exception>
         static int[] MergeSortArrays(int[] leftArray, int[] rightArray)
         {
             if (leftArray == null || leftArray.Length == 0)

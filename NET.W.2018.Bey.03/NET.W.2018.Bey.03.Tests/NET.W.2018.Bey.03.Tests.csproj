@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NUnitTests\CommonDivisorTests.cs" />
-    <Compile Include="NUnitTests\BinaryViewTest.cs" />
+    <Compile Include="NUnitTests\BinaryViewTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

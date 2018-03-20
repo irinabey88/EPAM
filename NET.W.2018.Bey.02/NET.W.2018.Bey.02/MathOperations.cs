@@ -52,7 +52,7 @@ namespace NET.W._2018.Bey._02
         /// <param name="number">Input number</param>
         /// <returns><value>Number if such number exists</value>
         /// <value>-1 otherwise</value></returns>
-        /// <exception cref="ArgumentException">Invalid input data</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Invalid input data</exception>
         public static long FindNextBigNumber(long number)
         {
             if (number < 0)
@@ -137,7 +137,7 @@ namespace NET.W._2018.Bey._02
         /// <param name="i">Start position for inset</param>
         /// <param name="j">End position for insert</param>
         /// <returns>Resul number</returns>
-        /// <exception cref="ArgumentException">Invalid input data</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Invalid input data</exception>
         public static long InsertNumber(long number1, long number2, int i, int j)
         {
             if (i > j)
@@ -172,7 +172,8 @@ namespace NET.W._2018.Bey._02
         /// <param name="a">Number</param>
         /// <param name="n">the power of root</param>
         /// <param name="eps">Accurancy</param>
-        /// <returns></returns>
+        /// <returns>N-power root from</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static double FindNthRoot(double a, int n, double eps)
         {
             if (eps <= 0)
@@ -213,7 +214,7 @@ namespace NET.W._2018.Bey._02
         /// <param name="startIndex"> start position</param>
         /// <param name="endIndex">end position</param>
         /// <returns>mask</returns>
-        /// <exception cref="ArgumentException">Invalid input data</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Invalid input data</exception>
         static long FormMask(int startIndex, int endIndex)
         {
             if (startIndex > endIndex)
