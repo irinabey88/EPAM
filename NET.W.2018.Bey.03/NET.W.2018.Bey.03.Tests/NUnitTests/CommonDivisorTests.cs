@@ -40,7 +40,6 @@ namespace NET.W._2018.Bey._03.Tests.NUnitTests
             Assert.Greater(CommonDivisor.GetRunTimeGcdEvklid(arg1), 0);
         }
 
-
         [TestCase(new[] { 2 })]
         [TestCase(new int[] { })]
         public void CommonDivisor_FindGcdByEvklid_InvalidData_Test(int[] arg1)

@@ -7,12 +7,10 @@ namespace NET.W._2018.Bey._02.NUnit.Tests
     [TestFixture]
     public class MathOperationsNunitTest
     {
-
         [TestCase(new[] { 7, 1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17 }, ExpectedResult = new[] { 7, 70, 17 })]
         public int[] MathOperations_FilterDigit_ValidData_Test(int[] arg1)
         {
             return MathOperations.FilterDigit(arg1, 7);
-
         }
 
         [TestCase(new[] { 7, 1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17 })]
@@ -35,7 +33,6 @@ namespace NET.W._2018.Bey._02.NUnit.Tests
         public long MathOperations_FindNextBigNumber_ValidData_Test(long arg1)
         {
             return MathOperations.FindNextBigNumber(arg1);
-
         }
 
         [TestCase(-567)]

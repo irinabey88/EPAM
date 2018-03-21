@@ -13,7 +13,9 @@ namespace NET.W._2018.Bey._01
         public static int[] MergeSort(int[] inputArray)
         {
             if (inputArray == null || inputArray.Length == 0)
+            {
                 throw new ArgumentException($"{nameof(inputArray)}");
+            }
 
             //Array consists of 1 element
             if (inputArray.Length == 1)
@@ -30,12 +32,15 @@ namespace NET.W._2018.Bey._01
             Array.Copy(inputArray, leftArray.Length, rightArray, 0, rightArray.Length);
 
             if (leftArray.Length > 1)
+            {
                 leftArray = MergeSort(leftArray);
+            }
 
             if (rightArray.Length > 1)
+            {
                 rightArray = MergeSort(rightArray);
+            }
 
-            //merging arrays
             inputArray = MergeSortArrays(leftArray, rightArray);
             return inputArray;
         }
@@ -56,19 +61,29 @@ namespace NET.W._2018.Bey._01
                 throw new ArgumentException($"{nameof(inputArray)}");
             }
 
-            if ( startIndex < 0 || endIndex < 0)
+            if (startIndex < 0 || endIndex < 0)
+            {
                 throw new ArgumentOutOfRangeException($"{nameof(startIndex)} or {nameof(endIndex)}");
+            }
 
             int leftIndex = startIndex;
             int righEndIndex = endIndex;
+
             //checked element - with it compaere others elements
             int x = inputArray[(startIndex + endIndex) / 2];
 
             while (leftIndex <= righEndIndex)
             {
                 //compare with checked element
-                while (inputArray[leftIndex] < x) leftIndex++;
-                while (inputArray[righEndIndex] > x) righEndIndex--;
+                while (inputArray[leftIndex] < x)
+                {
+                    leftIndex++;
+                }
+
+                while (inputArray[righEndIndex] > x)
+                {
+                    righEndIndex--;
+                }
 
                 if (leftIndex <= righEndIndex)
                 {
@@ -80,13 +95,18 @@ namespace NET.W._2018.Bey._01
                 }
             }
 
-            if (startIndex < righEndIndex) QuickSort(inputArray, startIndex, righEndIndex);
-            if (leftIndex < endIndex) QuickSort(inputArray, leftIndex, endIndex);
+            if (startIndex < righEndIndex)
+            {
+                QuickSort(inputArray, startIndex, righEndIndex);
+            }
+
+            if (leftIndex < endIndex)
+            {
+                QuickSort(inputArray, leftIndex, endIndex);
+            }
 
             return inputArray;
         }
-
-
 
         /// <summary>
         /// Merge 2 sorted arrays 
@@ -95,13 +115,14 @@ namespace NET.W._2018.Bey._01
         /// <param name="rightArray">Array for merge</param>
         /// <returns>Sorted merged array</returns>
         /// <exception cref="ArgumentOutOfRangeException">Invalid input parameters</exception>
-        static int[] MergeSortArrays(int[] leftArray, int[] rightArray)
+        private static int[] MergeSortArrays(int[] leftArray, int[] rightArray)
         {
             if (leftArray == null || leftArray.Length == 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(leftArray));
             }
-            if(rightArray == null || rightArray.Length == 0)
+
+            if (rightArray == null || rightArray.Length == 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(rightArray));
             }
@@ -113,14 +134,13 @@ namespace NET.W._2018.Bey._01
 
             for (int i = 0; i < resultArray.Length; i++)
             {
-                //if there is no elements in the rigth side
                 if (rightIndex >= rightArray.Length)
                 {
                     resultArray[i] = leftArray[leftIndex];
                     leftIndex++;
                 }
-                //if there is no elements in the left side
-                else if (leftIndex >= leftArray.Length)
+                else 
+                if (leftIndex >= leftArray.Length)
                 {
                     resultArray[i] = rightArray[rightIndex];
                     rightIndex++;

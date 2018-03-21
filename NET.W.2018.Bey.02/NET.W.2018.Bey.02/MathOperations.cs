@@ -7,9 +7,8 @@ namespace NET.W._2018.Bey._02
 {
     public class MathOperations
     {
-        const int NotFound = -1;
-        const int Multiplier = 2;
-        const int SizeNumber = 32;
+        private const int NotFound = -1;
+        private const int SizeNumber = 32;
 
         /// <summary>
         /// Recive from input array, array of numbers, which contais given digit
@@ -102,7 +101,7 @@ namespace NET.W._2018.Bey._02
         /// </summary>
         /// <param name="number">Input number</param>
         /// <returns>Executing time in miliseconds</returns>
-        static public double CalculateTimeStopWatch(long number)
+        public static double CalculateTimeStopWatch(long number)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
@@ -118,7 +117,7 @@ namespace NET.W._2018.Bey._02
         /// </summary>
         /// <param name="number">Input number</param>
         /// <returns>Executing time in miliseconds</returns>
-        static public double CalculateTimeDateTime(long number)
+        public static double CalculateTimeDateTime(long number)
         {
             var before = DateTime.Now.Millisecond;
 
@@ -141,7 +140,9 @@ namespace NET.W._2018.Bey._02
         public static long InsertNumber(long number1, long number2, int i, int j)
         {
             if (i > j)
+            {
                 throw new ArgumentOutOfRangeException($"{nameof(i)}");
+            }
 
             //Form mask for number1 right side
             long mask11 = FormMask(0, i);
@@ -182,12 +183,12 @@ namespace NET.W._2018.Bey._02
             }
 
             var x0 = a / n;
-            var x1 = 1.0 /n * ((n - 1) * x0 + a / Math.Pow(x0, (int)n - 1));
+            var x1 = (1.0 / n) * (((n - 1) * x0) + (a / Math.Pow(x0, n - 1)));
 
             while (Math.Abs(x1 - x0) > eps)
             {
                 x0 = x1;
-                x1 = 1.0 /n * ((n - 1) * x0 + a / Math.Pow(x0, (int)n - 1));
+                x1 = (1.0 / n) * (((n - 1) * x0) + (a / Math.Pow(x0, n - 1)));
             }
 
             return Math.Round(x1, GetRoundNumber(eps));
@@ -198,7 +199,7 @@ namespace NET.W._2018.Bey._02
         /// </summary>
         /// <param name="eps">Accurancy</param>
         /// <returns>Number of digits after dot</returns>
-        static int GetRoundNumber(double eps)
+        private static int GetRoundNumber(double eps)
         {
             var str = eps.ToString(CultureInfo.InvariantCulture);
             var indexPot = str.LastIndexOf(".", StringComparison.Ordinal);
@@ -215,14 +216,14 @@ namespace NET.W._2018.Bey._02
         /// <param name="endIndex">end position</param>
         /// <returns>mask</returns>
         /// <exception cref="ArgumentOutOfRangeException">Invalid input data</exception>
-        static long FormMask(int startIndex, int endIndex)
+        private static long FormMask(int startIndex, int endIndex)
         {
             if (startIndex > endIndex)
             {
                 throw new ArgumentOutOfRangeException($"{nameof(startIndex)}");
             }
 
-            return endIndex - startIndex == 0 ? 1 : (1 << endIndex - startIndex) - 1;
+            return endIndex - startIndex == 0 ? 1 : (((1 << endIndex) - startIndex) - 1);
         }
     }
 }

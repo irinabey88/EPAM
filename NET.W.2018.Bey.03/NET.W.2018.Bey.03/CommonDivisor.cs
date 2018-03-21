@@ -71,7 +71,7 @@ namespace NET.W._2018.Bey._03
         /// <param name="algorithm">Method of finding the greatest common divisor</param>
         /// <returns>Greatest common divisor</returns>
         /// <exception cref="ArgumentException"></exception>
-        static int FindGcd(int[] numbersArray, Func<int, int, int> algorithm)
+        private static int FindGcd(int[] numbersArray, Func<int, int, int> algorithm)
         {
             if (numbersArray == null || numbersArray.Length < 2)
             {
@@ -100,7 +100,7 @@ namespace NET.W._2018.Bey._03
         /// <param name="a">Number</param>
         /// <param name="b">Number</param>
         /// <returns>Greatest common divisor</returns>
-        static int GetGcdEvklid(int a, int b)
+        private static int GetGcdEvklid(int a, int b)
         {
             a = Math.Abs(a);
             b = Math.Abs(b);
@@ -142,7 +142,7 @@ namespace NET.W._2018.Bey._03
         /// <param name="a">Number</param>
         /// <param name="b">Number</param>
         /// <returns>Greatest common divisor</returns>
-        static int GetGcdBinary(int a, int b)
+        private static int GetGcdBinary(int a, int b)
         {
             a = Math.Abs(a);
             b = Math.Abs(b);

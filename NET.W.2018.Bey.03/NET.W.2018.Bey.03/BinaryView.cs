@@ -38,15 +38,16 @@ namespace NET.W._2018.Bey._03
             var integerPart = FormIntegerBinaryPart((uint)number);
 
             //Get binary representation real part
-            var realPart = FormRealBinaryPart(number - (long) number,
-                Convert.ToInt32(Resources.MantissaSize) - integerPart.Length - 1);
+            var realPart = FormRealBinaryPart(number - (long)number, Convert.ToInt32(Resources.MantissaSize) - integerPart.Length - 1);
 
             //Get exponent of result number
             var exponentNumber = Convert.ToInt32(Resources.ExponentialBias) + integerPart.Length - 1;
+            
             //Get binary representation of exponent
             var exponent = FormIntegerBinaryPart(exponentNumber);
 
             char pad = '0';
+
             //Get mantissa from integer and real part
             var mantissa =
                 $"{integerPart.Substring(1)}{realPart}".PadRight(Convert.ToInt32(Resources.MantissaSize), pad);
@@ -61,7 +62,7 @@ namespace NET.W._2018.Bey._03
         /// </summary>
         /// <param name="number">Integer part number</param>
         /// <returns>Binary representation</returns>
-        static string FormIntegerBinaryPart(long number)
+        private static string FormIntegerBinaryPart(long number)
         {
             var result = string.Empty;
             uint baseNumberSystem = Convert.ToUInt32(Resources.BaseOfBinaryNumberSystem);
@@ -87,7 +88,7 @@ namespace NET.W._2018.Bey._03
         /// <param name="number">Real part number</param>
         /// <param name="exponent">Exponent</param>
         /// <returns>Binary representation</returns>
-        static string FormRealBinaryPart(double number, int exponent)
+        private static string FormRealBinaryPart(double number, int exponent)
         {
             if (number > 1)
             {

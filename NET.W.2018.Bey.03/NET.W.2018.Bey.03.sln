@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2018.Bey.03", "NET.W.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2018.Bey.03.Tests", "NET.W.2018.Bey.03.Tests\NET.W.2018.Bey.03.Tests.csproj", "{C64C08F7-65AA-49A4-9D13-8B6E134A135B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E49846FC-EB9A-4099-95C1-BC265327C9DD}"
+	ProjectSection(SolutionItems) = preProject
+		Settings.StyleCop = Settings.StyleCop
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
