@@ -209,7 +209,7 @@ namespace NET.W._2018.Bey._04.Services
                 return false;
             }
 
-            return CompareArray(this.Factors, ((Polynomial)obj).Factors);
+            return base.Equals(obj);
         }
 
         #endregion

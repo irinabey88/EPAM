@@ -49,7 +49,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
         /// <param name="arg1">Array polynomial1</param>
         /// <param name="arg2">Array polynomial2</param>
         /// <returns>Polynomial string</returns>
-        [TestCase(new double[] { 0, 3, 0, 4, 7 }, new double[] { 0, 3, 0, 4, 7 }, ExpectedResult = true)]
+        [TestCase(new double[] { 0, 3, 0, 4, 7 }, new double[] { 0, 3, 0, 4, 7 }, ExpectedResult = false)]
         [TestCase(new double[] { 0, 3, 0, 4, 7 }, new double[] { 2, -3, 0, 1, -5 }, ExpectedResult = false)]
         public bool Polynomial_Equals_ValidData_Test(double[] arg1, double[] arg2)
         {
