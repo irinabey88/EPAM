@@ -42,7 +42,8 @@
   <ItemGroup>
     <Compile Include="Enum\Sign.cs" />
     <Compile Include="Interfaces\IPolynomial.cs" />
-    <Compile Include="Polynomial.cs" />
+    <Compile Include="Services\ArraySort.cs" />
+    <Compile Include="Services\Polynomial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

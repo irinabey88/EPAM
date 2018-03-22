@@ -1,12 +1,12 @@
 ﻿// <copyright file="Polynomial.cs" company="Iryna Bey">
 // Copyright (c) Iryna Bey. All rights reserved.
 // </copyright>
-namespace NET.W._2018.Bey._04
+namespace NET.W._2018.Bey._04.Services
 {
     using System;
     using System.Linq;
+    using Enum;
     using Interfaces;
-    using NET.W._2018.Bey._04.Enum;
 
     /// <summary>
     /// Represent mathematical polynomial

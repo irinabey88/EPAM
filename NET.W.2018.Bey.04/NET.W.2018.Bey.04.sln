@@ -5,6 +5,13 @@ VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2018.Bey.04", "NET.W.2018.Bey.04\NET.W.2018.Bey.04.csproj", "{CC78BF4A-9398-4F31-BC29-40635C530FDE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B64D9103-0E65-48E4-8C0F-BDE0799F3FC5}"
+	ProjectSection(SolutionItems) = preProject
+		Settings.StyleCop = Settings.StyleCop
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2018.Bey.04.Tests", "NET.W.2018.Bey.04.Tests\NET.W.2018.Bey.04.Tests.csproj", "{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{CC78BF4A-9398-4F31-BC29-40635C530FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC78BF4A-9398-4F31-BC29-40635C530FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC78BF4A-9398-4F31-BC29-40635C530FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
