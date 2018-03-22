@@ -1,56 +1,113 @@
-﻿using System;
-using NET.W._2018.Bey._03.Properties;
-
+﻿// <copyright file="BinaryView.cs" company="Iryna Bey">
+// Copyright (c) Iryna Bey. All rights reserved.
+// </copyright>
 namespace NET.W._2018.Bey._03
 {
+    using System;
+
+    /// <summary>
+    /// Provides get binary view of real number
+    /// </summary>
     public static class BinaryView
     {
+        #region Constant
+        /// <summary>
+        /// Base of binary system
+        /// </summary>
+        private const int BaseOfBinaryNumberSystem = 2;
+
+        /// <summary>
+        /// Beas of exponent
+        /// </summary>
+        private const int ExponentialBias = 1023;
+
+        /// <summary>
+        /// Mantissa size
+        /// </summary>
+        private const int MantissaSize = 52;
+
+        /// <summary>
+        /// Binary zero value
+        /// </summary>
+        private const string ZeroValue = "0000000000000000000000000000000000000000000000000000000000000000";
+
+        /// <summary>
+        /// Binary epsilon value
+        /// </summary>
+        private const string Epsilon = "0000000000000000000000000000000000000000000000000000000000000001";
+
+        /// <summary>
+        /// Binary maxvalue
+        /// </summary>
+        private const string MaxValue = "0111111111101111111111111111111111111111111111111111111111111111";
+
+        /// <summary>
+        /// Binary minvalue
+        /// </summary>
+        private const string MinValue = "1111111111101111111111111111111111111111111111111111111111111111";
+
+        /// <summary>
+        /// Binary negativeinfinity value
+        /// </summary>
+        private const string NegativeInfinity = "1111111111110000000000000000000000000000000000000000000000000000";
+
+        /// <summary>
+        /// Binary positiveinfinity value
+        /// </summary>
+        private const string PositiveInfinity = "0111111111110000000000000000000000000000000000000000000000000000";
+
+        /// <summary>
+        /// Binary nan value
+        /// </summary>
+        private const string Nan = "1111111111111000000000000000000000000000000000000000000000000000";
+        #endregion
+
         /// <summary>
         /// Form binary representation of number
         /// </summary>
-        /// <param name="number">Number</param>
+        /// <param name="number">Input number</param>
         /// <returns>Binary representation of number</returns>
         public static string GetBinaryView(this double number)
         {
             switch (number)
             {
                 case 0.0:
-                    return Resources.ZeroValue;
+                    return ZeroValue;
                 case double.Epsilon:
-                    return Resources.Epsilon;
+                    return Epsilon;
                 case double.MaxValue:
-                    return Resources.MaxValue;
+                    return MaxValue;
                 case double.MinValue:
-                    return Resources.MinValue;
+                    return MinValue;
                 case double.NegativeInfinity:
-                    return Resources.NegativeInfinity;
+                    return NegativeInfinity;
                 case double.PositiveInfinity:
-                    return Resources.PositiveInfinity;
+                    return PositiveInfinity;
                 case double.NaN:
-                    return Resources.Nan;
+                    return Nan;
             }
 
-            //Get binary representation sign
+            ////Get binary representation sign
             var sign = number < 0 ? "1" : "0";
             number = Math.Abs(number);
 
-            //Get binary representation integer part
-            var integerPart = FormIntegerBinaryPart((uint)number);
+            ////Get binary representation integer part
+            var integerPart = FormIntegerBinaryPart((long)number);
 
-            //Get binary representation real part
-            var realPart = FormRealBinaryPart(number - (long)number, Convert.ToInt32(Resources.MantissaSize) - integerPart.Length - 1);
+            ////Get binary representation real part
+            var realPart = FormRealBinaryPart(number - (long)number, MantissaSize - integerPart.Length - 1);
 
-            //Get exponent of result number
-            var exponentNumber = Convert.ToInt32(Resources.ExponentialBias) + integerPart.Length - 1;
+            ////Get exponent of result number
+            var exponentNumber = ExponentialBias + integerPart.Length - 1;
             
-            //Get binary representation of exponent
+            ////Get binary representation of exponent
             var exponent = FormIntegerBinaryPart(exponentNumber);
 
             char pad = '0';
 
-            //Get mantissa from integer and real part
+            ////Get mantissa from integer and real part
             var mantissa =
-                $"{integerPart.Substring(1)}{realPart}".PadRight(Convert.ToInt32(Resources.MantissaSize), pad);
+                $"{integerPart.Substring(1)}{realPart}".PadRight(MantissaSize, pad);
 
             var result = $"{sign}{exponent}{mantissa}";
 
@@ -64,8 +121,7 @@ namespace NET.W._2018.Bey._03
         /// <returns>Binary representation</returns>
         private static string FormIntegerBinaryPart(long number)
         {
-            var result = string.Empty;
-            uint baseNumberSystem = Convert.ToUInt32(Resources.BaseOfBinaryNumberSystem);
+            var result = string.Empty;           
 
             if (number == 0)
             {
@@ -74,8 +130,8 @@ namespace NET.W._2018.Bey._03
 
             while (number > 0)
             {
-                var mod = number % baseNumberSystem;
-                number /= baseNumberSystem;
+                var mod = number % BaseOfBinaryNumberSystem;
+                number /= BaseOfBinaryNumberSystem;
                 result = $"{mod}{result}";
             }
 
@@ -86,7 +142,7 @@ namespace NET.W._2018.Bey._03
         /// Form binary representation of real part number
         /// </summary>
         /// <param name="number">Real part number</param>
-        /// <param name="exponent">Exponent</param>
+        /// <param name="exponent">Exponent value</param>
         /// <returns>Binary representation</returns>
         private static string FormRealBinaryPart(double number, int exponent)
         {
@@ -95,12 +151,11 @@ namespace NET.W._2018.Bey._03
                 throw new ArgumentOutOfRangeException($"{nameof(number)}");
             }
 
-            var result = string.Empty;
-            int baseNumberSystem = Convert.ToInt32(Resources.BaseOfBinaryNumberSystem);
+            var result = string.Empty;           
 
             for (int i = 0; i < exponent; i++)
             {
-                number *= baseNumberSystem;
+                number *= BaseOfBinaryNumberSystem;
                 var integerPart = (int)number;
                 number -= integerPart;
                 result = $"{result}{integerPart}";

@@ -1,8 +1,14 @@
-﻿using System;
-using System.Diagnostics;
-
+﻿// <copyright file="CommonDivisor.cs" company="Iryna Bey">
+// Copyright (c) Iryna Bey. All rights reserved.
+// </copyright>
 namespace NET.W._2018.Bey._03
 {
+    using System;
+    using System.Diagnostics;
+
+    /// <summary>
+    /// Provides methods to get the greatest common divisor
+    /// </summary>
     public static class CommonDivisor
     {
         /// <summary>
@@ -70,7 +76,7 @@ namespace NET.W._2018.Bey._03
         /// <param name="numbersArray">Array of numbers</param>
         /// <param name="algorithm">Method of finding the greatest common divisor</param>
         /// <returns>Greatest common divisor</returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException">Indvalid input data</exception>
         private static int FindGcd(int[] numbersArray, Func<int, int, int> algorithm)
         {
             if (numbersArray == null || numbersArray.Length < 2)
@@ -97,8 +103,8 @@ namespace NET.W._2018.Bey._03
         /// Get the greatest common divisor from 2 numbers 
         /// by euclidean algorithm
         /// </summary>
-        /// <param name="a">Number</param>
-        /// <param name="b">Number</param>
+        /// <param name="a">Number a</param>
+        /// <param name="b">Number b</param>
         /// <returns>Greatest common divisor</returns>
         private static int GetGcdEvklid(int a, int b)
         {
@@ -139,8 +145,8 @@ namespace NET.W._2018.Bey._03
         /// Get the greatest common divisor from 2 numbers 
         /// by binary algorithm
         /// </summary>
-        /// <param name="a">Number</param>
-        /// <param name="b">Number</param>
+        /// <param name="a">Number a</param>
+        /// <param name="b">Number b</param>
         /// <returns>Greatest common divisor</returns>
         private static int GetGcdBinary(int a, int b)
         {
