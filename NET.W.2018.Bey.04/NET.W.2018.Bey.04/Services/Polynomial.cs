@@ -176,8 +176,7 @@ namespace NET.W._2018.Bey._04.Services
                                     ? $"{polinomial}+{this.Factors[i]}*x^{i}"
                                     : $"{polinomial}{this.Factors[i]}*x^{i}";
                             break;
-                    }
-                    
+                    }                    
                 }
                 else if (this.Factors[i] != 0.0)
                 {
@@ -210,7 +209,7 @@ namespace NET.W._2018.Bey._04.Services
                 return false;
             }
 
-            return base.Equals(obj);
+            return CompareArray(this.Factors, ((Polynomial)obj).Factors);
         }
 
         #endregion
