@@ -159,7 +159,25 @@ namespace NET.W._2018.Bey._04.Services
             {
                 if (!string.IsNullOrWhiteSpace(polinomial) && this.Factors[i] != 0.0)
                 {
-                    polinomial = this.Factors[i] >= 0 ? $"+{this.Factors[i]}*x^{i}" : $"{this.Factors[i]}*x^{i}";
+                    switch (i)
+                    {
+                        case 0:
+                            polinomial = this.Factors[i] > 0
+                                ? $"{polinomial}+{this.Factors[i]}"
+                                : $"{polinomial}{this.Factors[i]}";
+                            break;
+                        case 1:
+                            polinomial = this.Factors[i] > 0
+                                ? $"{polinomial}+{this.Factors[i]}*x"
+                                : $"{polinomial}{this.Factors[i]}*x";
+                            break;
+                            default:
+                                polinomial = this.Factors[i] > 0
+                                    ? $"{polinomial}+{this.Factors[i]}*x^{i}"
+                                    : $"{polinomial}{this.Factors[i]}*x^{i}";
+                            break;
+                    }
+                    
                 }
                 else if (this.Factors[i] != 0.0)
                 {
@@ -167,7 +185,7 @@ namespace NET.W._2018.Bey._04.Services
                 }
             }
 
-            return base.ToString();
+            return polinomial;
         }
 
         /// <summary>
