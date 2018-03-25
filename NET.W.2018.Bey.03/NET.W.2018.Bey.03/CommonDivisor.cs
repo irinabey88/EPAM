@@ -19,9 +19,19 @@ namespace NET.W._2018.Bey._03
         /// <returns>Greatest common divisor</returns>
         public static int FindGcdEvklid(int[] numbersArray)
         {
-            Func<int, int, int> extractMethod = GetGcdEvklid;
+            if (numbersArray == null || numbersArray.Length < 2)
+            {
+                throw new ArgumentException($"{nameof(numbersArray)}");
+            }
 
-            return FindGcd(numbersArray, extractMethod);
+            int greatestDivisor = GetGcdEvklid(numbersArray[0], numbersArray[1]);
+
+            for (int i = 2; i < numbersArray.Length; i++)
+            {
+                greatestDivisor = GetGcdEvklid(greatestDivisor, numbersArray[i]);
+            }
+
+            return greatestDivisor;         
         }
 
         /// <summary>
@@ -32,9 +42,19 @@ namespace NET.W._2018.Bey._03
         /// <returns>Greatest common divisor</returns>
         public static int FindGcdBinary(int[] numbersArray)
         {
-            Func<int, int, int> extractMethod = GetGcdBinary;
+            if (numbersArray == null || numbersArray.Length < 2)
+            {
+                throw new ArgumentException($"{nameof(numbersArray)}");
+            }
 
-            return FindGcd(numbersArray, extractMethod);
+            int greatestDivisor = GetGcdBinary(numbersArray[0], numbersArray[1]);
+
+            for (int i = 2; i < numbersArray.Length; i++)
+            {
+                greatestDivisor = GetGcdBinary(greatestDivisor, numbersArray[i]);
+            }
+
+            return greatestDivisor;
         }
 
         /// <summary>
