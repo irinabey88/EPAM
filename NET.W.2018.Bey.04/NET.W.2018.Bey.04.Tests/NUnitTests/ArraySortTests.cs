@@ -8,6 +8,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
     using System.Globalization;
     using System.Linq;
     using System.Text.RegularExpressions;
+    using NET.W._2018.Bey._04.Enum;
     using NET.W._2018.Bey._04.Services;
     using NUnit.Framework;
 
@@ -37,7 +38,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
         public string ArraySort_ValidData_SumDescending_Test(string arg1)
         {
             var array = ConvertStringToArray(arg1);
-            var sortedArray = array.BubleSort(x => x.Sum(), false);
+            var sortedArray = array.BubleSort(SortFunction.Sum, false);
             var strSortedArray = this.ConvertArrayToString(sortedArray);
 
             return strSortedArray;
@@ -53,7 +54,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
         public string ArraySort_ValidData_SumAscending_Test(string arg1)
         {
             var array = ConvertStringToArray(arg1);
-            var sortedArray = array.BubleSort(x => x.Sum());
+            var sortedArray = array.BubleSort(SortFunction.Sum);
             var strSortedArray = this.ConvertArrayToString(sortedArray);
 
             return strSortedArray;
@@ -69,7 +70,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
         public string ArraySort_ValidData_MinDescending_Test(string arg1)
         {
             var array = ConvertStringToArray(arg1);
-            var sortedArray = array.BubleSort(x => x.Min(), false);
+            var sortedArray = array.BubleSort(SortFunction.MinValue, false);
             var strSortedArray = this.ConvertArrayToString(sortedArray);
 
             return strSortedArray;
@@ -85,7 +86,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
         public string ArraySort_ValidData_MinAscending_Test(string arg1)
         {
             var array = ConvertStringToArray(arg1);
-            var sortedArray = array.BubleSort(x => x.Min());
+            var sortedArray = array.BubleSort(SortFunction.MinValue);
             var strSortedArray = this.ConvertArrayToString(sortedArray);
 
             return strSortedArray;
@@ -101,7 +102,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
         public string ArraySort_ValidData_MaxDescending_Test(string arg1)
         {
             var array = ConvertStringToArray(arg1);
-            var sortedArray = array.BubleSort(x => x.Max(), false);
+            var sortedArray = array.BubleSort(SortFunction.MaxValue, false);
             var strSortedArray = this.ConvertArrayToString(sortedArray);
 
             return strSortedArray;
@@ -117,7 +118,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
         public string ArraySort_ValidData_MaxAscending_Test(string arg1)
         {
             var array = ConvertStringToArray(arg1);
-            var sortedArray = array.BubleSort(x => x.Max());
+            var sortedArray = array.BubleSort(SortFunction.MaxValue);
             var strSortedArray = this.ConvertArrayToString(sortedArray);
 
             return strSortedArray;
@@ -131,7 +132,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
         [TestCaseSource(typeof(JaggedArrayTestDataSource))]
         public void ArraySort_InvalidData_Test(double[][] arg1)
         {
-            Assert.Throws<ArgumentException>(() => arg1.BubleSort(x => x.Sum()));
+            Assert.Throws<ArgumentException>(() => arg1.BubleSort(SortFunction.Sum));
         }
 
         #region Private methods
