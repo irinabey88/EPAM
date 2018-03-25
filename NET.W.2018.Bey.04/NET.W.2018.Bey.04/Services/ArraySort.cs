@@ -18,7 +18,7 @@ namespace NET.W._2018.Bey._04.Services
 
         /// <summary>
         /// Provides buble sort for <paramref name="jaggedArray"/> in 
-        /// ascending/descending order bu given <paramref name="function"/> for inner arrays
+        /// ascending/descending order bu given <paramref name="sortFunction"/> for inner arrays
         /// </summary>
         /// <param name="jaggedArray">Input jaggedArray</param>
         /// <param name="sortFunction">Function for inner arrays</param>
