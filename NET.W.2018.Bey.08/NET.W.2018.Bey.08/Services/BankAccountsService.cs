@@ -57,7 +57,7 @@
             }
 
             var user = this._userRepository.Add(bankUser);
-            var account = CreateAccounts(user, typeAccount);
+            var account = CreateAccountByType(user, typeAccount);
             return this._accountRepository.Add(account);
         }
 
@@ -126,7 +126,7 @@
 
         #region Private methods
 
-        private BankAccount CreateAccounts(BankUser bankUser, BankAccountType typeAccount)
+        private BankAccount CreateAccountByType(BankUser bankUser, BankAccountType typeAccount)
         {
             if (bankUser == null)
             {
