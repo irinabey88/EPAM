@@ -1,4 +1,6 @@
-﻿namespace NET.W._2018.Bey._08.Services
+﻿using NET.W._2018.Bey._08.Exception.User;
+
+namespace NET.W._2018.Bey._08.Services
 {
     using System;
     using System.Collections.Generic;
@@ -85,17 +87,18 @@
                 throw new ClosedAccountException(accountId);
             }
 
-            BankAccount updatedAccount;
+            if (amount == 0)
+            {
+                throw new ZeroAmountOperatioException(accountId);
+            }
 
-            if (amount != 0)
+            if (amount > account.Amount)
             {
-                int bonus = (int)((-1) * amount * account.Rate / (100 * 2));
-                updatedAccount = UpdateAccounts(account, false, (int)(-1 * amount), bonus);
+                throw new WithdrawException(account.AccountId);
             }
-            else
-            {
-                updatedAccount = UpdateAccounts(account);
-            }
+
+            int bonus = (int)((-1) * amount * account.Rate / (100 * 2));
+            var updatedAccount = UpdateAccounts(account, false, (int)(-1 * amount), bonus);
 
             return this._accountRepository.Update(updatedAccount);
         }
@@ -109,19 +112,45 @@
                 throw new ClosedAccountException(accountId);
             }
 
-            BankAccount updatedAccount;
+            if (amount == 0)
+            {
+                throw new ZeroAmountOperatioException(accountId);
+            }
 
-            if (amount != 0)
-            {
-                int bonus = (int)(amount * account.Rate / 100);
-                updatedAccount = UpdateAccounts(account, false, (int)amount, bonus);
-            }
-            else
-            {
-                updatedAccount = UpdateAccounts(account);
-            }
+            int bonus = (int)(amount * account.Rate / 100);
+            var updatedAccount = UpdateAccounts(account, false, (int)amount, bonus);
 
             return this._accountRepository.Update(updatedAccount);
+        }
+
+        public IEnumerable<BankAccount> FindUserAccounts(string firstName, string lastName)
+        {
+            if (string.IsNullOrWhiteSpace(firstName))
+            {
+                throw new ArgumentNullException(nameof(firstName));
+            }
+
+            if (string.IsNullOrWhiteSpace(lastName))
+            {
+                throw new ArgumentNullException(nameof(lastName));
+            }
+
+            var user = this._userRepository.FindUserByName(firstName, lastName) ??
+                       throw new NotFoundUserException(firstName, lastName);
+
+            List<BankAccount> accountList = new List<BankAccount>();
+            var listAccount = this._accountRepository.GetAllElements();
+
+            foreach (var account in listAccount) 
+            {
+                if (account.User.UserId.Equals(user.UserId))
+                {
+                    accountList.Add(account);
+                    break;
+                }
+            }
+
+            return accountList;
         }
 
         #region Private methods
@@ -165,13 +194,13 @@
             switch (account.TypeAccount)
             {
                 case BankAccountType.Base:
-                    newAccount = new BaseAccount(account.BankUser, account.AccountId, account.TypeAccount, (uint)(account.Amount + amount), (uint)(account.Bonus + bonus), isClosed);
+                    newAccount = new BaseAccount(account.User, account.AccountId, account.TypeAccount, (uint)(account.Amount + amount), (uint)(account.Bonus + bonus), isClosed);
                     break;
                 case BankAccountType.Gold:
-                    newAccount = new GoldAccount(account.BankUser, account.AccountId, account.TypeAccount, (uint)(account.Amount + amount), (uint)(account.Bonus + bonus), isClosed);
+                    newAccount = new GoldAccount(account.User, account.AccountId, account.TypeAccount, (uint)(account.Amount + amount), (uint)(account.Bonus + bonus), isClosed);
                     break;
                 case BankAccountType.Platinum:
-                    newAccount = new PlatinumAccount(account.BankUser, account.AccountId, account.TypeAccount, (uint)(account.Amount + amount), (uint)(account.Bonus + bonus), isClosed);
+                    newAccount = new PlatinumAccount(account.User, account.AccountId, account.TypeAccount, (uint)(account.Amount + amount), (uint)(account.Bonus + bonus), isClosed);
                     break;
                 default:
                     throw new InvalidEnumArgumentException(nameof(account.TypeAccount));

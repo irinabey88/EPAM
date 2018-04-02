@@ -116,7 +116,7 @@
                 throw new AddUserException(model.UserId);
             }
 
-            var user = FindUserWithEqualsData(model.FirstName, model.LastName);
+            var user = FindUserByName(model.FirstName, model.LastName);
             if (user != null)
             {
                 throw new EqualsUserException(model.FirstName, model.LastName);
@@ -180,9 +180,7 @@
             return this._listUser;
         }
 
-        #region Private methods
-
-        private BankUser FindUserWithEqualsData(string firstName, string lastName)
+        public BankUser FindUserByName(string firstName, string lastName)
         {
             if (string.IsNullOrWhiteSpace(firstName))
             {
@@ -207,6 +205,8 @@
 
             return finedUser;
         }
+
+        #region Private methods
 
         private void SaveUser(BinaryWriter writer, BankUser bankUser)
         {

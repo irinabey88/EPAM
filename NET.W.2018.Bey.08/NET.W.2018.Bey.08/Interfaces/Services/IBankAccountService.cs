@@ -55,5 +55,13 @@
         /// <param name="amount">Deposit amount</param>
         /// <returns>Account</returns>
         TModel DepositMoney(string accountId, uint amount);
+
+        /// <summary>
+        /// Finds all accounst of user
+        /// </summary>
+        /// <param name="firstName">Firstname</param>
+        /// <param name="lastName">Lastname</param>
+        /// <returns>Enumeration of users account</returns>
+        IEnumerable<BankAccount> FindUserAccounts(string firstName, string lastName);
     }
 }

@@ -12,7 +12,7 @@
         /// Create instance of DeleteUserException
         /// </summary>
         /// <param name="id">User id</param>
-        public DeleteUserException(string id) : base($"BankUser with id {id} doesn't exist in the storage")
+        public DeleteUserException(string id) : base($"User with id {id} doesn't exist in the storage")
         {
         }
     }

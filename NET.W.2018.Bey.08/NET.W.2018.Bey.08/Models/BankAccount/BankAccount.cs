@@ -14,7 +14,7 @@
         /// <param name="bankUser">Account owner</param>
         public BankAccount(BankUser bankUser)
         {
-            this.BankUser = bankUser ?? throw new ArgumentNullException(nameof(bankUser));
+            this.User = bankUser ?? throw new ArgumentNullException(nameof(bankUser));
             this.AccountId = Guid.NewGuid().ToString();
         }
 
@@ -29,7 +29,7 @@
         /// <param name="isClosed">Is account closed</param>
         public BankAccount(BankUser bankUser, string accountId, BankAccountType typeAccount, uint amount, uint bonus, bool isClosed)
         {
-            this.BankUser = bankUser ?? throw new ArgumentNullException(nameof(bankUser));
+            this.User = bankUser ?? throw new ArgumentNullException(nameof(bankUser));
             this.AccountId = accountId;
             this.TypeAccount = typeAccount;
             this.Amount = amount;
@@ -50,7 +50,7 @@
         /// <summary>
         /// Account owner
         /// </summary>
-        public BankUser BankUser { get; }
+        public BankUser User { get; }
 
         /// <summary>
         /// Amount
@@ -111,14 +111,14 @@
 
         public override string ToString()
         {
-            return $"{this.BankUser} {this.Amount} {this.Bonus}";
+            return $"{this.User} {this.Amount} {this.Bonus}";
         }
 
         #region Private methods
 
         private bool CheckEqualityProperty(BankAccount bankAccount1, BankAccount bankAccount2)
         {
-            if (!bankAccount1.BankUser.Equals(bankAccount2.BankUser))
+            if (!bankAccount1.User.Equals(bankAccount2.User))
             {
                 return false;
             }

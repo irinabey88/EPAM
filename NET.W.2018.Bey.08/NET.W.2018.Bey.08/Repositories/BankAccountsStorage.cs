@@ -82,7 +82,7 @@
 
         public BankAccount Get(BankAccount model)
         {            
-            return this.Get(model.BankUser.UserId);
+            return this.Get(model.User.UserId);
         }
 
         public BankAccount Get(string id)
@@ -201,9 +201,9 @@
         {
             writer.Write(account.AccountId);
             writer.Write((int)account.TypeAccount);
-            writer.Write(account.BankUser.UserId);
-            writer.Write(account.BankUser.FirstName);
-            writer.Write(account.BankUser.LastName);
+            writer.Write(account.User.UserId);
+            writer.Write(account.User.FirstName);
+            writer.Write(account.User.LastName);
             writer.Write(account.Amount);
             writer.Write(account.Bonus);
             writer.Write(account.IsClosed);

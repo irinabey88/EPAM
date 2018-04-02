@@ -45,7 +45,9 @@
     <Compile Include="Exception\BankAccount\AddBankAccountException.cs" />
     <Compile Include="Exception\BankAccount\ClosedAccountException.cs" />
     <Compile Include="Exception\BankAccount\DeleteAccountException.cs" />
+    <Compile Include="Exception\BankAccount\ZeroAmountOperatioException.cs" />
     <Compile Include="Exception\BankAccount\GetAccountException.cs" />
+    <Compile Include="Exception\BankAccount\WithdrawException.cs" />
     <Compile Include="Exception\Book\AddBookException.cs" />
     <Compile Include="Exception\Book\DeleteBookException.cs" />
     <Compile Include="Exception\Book\DuplicateIdException.cs" />
@@ -54,6 +56,7 @@
     <Compile Include="Exception\User\AddUserException.cs" />
     <Compile Include="Exception\User\DeleteUserException.cs" />
     <Compile Include="Exception\User\EqualsUserException.cs" />
+    <Compile Include="Exception\User\NotFoundUserException.cs" />
     <Compile Include="Interfaces\Repositories\IBankAccountRepository.cs" />
     <Compile Include="Interfaces\Repositories\IBookRepository.cs" />
     <Compile Include="Interfaces\Repositories\Base\IRepository.cs" />

@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using NET.W._2018.Bey._08.Enum;
-using NET.W._2018.Bey._08.Interfaces.Services;
-using NET.W._2018.Bey._08.Models.Book;
-using NET.W._2018.Bey._08.Repositories;
-using NET.W._2018.Bey._08.Services;
-
-namespace NET.W._2018.Bey._08.Tests.NUnitTests
+﻿namespace NET.W._2018.Bey._08.Tests.NUnitTests
 {
-    using Interfaces;
+    using System;
+    using System.IO;
+    using System.Linq;
+    using Enum;
+    using Interfaces.Services;
+    using Models.Book;
     using NUnit.Framework;
+    using Repositories;
+    using Services;  
 
     [TestFixture]
     public class BookListServiceTests
     {
-        private IBookListService<Book> _bookService;
         private readonly string _fileSource = @"D:\Test\BookStorage.txt";
+
+        private IBookListService<Book> _bookService;
 
         public BookListServiceTests()
         {
@@ -27,10 +25,10 @@ namespace NET.W._2018.Bey._08.Tests.NUnitTests
             }
 
             this._bookService = new BookListService(new BookListStorage(this._fileSource));
-            _bookService.AddBook(new FictionBook("978-0735667457", "Richter", "CLR via C#", "O'REILlY", 2013, 896,176));
-            _bookService.AddBook(new FictionBook("978-5-84592087-4", "Albahary", "C# in nutshell", "O'REILlY", 2017,1040, 250));
-            _bookService.AddBook(new FictionBook("0-321-12742-0", "Fauler","Architecture of corporate software applications", "Williams", 2006, 541, 90));
-            _bookService.AddBook(new FictionBook("978-1509304066", "Chambers", "ASP .Net Core application development","Microsot Press", 2017, 464, 70));
+            _bookService.AddBook(new FictionBook("978-0735667457", "Richter", "CLR via C#", "O'REILlY", 2013, 896, 176));
+            _bookService.AddBook(new FictionBook("978-5-84592087-4", "Albahary", "C# in nutshell", "O'REILlY", 2017, 1040, 250));
+            _bookService.AddBook(new FictionBook("0-321-12742-0", "Fauler", "Architecture of corporate software applications", "Williams", 2006, 541, 90));
+            _bookService.AddBook(new FictionBook("978-1509304066", "Chambers", "ASP .Net Core application development", "Microsot Press", 2017, 464, 70));
         }
 
         [Test]
