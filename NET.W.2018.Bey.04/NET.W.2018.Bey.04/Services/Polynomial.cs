@@ -11,14 +11,19 @@ namespace NET.W._2018.Bey._04.Services
     /// <summary>
     /// Represent mathematical polynomial
     /// </summary>
-    public class Polynomial : IPolynomial
+    public sealed class Polynomial : IPolynomial
     {
+        /// <summary>
+        /// Error value
+        /// </summary>
+        private const double Eps = 0.00000001;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Polynomial"/> class.
         /// </summary>
         /// <param name="factors"> Factors array </param>
         /// <exception cref="ArgumentOutOfRangeException">Inccorect polinomial</exception>
-        public Polynomial(double[] factors)
+        public Polynomial(params double[] factors)
         {
             if (factors == null || factors.Length < 1)
             {
@@ -29,7 +34,7 @@ namespace NET.W._2018.Bey._04.Services
         }
 
         /// <summary>
-        /// Gets a value of polinomial factors and powers
+        /// Gets lhs value of polinomial factors and powers
         /// </summary>
         public double[] Factors { get; }
 
@@ -38,61 +43,81 @@ namespace NET.W._2018.Bey._04.Services
         /// <summary>
         /// This methods adds 2 polynomials
         /// </summary>
-        /// <param name="a">Polynomial a</param>
-        /// <param name="b">Polinomial b</param>
+        /// <param name="lhs">Polynomial lhs</param>
+        /// <param name="rhs">Polinomial rhs</param>
         /// <returns>Result polinomial</returns>
-        public static Polynomial operator +(Polynomial a, Polynomial b)
+        public static Polynomial operator +(Polynomial lhs, Polynomial rhs)
         {
-            return AddOrSubstract(a, b, Sign.Add);
+            if (ReferenceEquals(lhs, null))
+            {
+                throw new ArgumentNullException(nameof(lhs));
+            }
+
+            if (ReferenceEquals(rhs, null))
+            {
+                throw new ArgumentNullException(nameof(rhs));
+            }
+
+            return AddOrSubstract(lhs, rhs, Sign.Add);
         }
 
         /// <summary>
         /// This methods substracts 2 polynomials
         /// </summary>
-        /// <param name="a">Polynomial a</param>
-        /// <param name="b">Polinomial b</param>
+        /// <param name="lhs">Polynomial lhs</param>
+        /// <param name="rhs">Polinomial rhs</param>
         /// <returns>Result polinomial</returns>
-        public static Polynomial operator -(Polynomial a, Polynomial b)
+        public static Polynomial operator -(Polynomial lhs, Polynomial rhs)
         {
-            return AddOrSubstract(a, b, Sign.Substruct);
+            if (ReferenceEquals(lhs, null))
+            {
+                throw new ArgumentNullException(nameof(lhs));
+            }
+
+            if (ReferenceEquals(rhs, null))
+            {
+                throw new ArgumentNullException(nameof(rhs));
+            }
+
+            return AddOrSubstract(lhs, rhs, Sign.Substruct);
         }
 
         /// <summary>
         /// This methods multiplies 2 polynomials
         /// </summary>
-        /// <param name="a">Polynomial a</param>
-        /// <param name="b">Polinomial b</param>
+        /// <param name="lhs">Polynomial lhs</param>
+        /// <param name="rhs">Polinomial rhs</param>
         /// <returns>Result polinomial</returns>
-        public static Polynomial operator *(Polynomial a, Polynomial b)
+        public static Polynomial operator *(Polynomial lhs, Polynomial rhs)
         {
-            if (a?.Factors == null || a.Factors.Length < 1)
+            if (lhs?.Factors == null || lhs.Factors.Length < 1)
             {
-                throw new ArgumentException($"{nameof(a)}");
+                throw new ArgumentException($"{nameof(lhs)}");
             }
 
-            if (b?.Factors == null || b.Factors.Length < 1)
+            if (rhs?.Factors == null || rhs.Factors.Length < 1)
             {
-                throw new ArgumentException($"{nameof(b)}");
+                throw new ArgumentException($"{nameof(rhs)}");
             }
 
-            var resultLength = a.Factors.Length > b.Factors.Length ? a.Factors.Length : b.Factors.Length;
+            var resultLength = lhs.Factors.Length > rhs.Factors.Length ? lhs.Factors.Length : rhs.Factors.Length;
             var resultFactors = new double[resultLength];
 
             for (int i = 0; i < resultLength; i++)
             {
-                if (i < a.Factors.Length && i < b.Factors.Length)
+                if (i < lhs.Factors.Length && i < rhs.Factors.Length)
                 {
-                    resultFactors[i] = a.Factors[i] * b.Factors[i];
+                    resultFactors[i] = lhs.Factors[i] * rhs.Factors[i];
                 }
                 else
                 {
-                    if (i < a.Factors.Length)
+                    if (i < lhs.Factors.Length)
                     {
-                        resultFactors[i] = a.Factors[i];
+                        resultFactors[i] = lhs.Factors[i];
                     }
                     else
                     {
-                        resultFactors[i] = b.Factors[i];
+                        resultFactors[i] = rhs.Factors[i];
                     }
                 }
             }
@@ -103,45 +128,45 @@ namespace NET.W._2018.Bey._04.Services
         /// <summary>
         /// This methods compare 2 polynomials for equality
         /// </summary>
-        /// <param name="a">Polynomial a</param>
-        /// <param name="b">Polinomial b</param>
+        /// <param name="lhs">Polynomial lhs</param>
+        /// <param name="rhs">Polinomial rhs</param>
         /// <returns><value>true - polynomials has equals value</value>
         /// <value>false - otherwise</value></returns>
-        public static bool operator ==(Polynomial a, Polynomial b)
+        public static bool operator ==(Polynomial lhs, Polynomial rhs)
         {
-            if (a?.Factors == null || a.Factors.Length < 1)
+            if (ReferenceEquals(lhs, rhs))
             {
-                throw new ArgumentException($"{nameof(a)}");
+                return true;
             }
 
-            if (b?.Factors == null || b.Factors.Length < 1)
+            if (ReferenceEquals(lhs, null))
             {
-                throw new ArgumentException($"{nameof(b)}");
+                return false;
             }
 
-            return CompareArray(a.Factors, b.Factors);
+            return lhs.Equals(rhs);
         }
 
         /// <summary>
         /// This methods compare 2 polynomials for not equality
         /// </summary>
-        /// <param name="a">Polynomial a</param>
-        /// <param name="b">Polinomial b</param>
+        /// <param name="lhs">Polynomial lhs</param>
+        /// <param name="rhs">Polinomial rhs</param>
         /// <returns><value>false - polynomials has equals value</value>
         /// <value>true - otherwise</value></returns>
-        public static bool operator !=(Polynomial a, Polynomial b)
+        public static bool operator !=(Polynomial lhs, Polynomial rhs)
         {
-            if (a?.Factors == null || a.Factors.Length < 1)
+            if (ReferenceEquals(lhs, rhs))
             {
-                throw new ArgumentException($"{nameof(a)}");
+                return false;
             }
 
-            if (b?.Factors == null || b.Factors.Length < 1)
+            if (ReferenceEquals(lhs, null))
             {
-                throw new ArgumentException($"{nameof(b)}");
+                return true;
             }
 
-            return !(a == b);
+            return !lhs.Equals(rhs);
         }
 
         #endregion
@@ -157,7 +182,7 @@ namespace NET.W._2018.Bey._04.Services
             var polinomial = string.Empty;
             for (int i = this.Factors.Length - 1; i >= 0; i--)
             {
-                if (!string.IsNullOrWhiteSpace(polinomial) && this.Factors[i] != 0.0)
+                if (!string.IsNullOrWhiteSpace(polinomial) && Math.Abs(this.Factors[i]) > Eps)
                 {
                     switch (i)
                     {
@@ -178,7 +203,7 @@ namespace NET.W._2018.Bey._04.Services
                             break;
                     }                    
                 }
-                else if (this.Factors[i] != 0.0)
+                else if (Math.Abs(this.Factors[i]) > Eps)
                 {
                     polinomial = $"{this.Factors[i]}*x^{i}";
                 }
@@ -204,12 +229,56 @@ namespace NET.W._2018.Bey._04.Services
         /// <value>false - otherwise</value></returns>
         public override bool Equals(object obj)
         {
-            if (!(obj is Polynomial))
+            if (ReferenceEquals(null, obj))
             {
                 return false;
             }
 
-            return base.Equals(obj);
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            return this.Equals((Polynomial)obj);
+        }
+
+        /// <summary>
+        /// This methods check are the polynomial function equals
+        /// </summary>
+        /// <param name="other">Polinomial object</param>
+        /// <returns><value>true - polinomial are equals</value>
+        /// <value>false - otherwise</value></returns>
+        public bool Equals(Polynomial other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (this.Factors.Length != other.Factors.Length)
+            {
+                return false;
+            }
+
+            for (var i = 0; i < this.Factors.Length; i++)
+            {
+                if (!this.Factors[i].Equals(other.Factors[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         #endregion
@@ -236,49 +305,13 @@ namespace NET.W._2018.Bey._04.Services
 
         #endregion
 
-        #region Private methods
-
-        /// <summary>
-        /// This methods compares 2 arrays
-        /// </summary>
-        /// <param name="array1">First array</param>
-        /// <param name="array2">Second array</param>
-        /// <returns><value>true - value in arrays are equals</value>
-        /// <value>false - otherwise</value></returns>
-        /// <exception cref="ArgumentOutOfRangeException">Incorrect arrays</exception>
-        private static bool CompareArray(double[] array1, double[] array2)
-        {
-            if (array1 == null || array1.Length < 1)
-            {
-                throw new ArgumentOutOfRangeException($"{nameof(array1)}");
-            }
-
-            if (array2 == null || array2.Length < 1)
-            {
-                throw new ArgumentOutOfRangeException($"{nameof(array2)}");
-            }
-
-            if (array1.Length != array2.Length)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < array1.Length; i++)
-            {
-                if (array1[i] != array2[i])
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+        #region Private methods       
 
         /// <summary>
         /// This methods add or substruct 2 polinomials
         /// </summary>
-        /// <param name="a">Polinomial a</param>
-        /// <param name="b">Polinomial b</param>
+        /// <param name="a">Polinomial lhs</param>
+        /// <param name="b">Polinomial rhs</param>
         /// <param name="sign"><value>Add</value>
         /// <value>Substruct</value></param>
         /// <returns>Result polynomial</returns>
