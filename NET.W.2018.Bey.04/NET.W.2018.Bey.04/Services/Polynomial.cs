@@ -46,7 +46,7 @@ namespace NET.W._2018.Bey._04.Services
         /// <param name="lhs">Polynomial lhs</param>
         /// <param name="rhs">Polinomial rhs</param>
         /// <returns>Result polinomial</returns>
-        ///<exception cref="ArgumentNullException">One or both polynomial are null</exception>
+        /// <exception cref="ArgumentNullException">One or both polynomial are null</exception>
         public static Polynomial operator +(Polynomial lhs, Polynomial rhs)
         {
             if (ReferenceEquals(lhs, null))
@@ -68,7 +68,7 @@ namespace NET.W._2018.Bey._04.Services
         /// <param name="lhs">Polynomial lhs</param>
         /// <param name="rhs">Polinomial rhs</param>
         /// <returns>Result polinomial</returns>
-        ///<exception cref="ArgumentNullException">One or both polynomial are null</exception>
+        /// <exception cref="ArgumentNullException">One or both polynomial are null</exception>
         public static Polynomial operator -(Polynomial lhs, Polynomial rhs)
         {
             if (ReferenceEquals(lhs, null))
@@ -90,7 +90,7 @@ namespace NET.W._2018.Bey._04.Services
         /// <param name="lhs">Polynomial lhs</param>
         /// <param name="rhs">Polinomial rhs</param>
         /// <returns>Result polinomial</returns>
-        ///<exception cref="ArgumentException">One or both polynomial are null</exception>
+        /// <exception cref="ArgumentException">One or both polynomial are null</exception>
         public static Polynomial operator *(Polynomial lhs, Polynomial rhs)
         {
             if (lhs?.Factors == null || lhs.Factors.Length < 1)

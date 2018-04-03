@@ -4,9 +4,9 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class MinElementComparer : IComparer<double[]>
+    public class MinElementComparer : IComparer<int[]>
     {
-        public int Compare(double[] lhs, double[] rhs)
+        public int Compare(int[] lhs, int[] rhs)
         {
             if (ReferenceEquals(lhs, null))
             {

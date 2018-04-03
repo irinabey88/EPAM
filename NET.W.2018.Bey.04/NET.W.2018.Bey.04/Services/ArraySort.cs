@@ -27,7 +27,7 @@ namespace NET.W._2018.Bey._04.Services
         /// <value>false - descending order</value></param>
         /// <returns>Sorted jagged jaggedArray</returns>
         /// <exception cref="ArgumentException">Invalid input array</exception>
-        public static double[][] BubleSort(this double[][] jaggedArray, IComparer<double[]> comparator, bool ascending = true)
+        public static int[][] BubleSort(this int[][] jaggedArray, IComparer<int[]> comparator, bool ascending = true)
         {
             if (jaggedArray == null || jaggedArray.Length == 0)
             {
