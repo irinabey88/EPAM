@@ -3,7 +3,7 @@
     /// <summary>
     /// Provides object fiction book
     /// </summary>
-    public class FictionBook : Book
+    public sealed class FictionBook : Book
     {
         /// <summary>
         /// Provides instance of fiction book

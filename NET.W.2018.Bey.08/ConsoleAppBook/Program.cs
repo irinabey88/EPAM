@@ -14,7 +14,7 @@ namespace ConsoleAppBook
             var fileAccountStorage = @"D:\AccountStorage.txt";
             var fileUserStorage = @"D:\UserStorage.txt";
 
-            var accountService = new BankAccountsService(new BankAccountsStorage(fileAccountStorage), new UserStorage(fileUserStorage));
+            var accountService = new BankAccountsService(new BankAccountStorage(fileAccountStorage), new UserStorage(fileUserStorage));
             PrintBookList(accountService.GetAllAccounts());
 
             Console.ReadLine();

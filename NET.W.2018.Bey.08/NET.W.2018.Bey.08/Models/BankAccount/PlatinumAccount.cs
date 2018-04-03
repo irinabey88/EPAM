@@ -5,7 +5,7 @@
     /// <summary>
     /// Provides a platinum bank account
     /// </summary>
-    public class PlatinumAccount : BankAccount
+    public sealed class PlatinumAccount : BankAccount
     {
         /// <summary>
         /// Provides new instance of bank account

@@ -1,4 +1,6 @@
-﻿namespace NET.W._2018.Bey._08.Repositories
+﻿using NET.W._2018.Bey._08.Repositories.Comparer;
+
+namespace NET.W._2018.Bey._08.Repositories
 {
     using System;
     using System.Collections.Generic;
@@ -370,137 +372,7 @@
                 }
             }
         }
-
-        #region Comparers
-
-        private class IsbnComparer : IComparer<Book>
-        {
-            public int Compare(Book obj1, Book obj2)
-            {
-                if (obj1 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj1));
-                }
-
-                if (obj2 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj2));
-                }
-
-                return string.Compare(obj1.ISBN, obj2.ISBN, StringComparison.Ordinal);
-            }
-        }
-
-        private class AuthorComparer : IComparer<Book>
-        {
-            public int Compare(Book obj1, Book obj2)
-            {
-                if (obj1 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj1));
-                }
-
-                if (obj2 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj2));
-                }
-
-                return string.Compare(obj1.Author, obj2.Author, StringComparison.Ordinal);
-            }
-        }
-
-        private class NameComparer : IComparer<Book>
-        {
-            public int Compare(Book obj1, Book obj2)
-            {
-                if (obj1 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj1));
-                }
-
-                if (obj2 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj2));
-                }
-
-                return string.Compare(obj1.Name, obj2.Name, StringComparison.Ordinal);
-            }
-        }
-
-        private class PublishingComparer : IComparer<Book>
-        {
-            public int Compare(Book obj1, Book obj2)
-            {
-                if (obj1 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj1));
-                }
-
-                if (obj2 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj2));
-                }
-
-                return string.Compare(obj1.Publishig, obj2.Publishig, StringComparison.Ordinal);
-            }
-        }
-
-        private class YearComparer : IComparer<Book>
-        {
-            public int Compare(Book obj1, Book obj2)
-            {
-                if (obj1 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj1));
-                }
-
-                if (obj2 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj2));
-                }
-
-                return obj1.Year.CompareTo(obj2.Year);
-            }
-        }
-
-        private class PageCountComparer : IComparer<Book>
-        {
-            public int Compare(Book obj1, Book obj2)
-            {
-                if (obj1 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj1));
-                }
-
-                if (obj2 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj2));
-                }
-
-                return obj1.PageCount.CompareTo(obj2.PageCount);
-            }
-        }
-
-        private class PriceComparer : IComparer<Book>
-        {
-            public int Compare(Book obj1, Book obj2)
-            {
-                if (obj1 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj1));
-                }
-
-                if (obj2 == null)
-                {
-                    throw new ArgumentNullException(nameof(obj2));
-                }
-
-                return obj1.Price.CompareTo(obj2.Price);
-            }
-        }
-
-        #endregion
-
+      
         #endregion
     }
 }

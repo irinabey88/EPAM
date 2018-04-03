@@ -5,7 +5,7 @@
     /// <summary>
     /// Provides a gold bank account
     /// </summary>
-    public class GoldAccount : BankAccount
+    public sealed class GoldAccount : BankAccount
     {
         /// <summary>
         /// Provides new instance of bank account

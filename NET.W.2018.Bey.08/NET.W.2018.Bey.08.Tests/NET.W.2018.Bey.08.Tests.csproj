@@ -52,8 +52,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NUnitTests\BankAccountsServiceTests.cs" />
-    <Compile Include="NUnitTests\BookListServiceTests.cs" />
+    <Compile Include="NUnitTests\BankAccount\BankAccountsServiceTests.cs" />
+    <Compile Include="NUnitTests\Book\BookListServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

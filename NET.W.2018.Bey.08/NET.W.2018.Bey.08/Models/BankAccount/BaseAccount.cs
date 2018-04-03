@@ -5,7 +5,7 @@
     /// <summary>
     /// Provides a base bank account
     /// </summary>
-    public class BaseAccount : BankAccount
+    public sealed class BaseAccount : BankAccount
     {
         /// <summary>
         /// Provides new instance of bank account

@@ -35,7 +35,7 @@
             var user2 = new BankUser("User2", "User2");
             var user3 = new BankUser("User3", "User3");
 
-            this._bankAccountService = new BankAccountsService(new BankAccountsStorage(this._fileSourceAccounts), new UserStorage(this._fileSourceUsers));
+            this._bankAccountService = new BankAccountsService(new BankAccountStorage(this._fileSourceAccounts), new UserStorage(this._fileSourceUsers));
 
             this._bankAccountService.CreateAccount(user2, BankAccountType.Base);
             this._bankAccountService.CreateAccount(user3, BankAccountType.Gold);

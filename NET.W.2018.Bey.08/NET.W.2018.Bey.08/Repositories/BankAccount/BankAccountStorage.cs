@@ -13,7 +13,7 @@
     /// <summary>
     /// Provides abank account storage
     /// </summary>
-    public class BankAccountsStorage : IBankAccountRepository
+    public class BankAccountStorage : IBankAccountRepository
     {
         /// <summary>
         /// Source file name
@@ -29,7 +29,7 @@
         /// Get instance of bank account storage
         /// </summary>
         /// <param name="fileName">Source file name</param>
-        public BankAccountsStorage(string fileName)
+        public BankAccountStorage(string fileName)
         {
             if (string.IsNullOrWhiteSpace(fileName))
             {
