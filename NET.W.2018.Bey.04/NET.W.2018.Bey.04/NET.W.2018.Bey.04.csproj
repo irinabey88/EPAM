@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\Sign.cs" />
-    <Compile Include="Enum\SortFunction.cs" />
+    <Compile Include="Comparers\MaxElementComparer.cs" />
+    <Compile Include="Comparers\MinElementComparer.cs" />
+    <Compile Include="Comparers\SumElementComparer.cs" />
+    <Compile Include="Enums\Sign.cs" />
     <Compile Include="Interfaces\IPolynomial.cs" />
     <Compile Include="Services\ArraySort.cs" />
     <Compile Include="Services\Polynomial.cs" />

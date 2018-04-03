@@ -22,7 +22,7 @@ namespace NET.W._2018.Bey._04.Services
         /// Initializes a new instance of the <see cref="Polynomial"/> class.
         /// </summary>
         /// <param name="factors"> Factors array </param>
-        /// <exception cref="ArgumentOutOfRangeException">Inccorect polinomial</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Inccorect polinomial value</exception>
         public Polynomial(params double[] factors)
         {
             if (factors == null || factors.Length < 1)
@@ -46,6 +46,7 @@ namespace NET.W._2018.Bey._04.Services
         /// <param name="lhs">Polynomial lhs</param>
         /// <param name="rhs">Polinomial rhs</param>
         /// <returns>Result polinomial</returns>
+        ///<exception cref="ArgumentNullException">One or both polynomial are null</exception>
         public static Polynomial operator +(Polynomial lhs, Polynomial rhs)
         {
             if (ReferenceEquals(lhs, null))
@@ -67,6 +68,7 @@ namespace NET.W._2018.Bey._04.Services
         /// <param name="lhs">Polynomial lhs</param>
         /// <param name="rhs">Polinomial rhs</param>
         /// <returns>Result polinomial</returns>
+        ///<exception cref="ArgumentNullException">One or both polynomial are null</exception>
         public static Polynomial operator -(Polynomial lhs, Polynomial rhs)
         {
             if (ReferenceEquals(lhs, null))
@@ -88,6 +90,7 @@ namespace NET.W._2018.Bey._04.Services
         /// <param name="lhs">Polynomial lhs</param>
         /// <param name="rhs">Polinomial rhs</param>
         /// <returns>Result polinomial</returns>
+        ///<exception cref="ArgumentException">One or both polynomial are null</exception>
         public static Polynomial operator *(Polynomial lhs, Polynomial rhs)
         {
             if (lhs?.Factors == null || lhs.Factors.Length < 1)
@@ -156,17 +159,7 @@ namespace NET.W._2018.Bey._04.Services
         /// <value>true - otherwise</value></returns>
         public static bool operator !=(Polynomial lhs, Polynomial rhs)
         {
-            if (ReferenceEquals(lhs, rhs))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(lhs, null))
-            {
-                return true;
-            }
-
-            return !lhs.Equals(rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
