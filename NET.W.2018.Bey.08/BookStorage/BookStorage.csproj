@@ -47,19 +47,19 @@
     <Compile Include="Comparer\PriceComparer.cs" />
     <Compile Include="Comparer\PublishingComparer.cs" />
     <Compile Include="Comparer\YearComparer.cs" />
-    <Compile Include="Enum\Book\BookFormat.cs" />
-    <Compile Include="Enum\Book\BookTagsName.cs" />
-    <Compile Include="Exception\Book\AddBookException.cs" />
-    <Compile Include="Exception\Book\DeleteBookException.cs" />
-    <Compile Include="Exception\Book\DuplicateIdException.cs" />
-    <Compile Include="Exception\Book\GetBookException.cs" />
-    <Compile Include="Interfaces\Repositories\Book\IBookRepository.cs" />
-    <Compile Include="Interfaces\Services\Book\IBookListService.cs" />
+    <Compile Include="Enum\BookFormat.cs" />
+    <Compile Include="Enum\BookTagsName.cs" />
+    <Compile Include="Exception\AddBookException.cs" />
+    <Compile Include="Exception\DeleteBookException.cs" />
+    <Compile Include="Exception\DuplicateIdException.cs" />
+    <Compile Include="Exception\GetBookException.cs" />
+    <Compile Include="Interfaces\Repositories\IBookRepository.cs" />
+    <Compile Include="Interfaces\Services\IBookListService.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\ScientificBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Book\BookListStorage.cs" />
-    <Compile Include="Services\Book\BookListService.cs" />
+    <Compile Include="Repositories\BookListStorage.cs" />
+    <Compile Include="Services\BookListService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseRepository\BaseRepository.csproj">
