@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2018.Bey.08", "NET.W.2018.Bey.08\NET.W.2018.Bey.08.csproj", "{A515C879-1492-42BD-9F3F-9891E3D960E5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9528CA46-BC2C-4940-9EEC-6238F95EA649}"
 	ProjectSection(SolutionItems) = preProject
 		Settings.StyleCop = Settings.StyleCop
@@ -18,16 +16,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStorage", "BookStorage\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountStorage", "BankAccountStorage\BankAccountStorage.csproj", "{2115821A-EBDE-4021-93DF-36808BA159CB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseRepository", "BaseRepository\BaseRepository.csproj", "{17192E3F-81A2-41EE-BC0A-6462568F3C66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A515C879-1492-42BD-9F3F-9891E3D960E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A515C879-1492-42BD-9F3F-9891E3D960E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A515C879-1492-42BD-9F3F-9891E3D960E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A515C879-1492-42BD-9F3F-9891E3D960E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D0C4C45-B8DB-454F-BBBF-0C5A3F711605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0D0C4C45-B8DB-454F-BBBF-0C5A3F711605}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D0C4C45-B8DB-454F-BBBF-0C5A3F711605}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,6 +40,10 @@ Global
 		{2115821A-EBDE-4021-93DF-36808BA159CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2115821A-EBDE-4021-93DF-36808BA159CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2115821A-EBDE-4021-93DF-36808BA159CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17192E3F-81A2-41EE-BC0A-6462568F3C66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17192E3F-81A2-41EE-BC0A-6462568F3C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17192E3F-81A2-41EE-BC0A-6462568F3C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17192E3F-81A2-41EE-BC0A-6462568F3C66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
