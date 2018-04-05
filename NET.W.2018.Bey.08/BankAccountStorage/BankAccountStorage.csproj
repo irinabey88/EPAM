@@ -66,9 +66,9 @@
     <Compile Include="Services\BankAccountsService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NET.W.2018.Bey.08\BaseRepository.csproj">
+    <ProjectReference Include="..\NET.W.2018.Bey.08\NET.W.2018.Bey.08.csproj">
       <Project>{a515c879-1492-42bd-9f3f-9891e3d960e5}</Project>
-      <Name>BaseRepository</Name>
+      <Name>NET.W.2018.Bey.08</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
