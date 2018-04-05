@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CC78BF4A-9398-4F31-BC29-40635C530FDE}</ProjectGuid>
+    <ProjectGuid>{D5949409-3C57-4471-B7FD-4544C293E296}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NET.W._2018.Bey._04</RootNamespace>
-    <AssemblyName>NET.W.2018.Bey.04</AssemblyName>
+    <RootNamespace>BookFormater</RootNamespace>
+    <AssemblyName>BookFormater</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,9 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,18 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comparers\MaxElementComparer.cs" />
-    <Compile Include="Comparers\MinElementComparer.cs" />
-    <Compile Include="Comparers\SumElementComparer.cs" />
-    <Compile Include="Enums\Sign.cs" />
-    <Compile Include="Interfaces\IPolynomial.cs" />
-    <Compile Include="Services\ArraySort\ArraySortInterface.cs" />
-    <Compile Include="Services\ArraySort\ArraySortDelegate.cs" />
-    <Compile Include="Services\Polynomial\Polynomial.cs" />
+    <Compile Include="BookFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

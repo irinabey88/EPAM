@@ -25,10 +25,10 @@
             }
 
             this._bookService = new BookListService(new BookListStorage(this._fileSource));
-            _bookService.AddBook(new FictionBook("978-0735667457", "Richter", "CLR via C#", "O'REILlY", 2013, 896, 176));
-            _bookService.AddBook(new FictionBook("978-5-84592087-4", "Albahary", "C# in nutshell", "O'REILlY", 2017, 1040, 250));
-            _bookService.AddBook(new FictionBook("0-321-12742-0", "Fauler", "Architecture of corporate software applications", "Williams", 2006, 541, 90));
-            _bookService.AddBook(new FictionBook("978-1509304066", "Chambers", "ASP .Net Core application development", "Microsot Press", 2017, 464, 70));
+            _bookService.AddBook(new ScientificBook("978-0735667457", "Richter", "CLR via C#", "O'REILlY", 2013, 896, 176));
+            _bookService.AddBook(new ScientificBook("978-5-84592087-4", "Albahary", "C# in nutshell", "O'REILlY", 2017, 1040, 250));
+            _bookService.AddBook(new ScientificBook("0-321-12742-0", "Fauler", "Architecture of corporate software applications", "Williams", 2006, 541, 90));
+            _bookService.AddBook(new ScientificBook("978-1509304066", "Chambers", "ASP .Net Core application development", "Microsot Press", 2017, 464, 70));
         }
 
         [Test]
@@ -41,7 +41,7 @@
         public void BookListService_AddBook_ValidData_Test()
         {
             Assert.AreNotEqual(
-                this._bookService.AddBook(new FictionBook("1111111", "Test", "Test", "Test", 2013, 896, 176)), null);
+                this._bookService.AddBook(new ScientificBook("1111111", "Test", "Test", "Test", 2013, 896, 176)), null);
         }
 
         [Test]
@@ -88,7 +88,7 @@
         public void BookListService_RemoveBook_ValidData_Test()
         {
             Assert.AreNotEqual(
-                this._bookService.RemoveBook(new FictionBook("1111111", "Test", "Test", "Test", 2013, 896, 176)), null);
+                this._bookService.RemoveBook(new ScientificBook("1111111", "Test", "Test", "Test", 2013, 896, 176)), null);
         }
     }
 }

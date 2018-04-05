@@ -1,11 +1,14 @@
 ﻿namespace NET.W._2018.Bey._08.Models.Book
 {
     using System;
+    using System.Globalization;
+    using BookFormater;
+    using Enum;
 
     /// <summary>
     /// Provides bank book object
     /// </summary>
-    public abstract class Book : IComparable
+    public abstract class Book : IComparable, IFormattable
     {
         /// <summary>
         /// Provides new instance of book
@@ -100,11 +103,50 @@
             return this.Equals((Book)obj);
         }
 
-        public override int GetHashCode() => base.GetHashCode();
+        public override int GetHashCode() => this.ISBN.GetHashCode();
 
         public override string ToString()
         {
-            return $"{this.Name} {this.Author}";
+            return this.ToString(BookFormat.AN.ToString(), new BookFormatter());
+        }
+
+        public string ToString(string format)
+        {
+            return this.ToString(format, new BookFormatter());
+        }
+
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            if (string.IsNullOrWhiteSpace(format))
+            {
+                format = BookFormat.AN.ToString();
+            }
+
+            if (formatProvider == null)
+            {
+                formatProvider = CultureInfo.CurrentCulture;
+            }
+
+            if (!Enum.TryParse<BookFormat>(format, out var bookFormat))
+            {
+                throw new FormatException($"Incorrect string format {format}");
+            }
+
+            switch (bookFormat)
+            {
+                case BookFormat.AN:
+                    return $"{this.Author} {this.Name}".ToString(formatProvider);
+                case BookFormat.ANP:
+                    return $"{this.Author} {this.Name} {this.Publishig}".ToString(formatProvider);
+                case BookFormat.FI:
+                    return $"{this.ISBN} {this.Author} {this.Name} {this.Publishig} {this.Year} {this.PageCount} {this.Price}".ToString(formatProvider);
+                case BookFormat.IANP:
+                    return $"{this.ISBN} {this.Author} {this.Name} {this.Publishig}".ToString(formatProvider);
+                case BookFormat.N:
+                    return $"{this.Name}".ToString(formatProvider);
+                default:
+                    throw new FormatException($"Incorrect string format {bookFormat}");
+            }
         }
 
         public int CompareTo(object other)

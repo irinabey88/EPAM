@@ -12,15 +12,15 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
     /// Provides test for class ArraySort
     /// </summary>
     [TestFixture]
-    public class ArraySortTests
+    public class ArraySortInterfaceTests
     {
-        [Test]      
+        [Test]
         public void ArraySort_ValidData_SumDescending_Test()
         {
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 2, 5, -3 }, new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 } };
 
-            CollectionAssert.AreEqual(arr1.BubleSort(new SumElementComparer(), false), resultArr1); 
+            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, new SumElementComparer(false)), resultArr1);
         }
 
         [Test]
@@ -29,16 +29,16 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 5, -2, -4, -3 }, new[] { 1, -2, 7, -4 }, new[] { 2, 5, -3 } };
 
-            CollectionAssert.AreEqual(arr1.BubleSort(new SumElementComparer()), resultArr1);
+            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, new SumElementComparer(true)), resultArr1);
         }
 
-        [Test]      
+        [Test]
         public void ArraySort_ValidData_MinDescending_Test()
-        {         
+        {
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 2, 5, -3 }, new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 } };
 
-            CollectionAssert.AreEqual(arr1.BubleSort(new MinElementComparer(), false), resultArr1);
+            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, new MinElementComparer(false)), resultArr1);
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
 
-            CollectionAssert.AreEqual(arr1.BubleSort(new MinElementComparer()), resultArr1);
+            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, new MinElementComparer(true)), resultArr1);
         }
 
         [Test]
@@ -56,16 +56,16 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
 
-            CollectionAssert.AreEqual(arr1.BubleSort(new MaxElementComparer(), false), resultArr1);
+            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, new MaxElementComparer(false)), resultArr1);
         }
 
         [Test]
         public void ArraySort_ValidData_MaxAscending_Test()
         {
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
-            int[][] resultArr1 = { new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 }, new[] { 1, -2, 7, -4 } };          
+            int[][] resultArr1 = { new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 }, new[] { 1, -2, 7, -4 } };
 
-            CollectionAssert.AreEqual(resultArr1, arr1.BubleSort(new MaxElementComparer(), true));            
+            CollectionAssert.AreEqual(resultArr1, ArraySortInterface.BubleSort(arr1, new MaxElementComparer(true)));
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace NET.W._2018.Bey._04.Tests.NUnitTests
         [TestCase(null)]
         public void ArraySort_InvalidData_Test(int[][] arg1)
         {
-            Assert.Throws<ArgumentException>(() => arg1.BubleSort(new SumElementComparer()));
-        }       
+            Assert.Throws<ArgumentNullException>(() => ArraySortInterface.BubleSort(arg1, new SumElementComparer(true)));
+        }
     }
 }

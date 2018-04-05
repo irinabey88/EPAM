@@ -55,8 +55,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NUnitTests\ArraySortTests.cs" />
-    <Compile Include="NUnitTests\PolynomialTests.cs" />
+    <Compile Include="NUnitTests\ArraySortTests\ArraySortInterfaceTests.cs" />
+    <Compile Include="NUnitTests\ArraySortTests\ArraySortDelegateTests.cs" />
+    <Compile Include="NUnitTests\PolynomialTests\PolynomialTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

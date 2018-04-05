@@ -107,7 +107,7 @@
             return this.Equals((BankAccount)obj);
         }
 
-        public override int GetHashCode() => base.GetHashCode();
+        public override int GetHashCode() => this.AccountId.GetHashCode();
 
         public override string ToString()
         {

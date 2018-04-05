@@ -12,62 +12,17 @@ namespace NET.W._2018.Bey._03
     public static class CommonDivisor
     {
         /// <summary>
-        /// Find the greatest common divisor from numbers in array
-        /// by euclidean algorithm
-        /// </summary>
-        /// <param name="numbersArray">Array of numbers</param>
-        /// <returns>Greatest common divisor</returns>
-        public static int FindGcdEvklid(int[] numbersArray)
-        {
-            if (numbersArray == null || numbersArray.Length < 2)
-            {
-                throw new ArgumentException($"{nameof(numbersArray)}");
-            }
-
-            int greatestDivisor = GetGcdEvklid(numbersArray[0], numbersArray[1]);
-
-            for (int i = 2; i < numbersArray.Length; i++)
-            {
-                greatestDivisor = GetGcdEvklid(greatestDivisor, numbersArray[i]);
-            }
-
-            return greatestDivisor;         
-        }
-
-        /// <summary>
-        /// Find the greatest common divisor from numbers in array
-        /// by binary algorithm
-        /// </summary>
-        /// <param name="numbersArray">Array of numbers</param>
-        /// <returns>Greatest common divisor</returns>
-        public static int FindGcdBinary(int[] numbersArray)
-        {
-            if (numbersArray == null || numbersArray.Length < 2)
-            {
-                throw new ArgumentException($"{nameof(numbersArray)}");
-            }
-
-            int greatestDivisor = GetGcdBinary(numbersArray[0], numbersArray[1]);
-
-            for (int i = 2; i < numbersArray.Length; i++)
-            {
-                greatestDivisor = GetGcdBinary(greatestDivisor, numbersArray[i]);
-            }
-
-            return greatestDivisor;
-        }
-
-        /// <summary>
         /// Calculate run time
         /// </summary>
         /// <param name="numbersArray">Array of numbers</param>
         /// <returns>Time in miliseconds</returns>
-        public static double GetRunTimeGcdEvklid(int[] numbersArray)
+        public static double GetRunTimeGcdEvklid(params int[] numbersArray)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
 
-            FindGcdEvklid(numbersArray);
+            Func<int, int, int> extractMethod = GetGcdEvklid;
+            FindGcd(extractMethod, numbersArray);
 
             sw.Stop();
             return sw.Elapsed.TotalMilliseconds;
@@ -78,12 +33,13 @@ namespace NET.W._2018.Bey._03
         /// </summary>
         /// <param name="numbersArray">Array of numbers</param>
         /// <returns>Time in miliseconds</returns>
-        public static double GetRunTimeGcdBinary(int[] numbersArray)
+        public static double GetRunTimeGcdBinary(params int[] numbersArray)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
 
-            FindGcdBinary(numbersArray);
+            Func<int, int, int> extractMethod = GetGcdBinary;
+            FindGcd(extractMethod, numbersArray);
 
             sw.Stop();
             return sw.Elapsed.TotalMilliseconds;
@@ -96,17 +52,23 @@ namespace NET.W._2018.Bey._03
         /// <param name="numbersArray">Array of numbers</param>
         /// <param name="algorithm">Method of finding the greatest common divisor</param>
         /// <returns>Greatest common divisor</returns>
-        /// <exception cref="ArgumentException">Indvalid input data</exception>
-        private static int FindGcd(int[] numbersArray, Func<int, int, int> algorithm)
+        /// <exception cref="ArgumentNullException">Null array value</exception>
+        /// <exception cref="ArgumentException">Indvalid array length</exception>
+        public static int FindGcd( Func<int, int, int> algorithm, params int[] numbersArray)
         {
-            if (numbersArray == null || numbersArray.Length < 2)
+            if (numbersArray == null)
             {
-                throw new ArgumentException($"{nameof(numbersArray)}");
+                throw new  ArgumentNullException(nameof(numbersArray));
+            }
+
+            if ( numbersArray.Length < 2)
+            {
+                throw new ArgumentException($"Invalid length {nameof(numbersArray)}. Array length should be more than 1 element!");
             }
 
             if (algorithm == null)
             {
-                throw new ArgumentException($"{nameof(algorithm)}");
+                throw new ArgumentNullException(nameof(algorithm));
             }
 
             int greatestDivisor = algorithm(numbersArray[0], numbersArray[1]);
@@ -126,7 +88,7 @@ namespace NET.W._2018.Bey._03
         /// <param name="a">Number a</param>
         /// <param name="b">Number b</param>
         /// <returns>Greatest common divisor</returns>
-        private static int GetGcdEvklid(int a, int b)
+        public static int GetGcdEvklid(int a, int b)
         {
             a = Math.Abs(a);
             b = Math.Abs(b);
@@ -168,7 +130,7 @@ namespace NET.W._2018.Bey._03
         /// <param name="a">Number a</param>
         /// <param name="b">Number b</param>
         /// <returns>Greatest common divisor</returns>
-        private static int GetGcdBinary(int a, int b)
+        public static int GetGcdBinary(int a, int b)
         {
             a = Math.Abs(a);
             b = Math.Abs(b);

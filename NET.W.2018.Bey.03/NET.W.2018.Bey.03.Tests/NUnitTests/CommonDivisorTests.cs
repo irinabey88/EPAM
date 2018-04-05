@@ -23,7 +23,8 @@ namespace NET.W._2018.Bey._03.Tests.NUnitTests
         [TestCase(new[] { 2, 8, -6, -150, 78, -4 }, ExpectedResult = 2)]
         public int CommonDivisor_FindGcdByEvklig_ValidData_Test(int[] arg1)
         {
-            return CommonDivisor.FindGcdEvklid(arg1);
+            Func<int, int, int> extractMethod = CommonDivisor.GetGcdEvklid;
+            return CommonDivisor.FindGcd(extractMethod, arg1);
         }
 
         /// <summary>
@@ -31,13 +32,14 @@ namespace NET.W._2018.Bey._03.Tests.NUnitTests
         /// </summary>
         /// <param name="arg1">Input Array</param>
         /// <returns>The greatest common divisor</returns>
-        [TestCase(new[] { 20, 160, -80, 0, 200, -460 }, ExpectedResult = 20)]
-        [TestCase(new[] { 30, 600, -6, 0, 48, 72 }, ExpectedResult = 6)]
-        [TestCase(new[] { 7, 156, -80, 75, 200, -13 }, ExpectedResult = 1)]
-        [TestCase(new[] { 2, 8, -6, -150, 78, -4 }, ExpectedResult = 2)]
+        [TestCase(new[] {20, 160, -80, 0, 200, -460}, ExpectedResult = 20)]
+        [TestCase(new[] {30, 600, -6, 0, 48, 72}, ExpectedResult = 6)]
+        [TestCase(new[] {7, 156, -80, 75, 200, -13}, ExpectedResult = 1)]
+        [TestCase(new[] {2, 8, -6, -150, 78, -4}, ExpectedResult = 2)]
         public int CommonDivisor_FindGcdByBinary_ValidData_Test(int[] arg1)
         {
-            return CommonDivisor.FindGcdBinary(arg1);
+            Func<int, int, int> extractMethod = CommonDivisor.GetGcdBinary;
+            return CommonDivisor.FindGcd(extractMethod, arg1);
         }
 
         /// <summary>
@@ -48,7 +50,8 @@ namespace NET.W._2018.Bey._03.Tests.NUnitTests
         [TestCase(new int[] { })]
         public void CommonDivisor_FindGcdByEvklig_InvalidData_Test(int[] arg1)
         {
-            Assert.Throws<ArgumentException>(() => CommonDivisor.FindGcdEvklid(arg1));
+            Func<int, int, int> extractMethod = CommonDivisor.GetGcdEvklid;
+            Assert.Throws<ArgumentException>(() => CommonDivisor.FindGcd(extractMethod ,arg1));
         }
 
         /// <summary>

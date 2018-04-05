@@ -60,9 +60,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NET.W.2018.Bey.08\NET.W.2018.Bey.08.csproj">
+    <ProjectReference Include="..\BankAccountStorage\BankAccountStorage.csproj">
+      <Project>{2115821a-ebde-4021-93df-36808ba159cb}</Project>
+      <Name>BankAccountStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookStorage\BookStorage.csproj">
+      <Project>{697dc0d1-69e0-44be-8661-82c3721cd273}</Project>
+      <Name>BookStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NET.W.2018.Bey.08\BaseRepository.csproj">
       <Project>{a515c879-1492-42bd-9f3f-9891e3d960e5}</Project>
-      <Name>NET.W.2018.Bey.08</Name>
+      <Name>BaseRepository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

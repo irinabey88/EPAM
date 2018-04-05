@@ -344,7 +344,7 @@ namespace NET.W._2018.Bey._08.Repositories
             var pageCount = reader.ReadUInt32();
             var price = reader.ReadDecimal();
 
-            return new FictionBook(isbn, author, name, publishing, year, pageCount, price);
+            return new ScientificBook(isbn, author, name, publishing, year, pageCount, price);
         }
 
         private void SaveBook(BinaryWriter writer, Book book)

@@ -3,7 +3,7 @@
     /// <summary>
     /// Provides object fiction book
     /// </summary>
-    public sealed class FictionBook : Book
+    public sealed class ScientificBook : Book
     {
         /// <summary>
         /// Provides instance of fiction book
@@ -15,7 +15,7 @@
         /// <param name="year">Year of publishing</param>
         /// <param name="pageCount">Page count</param>
         /// <param name="price">Price</param>
-        public FictionBook(string isbn, string author, string name, string publishing, uint year, uint pageCount, decimal price) : base(isbn, author, name, publishing, year, pageCount, price)
+        public ScientificBook(string isbn, string author, string name, string publishing, uint year, uint pageCount, decimal price) : base(isbn, author, name, publishing, year, pageCount, price)
         {
         }
     }

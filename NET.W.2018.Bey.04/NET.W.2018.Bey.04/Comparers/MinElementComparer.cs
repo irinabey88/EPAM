@@ -6,6 +6,13 @@
 
     public class MinElementComparer : IComparer<int[]>
     {
+        private bool _ascending;
+
+        public MinElementComparer(bool ascending)
+        {
+            this._ascending = ascending;
+        }
+
         public int Compare(int[] lhs, int[] rhs)
         {
             if (ReferenceEquals(lhs, null))
@@ -18,7 +25,7 @@
                 throw new ArgumentNullException(nameof(rhs));
             }
 
-            return lhs.Min().CompareTo(rhs.Min());
+            return lhs.Min().CompareTo(rhs.Min()) * (this._ascending ? 1 : -1);
         }
     }
 }
