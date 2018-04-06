@@ -43,5 +43,11 @@
     <Compile Include="BookFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookStorage\BookStorage.csproj">
+      <Project>{697dc0d1-69e0-44be-8661-82c3721cd273}</Project>
+      <Name>BookStorage</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D0C4C45-B8DB-454F-BBBF-0C5A3F711605}</ProjectGuid>
+    <ProjectGuid>{5002DACE-95B2-4B43-B86F-F4A2232EF44F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NET.W._2018.Bey._08.Tests</RootNamespace>
-    <AssemblyName>NET.W.2018.Bey.08.Tests</AssemblyName>
+    <RootNamespace>BankAccountTests</RootNamespace>
+    <AssemblyName>BankAccountTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -52,6 +52,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NUnitTests\BankAccount\BankAccountsServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,16 +67,7 @@
       <Project>{17192e3f-81a2-41ee-bc0a-6462568f3c66}</Project>
       <Name>BaseRepository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BookFormater\BookFormatter.csproj">
-      <Project>{d5949409-3c57-4471-b7fd-4544c293e296}</Project>
-      <Name>BookFormatter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BookStorage\BookStorage.csproj">
-      <Project>{697dc0d1-69e0-44be-8661-82c3721cd273}</Project>
-      <Name>BookStorage</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

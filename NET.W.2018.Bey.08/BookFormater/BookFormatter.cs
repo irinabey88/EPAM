@@ -1,6 +1,8 @@
 ﻿namespace BookFormater
 {
     using System;
+    using NET.W._2018.Bey._08.Models.Book;
+    using static System.Globalization.CultureInfo;
 
     public class BookFormatter : IFormatProvider, ICustomFormatter
     {
@@ -26,14 +28,16 @@
                 format = "AN";                
             }
 
-            switch (format)
+            Book book = arg as Book;
+            if (ReferenceEquals(book, null))
             {
-                case "AN":
-                case "ANP":
-                case "FI":
+                throw new InvalidCastException($"Input argument {nameof(arg)} isn't a book");
+            }
+
+            switch (format.ToUpper())
+            {
                 case "IANP":
-                case "N":
-                    return $"{arg.ToString()} bookstore Booktown";
+                    return $"{book.ISBN} {book.Author} {book.Name} {string.Format(book.Price.ToString(CurrentCulture))}";
                 default:
                     throw new FormatException($"Incorrect string format {format}");
             }

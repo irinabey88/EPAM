@@ -8,8 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2018.Bey.08.Tests", "NET.W.2018.Bey.08.Tests\NET.W.2018.Bey.08.Tests.csproj", "{0D0C4C45-B8DB-454F-BBBF-0C5A3F711605}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookFormatter", "BookFormater\BookFormatter.csproj", "{D5949409-3C57-4471-B7FD-4544C293E296}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStorage", "BookStorage\BookStorage.csproj", "{697DC0D1-69E0-44BE-8661-82C3721CD273}"
@@ -18,16 +16,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountStorage", "BankA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseRepository", "BaseRepository\BaseRepository.csproj", "{17192E3F-81A2-41EE-BC0A-6462568F3C66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTests", "BookTests\BookTests.csproj", "{C3B1F235-D0B6-44B3-8506-6E73DFD56D61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountTests", "BankAccountTests\BankAccountTests.csproj", "{5002DACE-95B2-4B43-B86F-F4A2232EF44F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0D0C4C45-B8DB-454F-BBBF-0C5A3F711605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D0C4C45-B8DB-454F-BBBF-0C5A3F711605}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D0C4C45-B8DB-454F-BBBF-0C5A3F711605}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D0C4C45-B8DB-454F-BBBF-0C5A3F711605}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5949409-3C57-4471-B7FD-4544C293E296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5949409-3C57-4471-B7FD-4544C293E296}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5949409-3C57-4471-B7FD-4544C293E296}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,6 +42,14 @@ Global
 		{17192E3F-81A2-41EE-BC0A-6462568F3C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17192E3F-81A2-41EE-BC0A-6462568F3C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17192E3F-81A2-41EE-BC0A-6462568F3C66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3B1F235-D0B6-44B3-8506-6E73DFD56D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B1F235-D0B6-44B3-8506-6E73DFD56D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B1F235-D0B6-44B3-8506-6E73DFD56D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B1F235-D0B6-44B3-8506-6E73DFD56D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5002DACE-95B2-4B43-B86F-F4A2232EF44F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5002DACE-95B2-4B43-B86F-F4A2232EF44F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5002DACE-95B2-4B43-B86F-F4A2232EF44F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5002DACE-95B2-4B43-B86F-F4A2232EF44F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

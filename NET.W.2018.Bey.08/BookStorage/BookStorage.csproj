@@ -66,10 +66,6 @@
       <Project>{17192e3f-81a2-41ee-bc0a-6462568f3c66}</Project>
       <Name>BaseRepository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BookFormater\BookFormatter.csproj">
-      <Project>{d5949409-3c57-4471-b7fd-4544c293e296}</Project>
-      <Name>BookFormatter</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

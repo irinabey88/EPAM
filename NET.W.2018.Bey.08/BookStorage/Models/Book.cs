@@ -2,7 +2,6 @@
 {
     using System;
     using System.Globalization;
-    using BookFormater;
     using Enum;
 
     /// <summary>
@@ -107,12 +106,12 @@
 
         public override string ToString()
         {
-            return this.ToString(BookFormat.AN.ToString(), new BookFormatter());
+            return this.ToString(BookFormat.AN.ToString());
         }
 
         public string ToString(string format)
         {
-            return this.ToString(format, new BookFormatter());
+            return this.ToString(format, CultureInfo.CurrentCulture);
         }
 
         public string ToString(string format, IFormatProvider formatProvider)
