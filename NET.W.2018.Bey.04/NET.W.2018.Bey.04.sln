@@ -3,14 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2018.Bey.04", "NET.W.2018.Bey.04\NET.W.2018.Bey.04.csproj", "{CC78BF4A-9398-4F31-BC29-40635C530FDE}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B64D9103-0E65-48E4-8C0F-BDE0799F3FC5}"
 	ProjectSection(SolutionItems) = preProject
 		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2018.Bey.04.Tests", "NET.W.2018.Bey.04.Tests\NET.W.2018.Bey.04.Tests.csproj", "{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraySort", "ArraySort\ArraySort.csproj", "{F137345B-C624-4AA8-A510-C448236FC5F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polynomial", "Polynomial\Polynomial.csproj", "{00B73687-FC1B-4946-BBAD-F484A6CA92CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraySortTests", "ArraySortTests\ArraySortTests.csproj", "{EC38A245-F22C-4A85-A144-789141C6416D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolynomialTests", "PolynomialTests\PolynomialTests.csproj", "{6BF296CC-8751-4E98-824F-174B8A763881}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,14 +22,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CC78BF4A-9398-4F31-BC29-40635C530FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC78BF4A-9398-4F31-BC29-40635C530FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC78BF4A-9398-4F31-BC29-40635C530FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC78BF4A-9398-4F31-BC29-40635C530FDE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F137345B-C624-4AA8-A510-C448236FC5F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F137345B-C624-4AA8-A510-C448236FC5F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F137345B-C624-4AA8-A510-C448236FC5F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F137345B-C624-4AA8-A510-C448236FC5F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B73687-FC1B-4946-BBAD-F484A6CA92CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B73687-FC1B-4946-BBAD-F484A6CA92CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B73687-FC1B-4946-BBAD-F484A6CA92CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B73687-FC1B-4946-BBAD-F484A6CA92CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC38A245-F22C-4A85-A144-789141C6416D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC38A245-F22C-4A85-A144-789141C6416D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC38A245-F22C-4A85-A144-789141C6416D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC38A245-F22C-4A85-A144-789141C6416D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF296CC-8751-4E98-824F-174B8A763881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF296CC-8751-4E98-824F-174B8A763881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF296CC-8751-4E98-824F-174B8A763881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF296CC-8751-4E98-824F-174B8A763881}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

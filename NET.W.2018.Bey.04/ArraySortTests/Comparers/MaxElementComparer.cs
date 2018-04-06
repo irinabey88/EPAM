@@ -4,11 +4,11 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class MinElementComparer : IComparer<int[]>
+    public class MaxElementComparer : IComparer<int[]>
     {
         private bool _ascending;
 
-        public MinElementComparer(bool ascending)
+        public MaxElementComparer(bool ascending)
         {
             this._ascending = ascending;
         }
@@ -25,7 +25,7 @@
                 throw new ArgumentNullException(nameof(rhs));
             }
 
-            return lhs.Min().CompareTo(rhs.Min()) * (this._ascending ? 1 : -1);
+            return (lhs.Max() - rhs.Max()) * (this._ascending ? 1 : -1);
         }
     }
 }

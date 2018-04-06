@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CEBBEA0E-7B7B-435E-9BF9-6C8FFC250834}</ProjectGuid>
+    <ProjectGuid>{6BF296CC-8751-4E98-824F-174B8A763881}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NET.W._2018.Bey._04.Tests</RootNamespace>
-    <AssemblyName>NET.W.2018.Bey.04.Tests</AssemblyName>
+    <RootNamespace>PolynomialTests</RootNamespace>
+    <AssemblyName>PolynomialTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,21 +50,15 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NUnitTests\PolynomialTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ArraySort\ArraySort.csproj">
-      <Project>{f137345b-c624-4aa8-a510-c448236fc5f1}</Project>
-      <Name>ArraySort</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Polynomial\Polynomial.csproj">
       <Project>{00b73687-fc1b-4946-bbad-f484a6ca92cc}</Project>
       <Name>Polynomial</Name>

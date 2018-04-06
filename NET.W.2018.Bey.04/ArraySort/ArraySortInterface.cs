@@ -1,6 +1,7 @@
 ﻿// <copyright file="ArraySort.cs" company="Iryna Bey">
 // Copyright (c) Iryna Bey. All rights reserved.
 // </copyright>
+
 namespace NET.W._2018.Bey._04.Services
 {
     using System;
@@ -17,7 +18,7 @@ namespace NET.W._2018.Bey._04.Services
         /// Provides buble sort for <paramref name="jaggedArray"/> 
         /// </summary>
         /// <param name="jaggedArray">Input jaggedArray</param>
-        /// <param name="comparator">Comparator values</param>                
+        /// <param name="comparator">object compareres 2 int[] arrays</param>                
         /// <returns>Sorted jagged jaggedArray</returns>
         /// <exception cref="ArgumentNullException">Invalid input array</exception>
         /// <exception cref="ArgumentException">Invalid input array</exception>
@@ -36,55 +37,49 @@ namespace NET.W._2018.Bey._04.Services
                 }
             }
 
-            Func<int[][], IComparer<int[]>, int[][]> algoritm = (array, compar) =>
+            var arrayLength = jaggedArray.GetLength(0);
+
+            for (int j = arrayLength; j > 0; j--)
             {
-                for (int i = 0; i < array.Length; i++)
+                for (int i = 0; i < arrayLength - 1; i++)
                 {
-                    for (int j = array.Length - 1; j > i; j--)
+                    if (comparator.Compare(jaggedArray[i], jaggedArray[i + 1]) > 0)
                     {
-                        if (compar.Compare(array[j - 1], array[j]) > 0)
-                        {
-                            var buf = array[j - 1];
-                            array[j - 1] = array[j];
-                            array[j] = buf;
-                        }
+                        Swap(ref jaggedArray[i], ref jaggedArray[i + 1]);
                     }
                 }
+            }
 
-                return array;
-            };
-
-            return BubleSort(algoritm, jaggedArray, comparator);
+            return jaggedArray;
         }
 
         #endregion
 
         #region Private methods
 
-        private static int[][] BubleSort(Func<int[][], IComparer<int[]>, int[][]> algoritm, int[][] jaggedArray, IComparer<int[]> comparator
-            )
+        /// <summary>
+        /// Change line-arrays in jagged array
+        /// </summary>
+        /// <param name="lhs">Left array</param>
+        /// <param name="rhs">Right array</param>
+        private static void Swap(ref int[] lhs, ref int[] rhs)
         {
-            if (jaggedArray == null || jaggedArray.Length == 0)
+            if (lhs == null)
             {
-                throw new ArgumentException($"{nameof(jaggedArray)}");
+                new ArgumentNullException(nameof(lhs));
             }
 
-            foreach (var inputArrays in jaggedArray)
+            if (rhs == null)
             {
-                if (inputArrays == null || inputArrays.Length == 0)
-                {
-                    throw new ArgumentException($"{nameof(inputArrays)}");
-                }
+                new ArgumentNullException(nameof(rhs));
             }
 
-            if (algoritm == null)
-            {
-                throw new ArgumentException(nameof(algoritm));
-            }
+            var temp = lhs;          
 
-            return algoritm(jaggedArray, comparator);
+            lhs = rhs;
+
+            rhs = temp;
         }
-
         #endregion
     }
 }

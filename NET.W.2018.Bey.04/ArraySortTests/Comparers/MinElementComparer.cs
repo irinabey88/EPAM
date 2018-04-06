@@ -1,14 +1,15 @@
-﻿namespace NET.W._2018.Bey._04.Comparers
+﻿using System.Collections.Generic;
+
+namespace NET.W._2018.Bey._04.Comparers
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
 
-    public class SumElementComparer : IComparer<int[]>
+    public class MinElementComparer : IComparer<int[]>
     {
         private bool _ascending;
 
-        public SumElementComparer(bool ascending)
+        public MinElementComparer(bool ascending)
         {
             this._ascending = ascending;
         }
@@ -24,8 +25,8 @@
             {
                 throw new ArgumentNullException(nameof(rhs));
             }
-            
-            return lhs.Sum().CompareTo(rhs.Sum()) * (this._ascending ? 1 : -1);
+
+            return (lhs.Min() - rhs.Min()) * (this._ascending ? 1 : -1);
         }
     }
 }

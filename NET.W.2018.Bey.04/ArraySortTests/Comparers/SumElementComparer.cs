@@ -4,14 +4,14 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class MaxElementComparer : IComparer<int[]>
+    public class SumElementComparer : IComparer<int[]>
     {
-        public MaxElementComparer(bool ascending)
+        private bool _ascending;
+
+        public SumElementComparer(bool ascending)
         {
             this._ascending = ascending;
         }
-
-        private bool _ascending;
 
         public int Compare(int[] lhs, int[] rhs)
         {
@@ -24,8 +24,8 @@
             {
                 throw new ArgumentNullException(nameof(rhs));
             }
-
-            return lhs.Max().CompareTo(rhs.Max()) * (this._ascending ? 1 : -1);
-        }
+            
+            return (lhs.Sum() - rhs.Sum()) * (this._ascending ? 1 : -1);
+        }       
     }
 }
