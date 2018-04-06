@@ -1,33 +1,16 @@
 ﻿// <copyright file="PolynomialTests.cs" company="Iryna Bey">
 // Copyright (c) Iryna Bey. All rights reserved.
 // </copyright>
-namespace NET.W._2018.Bey._04.Tests.NUnitTests
+namespace Polynomial.NUnitTests
 {
     using NUnit.Framework;
-    using Services;
 
     /// <summary>
     /// Provides test for class Polynomial
     /// </summary>
     [TestFixture]
     public class PolynomialTests
-    {
-        /// <summary>
-        /// Test for class Polynomial
-        /// </summary>
-        /// <param name="arg1">Array polynomial</param>
-        /// <param name="arg2">Numper calculate</param>
-        /// <returns>Result number</returns>
-        [TestCase(new double[] { 2, -3, 0, 1, -5 }, 3.0, ExpectedResult = -385.0)]
-        [TestCase(new double[] { 0, 3, 0, 4, 7 }, -3.0, ExpectedResult = 450.0)]
-        [TestCase(new double[] { 1, 4, 0, 1, 5 }, 4.0, ExpectedResult = 1361)]
-        public double Polynomial_Calc_ValidData_Test(double[] arg1, double arg2)
-        {
-            var polinomial = new Polynomial(arg1);
-            
-            return polinomial.Calculate(arg2);
-        }
-
+    {       
         /// <summary>
         /// Test for class Polynomial
         /// </summary>

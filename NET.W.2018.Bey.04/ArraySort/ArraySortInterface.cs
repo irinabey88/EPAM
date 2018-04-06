@@ -2,7 +2,7 @@
 // Copyright (c) Iryna Bey. All rights reserved.
 // </copyright>
 
-namespace NET.W._2018.Bey._04.Services
+namespace ArraySort
 {
     using System;
     using System.Collections.Generic;
@@ -24,14 +24,24 @@ namespace NET.W._2018.Bey._04.Services
         /// <exception cref="ArgumentException">Invalid input array</exception>
         public static int[][] BubleSort(int[][] jaggedArray, IComparer<int[]> comparator)
         {
-            if (jaggedArray == null || jaggedArray.Length == 0)
+            if (jaggedArray == null)
             {
                 throw new ArgumentNullException(nameof(jaggedArray));
             }
 
+            if (jaggedArray.Length == 0)
+            {
+                throw new ArgumentException(nameof(jaggedArray));
+            }
+
             foreach (var inputArrays in jaggedArray)
             {
-                if (inputArrays == null || inputArrays.Length == 0)
+                if (inputArrays == null)
+                {
+                    throw new ArgumentNullException($"{nameof(inputArrays)}");
+                }
+
+                if (inputArrays.Length == 0)
                 {
                     throw new ArgumentException($"{nameof(inputArrays)}");
                 }
@@ -62,16 +72,17 @@ namespace NET.W._2018.Bey._04.Services
         /// </summary>
         /// <param name="lhs">Left array</param>
         /// <param name="rhs">Right array</param>
+        /// <exception cref="ArgumentNullException">Null value argument</exception>
         private static void Swap(ref int[] lhs, ref int[] rhs)
         {
             if (lhs == null)
             {
-                new ArgumentNullException(nameof(lhs));
+                throw new ArgumentNullException(nameof(lhs));
             }
 
             if (rhs == null)
             {
-                new ArgumentNullException(nameof(rhs));
+                throw new ArgumentNullException(nameof(rhs));
             }
 
             var temp = lhs;          

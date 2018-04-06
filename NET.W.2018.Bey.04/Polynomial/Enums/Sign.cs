@@ -1,7 +1,7 @@
 ﻿// <copyright file="Sign.cs" company="Iryna Bey">
 // Copyright (c) Iryna Bey. All rights reserved.
 // </copyright>
-namespace NET.W._2018.Bey._04.Enum
+namespace Polynomial.Enum
 {
     /// <summary>
     /// Types of sign

@@ -1,16 +1,14 @@
 ﻿// <copyright file="ArraySortTests.cs" company="Iryna Bey">
 // Copyright (c) Iryna Bey. All rights reserved.
 // </copyright>
-
-using System.Collections.Generic;
-using System.Linq;
-
-namespace NET.W._2018.Bey._04.Tests.NUnitTests
+namespace ArraySort.Tests.NUnitTests
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using ArraySort;
     using Comparers;
     using NUnit.Framework;
-    using Services;
 
     /// <summary>
     /// Provides test for class ArraySort

@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace NET.W._2018.Bey._04.Comparers
+﻿namespace ArraySort.Comparers
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     public class MinElementComparer : IComparer<int[]>

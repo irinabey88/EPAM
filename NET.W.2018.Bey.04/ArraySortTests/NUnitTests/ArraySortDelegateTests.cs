@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace NET.W._2018.Bey._04.Tests.NUnitTests.ArraySortTests
+﻿namespace ArraySort.Tests.NUnitTests.ArraySortTests
 {
     using System;
+    using ArraySort;
     using Comparers;
     using NUnit.Framework;
-    using Services;
 
     /// <summary>
     /// Provides test for class ArraySort

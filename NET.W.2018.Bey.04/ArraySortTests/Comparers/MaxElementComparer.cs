@@ -1,4 +1,4 @@
-﻿namespace NET.W._2018.Bey._04.Comparers
+﻿namespace ArraySort.Comparers
 {
     using System;
     using System.Collections.Generic;

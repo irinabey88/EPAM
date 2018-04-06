@@ -1,7 +1,6 @@
-﻿namespace NET.W._2018.Bey._04.Services
+﻿namespace ArraySort
 {
     using System;
-    using System.Collections.Generic;
 
     public class ArraySortDelegate
     {
@@ -23,9 +22,19 @@
                 throw new ArgumentNullException(nameof(jaggedArray));
             }
 
+            if (jaggedArray == null)
+            {
+                throw new ArgumentException(nameof(jaggedArray));
+            }
+
             foreach (var inputArrays in jaggedArray)
             {
-                if (inputArrays == null || inputArrays.Length == 0)
+                if (inputArrays == null)
+                {
+                    throw new ArgumentNullException(nameof(inputArrays));
+                }
+
+                if (inputArrays.Length == 0)
                 {
                     throw new ArgumentException(nameof(inputArrays));
                 }

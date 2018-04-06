@@ -1,22 +1,21 @@
 ﻿// <copyright file="Polynomial.cs" company="Iryna Bey">
 // Copyright (c) Iryna Bey. All rights reserved.
 // </copyright>
-namespace NET.W._2018.Bey._04.Services
+namespace Polynomial
 {
     using System;
     using System.Linq;
     using Enum;
-    using Interfaces;
 
     /// <summary>
     /// Represent mathematical polynomial
     /// </summary>
-    public sealed class Polynomial : IPolynomial
+    public sealed class Polynomial 
     {
         /// <summary>
         /// Error value
         /// </summary>
-        private const double Eps = 0.00000001;
+        private const double EPS = 0.00000001;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Polynomial"/> class.
@@ -137,14 +136,14 @@ namespace NET.W._2018.Bey._04.Services
         /// <value>false - otherwise</value></returns>
         public static bool operator ==(Polynomial lhs, Polynomial rhs)
         {
-            if (ReferenceEquals(lhs, rhs))
-            {
-                return true;
-            }
-
             if (ReferenceEquals(lhs, null))
             {
                 return false;
+            }
+
+            if (ReferenceEquals(lhs, rhs))
+            {
+                return true;
             }
 
             return lhs.Equals(rhs);
@@ -175,7 +174,7 @@ namespace NET.W._2018.Bey._04.Services
             var polinomial = string.Empty;
             for (int i = this.Factors.Length - 1; i >= 0; i--)
             {
-                if (!string.IsNullOrWhiteSpace(polinomial) && Math.Abs(this.Factors[i]) > Eps)
+                if (!string.IsNullOrWhiteSpace(polinomial) && Math.Abs(this.Factors[i]) > EPS)
                 {
                     switch (i)
                     {
@@ -196,7 +195,7 @@ namespace NET.W._2018.Bey._04.Services
                             break;
                     }                    
                 }
-                else if (Math.Abs(this.Factors[i]) > Eps)
+                else if (Math.Abs(this.Factors[i]) > EPS)
                 {
                     polinomial = $"{this.Factors[i]}*x^{i}";
                 }
@@ -272,28 +271,6 @@ namespace NET.W._2018.Bey._04.Services
             }
 
             return true;
-        }
-
-        #endregion
-
-        #region Interface methods
-
-        /// <summary>
-        /// This methods calculate value of <paramref name="number"/>
-        /// for polinomial
-        /// </summary>
-        /// <param name="number">Input number</param>
-        /// <returns>Polinomial number</returns>
-        public double Calculate(double number)
-        {
-            var result = 0.0;
-
-            for (int i = 0; i < this.Factors.Length; i++)
-            {
-                result += Math.Pow(number, i) * this.Factors[i];
-            }
-
-            return result;
         }
 
         #endregion
