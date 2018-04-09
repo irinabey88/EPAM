@@ -17,8 +17,7 @@
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 2, 5, -3 }, new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 } };
 
-            CollectionAssert.AreEqual(
-                ArraySortDelegate.BubleSort(arr1, new SumElementComparer(false).Compare),
+            CollectionAssert.AreEqual(ArraySortDelegate.BubleSort(arr1, new SumElementComparer(false).Compare),
                 resultArr1);
         }
 
@@ -27,6 +26,7 @@
         {
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 5, -2, -4, -3 }, new[] { 1, -2, 7, -4 }, new[] { 2, 5, -3 } };
+
 
             CollectionAssert.AreEqual(
                 ArraySortDelegate.BubleSort(arr1, new SumElementComparer(true).Compare), resultArr1);

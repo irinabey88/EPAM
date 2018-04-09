@@ -45,6 +45,39 @@ namespace ArraySort
                 {
                     throw new ArgumentException($"{nameof(inputArrays)}");
                 }
+            }           
+
+            return BubleSortDelegate(jaggedArray, comparator.Compare);
+        }
+
+        #endregion
+
+        #region Private methods
+
+
+        private static int[][] BubleSortDelegate(int[][] jaggedArray, Comparison<int[]> comparator)
+        {
+            if (jaggedArray == null)
+            {
+                throw new ArgumentNullException(nameof(jaggedArray));
+            }
+
+            if (jaggedArray.Length == 0)
+            {
+                throw new ArgumentException(nameof(jaggedArray));
+            }
+
+            foreach (var inputArrays in jaggedArray)
+            {
+                if (inputArrays == null)
+                {
+                    throw new ArgumentNullException($"{nameof(inputArrays)}");
+                }
+
+                if (inputArrays.Length == 0)
+                {
+                    throw new ArgumentException($"{nameof(inputArrays)}");
+                }
             }
 
             var arrayLength = jaggedArray.GetLength(0);
@@ -53,7 +86,7 @@ namespace ArraySort
             {
                 for (int i = 0; i < arrayLength - 1; i++)
                 {
-                    if (comparator.Compare(jaggedArray[i], jaggedArray[i + 1]) > 0)
+                    if (comparator(jaggedArray[i], jaggedArray[i + 1]) > 0)
                     {
                         Swap(ref jaggedArray[i], ref jaggedArray[i + 1]);
                     }
@@ -62,10 +95,6 @@ namespace ArraySort
 
             return jaggedArray;
         }
-
-        #endregion
-
-        #region Private methods
 
         /// <summary>
         /// Change line-arrays in jagged array

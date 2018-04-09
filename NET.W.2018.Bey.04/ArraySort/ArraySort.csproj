@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ArraySortDelegate.cs" />
     <Compile Include="ArraySortInterface.cs" />
+    <Compile Include="AdapterComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

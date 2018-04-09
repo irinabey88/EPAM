@@ -1,6 +1,7 @@
 ﻿namespace ArraySort
 {
     using System;
+    using System.Collections.Generic;
 
     public class ArraySortDelegate
     {
@@ -11,11 +12,11 @@
         /// ascending/descending order bu given 
         /// </summary>
         /// <param name="jaggedArray">Input jaggedArray</param>
-        /// <param name="comparer"></param>
+        /// <param name="comparer">Delegate comparator</param>
         /// <returns>Sorted jagged jaggedArray</returns>
         /// <exception cref="ArgumentNullException">Invalid input array</exception>
         /// <exception cref="ArgumentException">Invalid input array</exception>
-        public static int[][] BubleSort(int[][] jaggedArray, Func<int[], int[], int> comparer)
+        public static int[][] BubleSort(int[][] jaggedArray, Comparison<int[]> comparer)
         {
             if (jaggedArray == null || jaggedArray.Length == 0)
             {
@@ -45,13 +46,22 @@
                 throw new ArgumentNullException(nameof(comparer));
             }
 
+            return BubleSortInterface(jaggedArray, new AdapterComparer(comparer));
+        }
+        #endregion
+
+        #region Private methods
+
+
+        private static int[][] BubleSortInterface(int[][] jaggedArray, IComparer<int[]> comparer)
+        {
             var arrayLength = jaggedArray.GetLength(0);
 
             for (int j = arrayLength; j > 0; j--)
             {
                 for (int i = 0; i < arrayLength - 1; i++)
                 {
-                    if (comparer(jaggedArray[i], jaggedArray[i + 1]) > 0)
+                    if (comparer.Compare(jaggedArray[i], jaggedArray[i + 1]) > 0)
                     {
                         Swap(ref jaggedArray[i], ref jaggedArray[i + 1]);
                     }
@@ -60,10 +70,6 @@
 
             return jaggedArray;
         }
-        #endregion
-
-        #region Private methods
-
         /// <summary>
         /// Change line-arrays in jagged array
         /// </summary>
@@ -73,12 +79,12 @@
         {
             if (lhs == null)
             {
-                new ArgumentNullException(nameof(lhs));
+                throw new ArgumentNullException(nameof(lhs));
             }
 
             if (rhs == null)
             {
-                new ArgumentNullException(nameof(rhs));
+                throw new ArgumentNullException(nameof(rhs));
             }
 
             var temp = lhs;
