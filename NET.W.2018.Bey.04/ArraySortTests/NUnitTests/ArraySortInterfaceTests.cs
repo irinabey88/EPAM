@@ -22,7 +22,6 @@ namespace ArraySort.Tests.NUnitTests
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 2, 5, -3 }, new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 } };
 
-            var comparer = Comparer<int[]>.Create((k1, k2) => k2.Sum() - k1.Sum());
             CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, new SumElementComparer(false)), resultArr1);
         }
 
@@ -32,8 +31,7 @@ namespace ArraySort.Tests.NUnitTests
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 5, -2, -4, -3 }, new[] { 1, -2, 7, -4 }, new[] { 2, 5, -3 } };
 
-            var comparer = Comparer<int[]>.Create((k1, k2) => k1.Sum() - k2.Sum());
-            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, comparer), resultArr1);
+            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, new SumElementComparer(true)), resultArr1);
         }
 
         [Test]
@@ -42,8 +40,7 @@ namespace ArraySort.Tests.NUnitTests
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 2, 5, -3 }, new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 } };
 
-            var comparer = Comparer<int[]>.Create((k1, k2) => k2.Min() - k1.Min());
-            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, comparer), resultArr1);
+            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, new MinElementComparer(false)), resultArr1);
         }
 
         [Test]
@@ -52,8 +49,7 @@ namespace ArraySort.Tests.NUnitTests
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
 
-            var comparer = Comparer<int[]>.Create((k1, k2) => k1.Min() - k2.Min());
-            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, comparer), resultArr1);
+            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, new MinElementComparer(true)), resultArr1);
         }
 
         [Test]
@@ -62,8 +58,7 @@ namespace ArraySort.Tests.NUnitTests
             int[][] arr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
             int[][] resultArr1 = { new[] { 1, -2, 7, -4 }, new[] { 5, -2, -4, -3 }, new[] { 2, 5, -3 } };
 
-            var comparer = Comparer<int[]>.Create((k1, k2) => k2.Max() - k1.Max());
-            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, comparer), resultArr1);
+            CollectionAssert.AreEqual(ArraySortInterface.BubleSort(arr1, new MaxElementComparer(false)), resultArr1);
         }
 
         [Test]
@@ -82,8 +77,7 @@ namespace ArraySort.Tests.NUnitTests
         [TestCase(null)]
         public void ArraySort_InvalidData_Test(int[][] arg1)
         {
-            var comparer = Comparer<int[]>.Create((k1, k2) => k2.Min() - k1.Min());
-            Assert.Throws<ArgumentNullException>(() => ArraySortInterface.BubleSort(arg1, comparer));
+            Assert.Throws<ArgumentNullException>(() => ArraySortInterface.BubleSort(arg1, new MaxElementComparer(true)));
         }
     }
 }
