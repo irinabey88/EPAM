@@ -1,4 +1,6 @@
-﻿namespace BinarySearchTests.NUnitTests
+﻿using System;
+
+namespace BinarySearchTests.NUnitTests
 {
     using BinarySearch;
     using Comparers;
@@ -31,6 +33,34 @@
             TestModel[] testArray = { new TestModel("b", 18), testObj, new TestModel("c", 20) };
 
             Assert.AreEqual(BinarySearch<TestModel>.Search(testObj, testArray, testComparer), 1); 
+        }
+
+        [Test]
+        public void Search_InvalidData_ArrayNull_Test()
+        {
+            var testObj = new TestModel("a", 2);
+            ComparerTestModel testComparer = new ComparerTestModel();            
+
+            Assert.Throws<ArgumentNullException>(() => BinarySearch<TestModel>.Search(testObj, null, testComparer));
+        }
+
+        [Test]
+        public void Search_InvalidData_EmptyArray_Test()
+        {
+            var testObj = new TestModel("a", 2);
+            ComparerTestModel testComparer = new ComparerTestModel();
+            TestModel[] testArray = { };
+
+            Assert.Throws<ArgumentException>(() => BinarySearch<TestModel>.Search(testObj, testArray, testComparer));
+        }
+
+        [Test]
+        public void Search_InvalidData_NullComparerValue_Test()
+        {
+            var testObj = new TestModel("a", 2);
+            TestModel[] testArray = { testObj };
+
+            Assert.Throws<ArgumentNullException>(() => BinarySearch<TestModel>.Search(testObj, testArray, null));
         }
     }   
 }

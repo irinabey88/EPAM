@@ -23,7 +23,7 @@
         {
             if (array == null)
             {
-                throw new ArgumentException(nameof(array));
+                throw new ArgumentNullException(nameof(array));
             }
 
             if (array.Length == 0)
