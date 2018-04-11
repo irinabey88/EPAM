@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciNumbers", "Fibonac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciNumbersTests", "FibonacciNumbersTests\FibonacciNumbersTests.csproj", "{B9214DA0-CF3C-4ADC-8363-B1F677B02495}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clock", "Clock\Clock.csproj", "{6DEE5608-2CDF-4E93-9096-741105525BF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockConsole", "ClockConsole\ClockConsole.csproj", "{11837634-003F-4637-A4B2-F3DD504407B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +42,14 @@ Global
 		{B9214DA0-CF3C-4ADC-8363-B1F677B02495}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9214DA0-CF3C-4ADC-8363-B1F677B02495}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9214DA0-CF3C-4ADC-8363-B1F677B02495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DEE5608-2CDF-4E93-9096-741105525BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DEE5608-2CDF-4E93-9096-741105525BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DEE5608-2CDF-4E93-9096-741105525BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DEE5608-2CDF-4E93-9096-741105525BF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11837634-003F-4637-A4B2-F3DD504407B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11837634-003F-4637-A4B2-F3DD504407B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11837634-003F-4637-A4B2-F3DD504407B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11837634-003F-4637-A4B2-F3DD504407B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
