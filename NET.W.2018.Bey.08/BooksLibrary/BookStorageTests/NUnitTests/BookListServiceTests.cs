@@ -1,4 +1,6 @@
-﻿namespace NET.W._2018.Bey._08.Tests.NUnitTests
+﻿using Models.Comparer;
+
+namespace NET.W._2018.Bey._08.Tests.NUnitTests
 {
     using System;
     using System.IO;
@@ -47,23 +49,12 @@
         public void BookListService_RemoveBook_InvalidData_Test()
         {
             Assert.Throws<ArgumentNullException>(() => this._bookService.RemoveBook(null));
-        }
+        }      
 
         [Test]
-        public void BookListService_FindBookByTag_InvalidData_Test()
+        public void BookListService_FindBookByTag_ValidData_Test()
         {
-            Assert.Throws<ArgumentNullException>(() =>
-                this._bookService.FindBookByTag(BookTagsName.Author, string.Empty));
-        }
-
-        [TestCase(BookTagsName.Author, "Richter")]
-        [TestCase(BookTagsName.ISBN, "978-5-84592087-4")]
-        [TestCase(BookTagsName.Name, "C# in nutshell")]
-        [TestCase(BookTagsName.Year, "2006")]
-        [TestCase(BookTagsName.Price, "250")]
-        public void BookListService_FindBookByTag_ValidData_Test(BookTagsName arg1, string arg2)
-        {
-            Assert.AreEqual(1, this._bookService.FindBookByTag(arg1, arg2).Count());
+            Assert.AreEqual(1, this._bookService.FindBookByTag(x => x.Author.Equals("Richter")).Count());
         }
 
         [Test]
@@ -75,7 +66,7 @@
         [Test]
         public void BookListService_SortBookByTag_Test()
         {
-            var sortedBookList = this._bookService.SortBookByTag(BookTagsName.Year).ToArray();
+            var sortedBookList = this._bookService.SortBookByTag(new YearComparer()).ToArray();
 
             for (int i = 0; i < sortedBookList.Length - 1; i++)
             {

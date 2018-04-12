@@ -1,6 +1,8 @@
 ﻿namespace Common.Interfaces
 {
+    using System;
     using System.Collections.Generic;
+
     using Models;
 
     /// <summary>
@@ -12,15 +14,14 @@
         /// Finds elements in repository by filter
         /// </summary>
         /// <param name="filter">Filter name</param>
-        /// <param name="tagsValue">Filtered value</param>
         /// <returns>Enumeration of filtered elements</returns>
-        IEnumerable<Book> Find(BookTagsName filter, string tagsValue);
+        IEnumerable<Book> Find(Predicate<Book> filter);
 
         /// <summary>
-        /// Gets sorted by tag name enumeration of elements
+        /// Gets sorted by comparer name enumeration of elements
         /// </summary>
-        /// <param name="tag">Tag name</param>
+        /// <param name="comparer">Comparer</param>
         /// <returns>Enumeration of elements</returns>
-        IEnumerable<Book> SortByTag(BookTagsName tag);
+        IEnumerable<Book> SortByTag(IComparer<Book> comparer);
     }
 }

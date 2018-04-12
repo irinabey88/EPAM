@@ -4,10 +4,11 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+
     using Common.Interfaces;
+    using CustomLogger;
     using Exception;
     using Models;
-    using Models.Comparer;
 
     /// <summary>
     /// Provides book storage
@@ -36,33 +37,15 @@
             }
 
             this._fileStorage = fileStorage;
-            this._listBooks = this.Load() ?? throw new ArgumentNullException(nameof(_listBooks));
-        }
-
-        public Book this[string id]
-        {
-            get
+            this._listBooks = this.Load();
+            if (_listBooks == null)
             {
-                if (string.IsNullOrWhiteSpace(id))
-                {
-                    throw new ArgumentNullException(nameof(id));
-                }
-
-                var book = this.Find(BookTagsName.ISBN, id);
-
-                if (book?.Count() == 0)
-                {
-                    return null;
-                }
-
-                if (book.Count() > 1)
-                {
-                    throw new ArgumentException(nameof(id));
-                }
-
-                return book.ToArray()[0];
+                Logger.Fatal($"{nameof(BookListStorage)} wasn't created");        
+                throw new ArgumentNullException(nameof(_listBooks));
             }
-        }
+
+            Logger.Debug($"{nameof(BookListStorage)} was created");
+        }    
 
         public Book Get(string id)
         {
@@ -71,25 +54,46 @@
                 throw new ArgumentNullException(nameof(id));
             }
 
-            return this[id] ?? throw new GetBookException(id);
+            var findElement = this.Find(x => x.ISBN == id);
+
+            if (!findElement.Any() || findElement.Count() > 1)
+            {
+                throw new GetBookException(id);
+            }
+
+            return findElement.ToArray()[0];
         }
 
         public Book Get(Book model)
-        {
-            var findElement = this[model.ISBN] ?? throw new GetBookException(model.ISBN);
+        {            
+            var findElement = this.Find(x => x.ISBN == model.ISBN);
 
-            return findElement;
+            if (!findElement.Any())
+            {
+                Logger.Warn($"{nameof(findElement)} with ISBN {model.ISBN} doesn't exists in the storage");
+                return null;
+            }
+
+            if (findElement.Count() > 1)
+            {
+                Logger.Error($"{nameof(findElement)} with ISBN {model.ISBN} shoud be one");
+                throw new GetBookException(model.ISBN);
+            }
+
+            return findElement.ToArray()[0];
         }
 
         public Book Add(Book model)
         {
             if (model == null)
             {
+                Logger.Error($"{nameof(model)}is null");
                 throw new ArgumentNullException(nameof(model));
             }
 
             if (this._listBooks.ToList().Contains(model))
             {
+                Logger.Error($"Book with ISBN {model.ISBN} is alredy exists");
                 throw new AddBookException(model.Name, model.ISBN);
             }
 
@@ -98,6 +102,7 @@
                 using (BinaryWriter writer = new BinaryWriter(fs))
                 {                  
                     SaveBook(writer, model);
+                    Logger.Info($"Book with ISBN {model.ISBN} was added to storage");
                 }
             }
 
@@ -110,19 +115,28 @@
         {
             if (model == null)
             {
+                Logger.Error($"{nameof(model)} is null");
                 throw new ArgumentNullException(nameof(model));
             }
 
-            var deletedBook = this[model.ISBN] ?? throw new DeleteBookException(model.Name, model.ISBN);
+            var deletedBook = Get(model.ISBN);
+            if (deletedBook == null)
+            {
+                Logger.Error($"Book with ISBN {model.ISBN} doesn't exists in the storage");
+                throw new DeleteBookException(model.Name, model.ISBN);
+            }
+
             this._listBooks = this._listBooks.Except(new List<Book> { deletedBook });
 
-            if (this._listBooks.Count() == 0)
+            if (!this._listBooks.Any())
             {
                 File.Delete(this._fileStorage);
+                Logger.Info($"Book with ISBN {model.ISBN} was deleted");
                 return model;
             }
 
             SaveBookList();
+            Logger.Info($"Book with ISBN {model.ISBN} was deleted");
             return model;
         }
 
@@ -130,135 +144,28 @@
         {
             if (model == null)
             {
+                Logger.Error($"{nameof(model)} is null");
                 throw new ArgumentNullException(nameof(model));
             }
 
-            if (this._listBooks.ToList().Contains(model))
+            var deletedBook = Get(model.ISBN);
+            if (deletedBook == null)
             {
-                throw new AddBookException(model.Name, model.ISBN);
+                Logger.Error($"Book with ISBN {model.ISBN} doesn't exists in the storage");
+                throw new DeleteBookException(model.Name, model.ISBN);
             }
 
-            var deletedBook = this[model.ISBN] ?? throw new DeleteBookException(model.Name, model.ISBN);
             this._listBooks = this._listBooks.Except(new List<Book> { deletedBook });
             this._listBooks = this._listBooks.Concat(new[] { model });
 
             SaveBookList();
+            Logger.Info($"Book with ISBN {model.ISBN} was updated");
             return model;
         }
 
-        public IEnumerable<Book> Find(BookTagsName filter, string tagsValue)
-        {
-            if (string.IsNullOrWhiteSpace(tagsValue))
-            {
-                throw new ArgumentNullException(nameof(filter));
-            }
-
-            bool result;
-            List<Book> books = new List<Book>();        
-            switch (filter)
-            {
-                case BookTagsName.ISBN:
-                    foreach (var book in this._listBooks)
-                    {
-                        if (book.ISBN.Equals(tagsValue))
-                        {
-                            books.Add(book);
-                        }
-                    }
-
-                    if (books.Count > 1)
-                    {
-                        throw new DuplicateIdException(books[0].ISBN);
-                    }
-
-                    break;
-                case BookTagsName.Author:
-                    foreach (var book in this._listBooks)
-                    {
-                        if (book.Author.Equals(tagsValue))
-                        {
-                            books.Add(book);
-                        }
-                    }
-
-                    break;
-                case BookTagsName.Name:
-                    foreach (var book in this._listBooks)
-                    {
-                        if (book.Name.Equals(tagsValue))
-                        {
-                            books.Add(book);
-                        }
-                    }
-
-                    break;
-                case BookTagsName.Publishing:
-                    foreach (var book in this._listBooks)
-                    {
-                        if (book.Publishig.Equals(tagsValue))
-                        {
-                            books.Add(book);
-                        }
-                    }
-
-                    break;
-                case BookTagsName.PageCount:
-                    uint pageCout;
-                    result = uint.TryParse(tagsValue, out pageCout);
-
-                    if (!result)
-                    {
-                        throw new InvalidCastException(nameof(tagsValue));
-                    }
-
-                    foreach (var book in this._listBooks)
-                    {
-                        if (book.PageCount == pageCout)
-                        {
-                            books.Add(book);
-                        }
-                    }
-
-                    break;
-                case BookTagsName.Year:
-                    uint year;
-                    result = uint.TryParse(tagsValue, out year);
-
-                    if (!result)
-                    {
-                        throw new InvalidCastException(nameof(tagsValue));
-                    }
-
-                    foreach (var book in this._listBooks)
-                    {
-                        if (book.Year == year)
-                        {
-                            books.Add(book);
-                        }
-                    }
-
-                    break;
-                case BookTagsName.Price:
-                    decimal price;
-                    result = decimal.TryParse(tagsValue, out price);
-
-                    if (!result)
-                    {
-                        throw new InvalidCastException(nameof(tagsValue));
-                    }
-
-                    foreach (var book in this._listBooks)
-                    {
-                        if (book.Price == price)
-                        {
-                            books.Add(book);
-                        }
-                    }
-
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(filter));
-            }
+        public IEnumerable<Book> Find(Predicate<Book> filter)
+        {          
+            var books = this.GetAllElements().ToList().FindAll(filter);
 
             return books.Count == 0 ? null : books;
         }
@@ -282,6 +189,7 @@
 
                         if (readedBook == null)
                         {
+                            Logger.Error($"{nameof(readedBook)} is null");
                             throw new ArgumentNullException(nameof(readedBook));
                         }
 
@@ -289,44 +197,23 @@
                     }
                 }
             }
-            
+
+            Logger.Info($"List books was loaded");
             return bookList;
         }
 
-        public IEnumerable<Book> SortByTag(BookTagsName tag)
+        public IEnumerable<Book> SortByTag(IComparer<Book> comparer)
         {
-            IComparer<Book> comparer;
-
-            switch (tag)
+            if (comparer == null)
             {
-                case BookTagsName.ISBN:
-                    comparer = new IsbnComparer();
-                    break;
-                case BookTagsName.Author:
-                    comparer = new AuthorComparer();
-                    break;
-                case BookTagsName.Name:
-                    comparer = new NameComparer();
-                    break;
-                case BookTagsName.Publishing:
-                    comparer = new PublishingComparer();
-                    break;
-                case BookTagsName.Year:
-                    comparer = new YearComparer();
-                    break;
-                case BookTagsName.PageCount:
-                    comparer = new PageCountComparer();
-                    break;
-                case BookTagsName.Price:
-                    comparer = new PriceComparer();
-                    break;
-                default:
-                    throw new ArgumentException(nameof(tag));
+                Logger.Error($"{nameof(comparer)} is null");
+                throw new ArgumentNullException(nameof(comparer));
             }
-
+         
             var sortedList = this._listBooks.ToList();
             sortedList.Sort(comparer);
 
+            Logger.Info($"Books list was sorted");
             return sortedList;
         }
 
@@ -342,6 +229,7 @@
             var pageCount = reader.ReadUInt32();
             var price = reader.ReadDecimal();
 
+            Logger.Info($"Book with {isbn} was loaded");
             return new ScientificBook(isbn, author, name, publishing, year, pageCount, price);
         }
 
@@ -355,6 +243,8 @@
             writer.Write(book.PageCount);
             writer.Write(book.Price);   
             writer.Flush();
+
+            Logger.Info($"Book with {book.ISBN} was saved");
         }
 
         private void SaveBookList()
@@ -367,6 +257,8 @@
                     {
                         SaveBook(writer, book);
                     }
+
+                    Logger.Info($"Books list was saved");
                 }
             }
         }

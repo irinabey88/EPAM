@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\Logger\ILogger.cs" />
     <Compile Include="Interfaces\Repositories\Base\IRepository.cs" />
     <Compile Include="Interfaces\Repositories\IBookRepository.cs" />
     <Compile Include="Interfaces\Services\IBookListService.cs" />

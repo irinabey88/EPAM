@@ -52,6 +52,10 @@
       <Project>{c932f7a2-08e6-45c1-a5b1-0c04b8ccbb9b}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CustomLogger\CustomLogger.csproj">
+      <Project>{6f515ff7-eb81-4a3c-a1ab-ad2ad84377ac}</Project>
+      <Name>CustomLogger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{5d44f607-3d32-4d8c-b9c3-8738a074c17e}</Project>
       <Name>Models</Name>

@@ -1,4 +1,6 @@
-﻿namespace BuisnesLogic.Services
+﻿using System;
+
+namespace BuisnesLogic.Services
 {
     using System.Collections.Generic;
     using Models;
@@ -27,17 +29,16 @@
         /// <summary>
         /// Finds book by tags name and value
         /// </summary>
-        /// <param name="tag">Tags name</param>
-        /// <param name="tagsValue">Value</param>
+        /// <param name="filter">Filter</param>
         /// <returns>Enumeration of found books</returns>
-        IEnumerable<TModel> FindBookByTag(BookTagsName tag, string tagsValue);
+        IEnumerable<TModel> FindBookByTag(Predicate<Book> filter);
 
         /// <summary>
         /// Sorts book by tags name
         /// </summary>
-        /// <param name="tag">Tags name</param>
+        /// <param name="comparer">Tags name</param>
         /// <returns>Enumeration of books</returns>
-        IEnumerable<TModel> SortBookByTag(BookTagsName tag);
+        IEnumerable<TModel> SortBookByTag(IComparer<Book> comparer);
 
         /// <summary>
         /// Gets all books in storage
