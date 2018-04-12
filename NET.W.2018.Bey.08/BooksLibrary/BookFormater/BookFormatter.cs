@@ -4,6 +4,9 @@
     using System.Globalization;
     using Models;
 
+    /// <summary>
+    /// Inialize class of custom format <see cref="Book"/>
+    /// </summary>
     public class BookFormatter : IFormatProvider, ICustomFormatter
     {
         public object GetFormat(Type formatType)

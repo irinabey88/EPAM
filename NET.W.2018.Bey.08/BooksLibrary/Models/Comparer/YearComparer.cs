@@ -3,6 +3,9 @@
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Provides compararor for <see cref="Book"/> by property year
+    /// </summary>
     public class YearComparer : IComparer<Book>
     {
         public int Compare(Book obj1, Book obj2)

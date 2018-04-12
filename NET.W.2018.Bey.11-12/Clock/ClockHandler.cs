@@ -2,6 +2,9 @@
 
 namespace ClockLibrary
 {
+    /// <summary>
+    /// Class listener
+    /// </summary>
     public class ClockHandler
     {
         public void ShowMessage(object sender, ClockEventArgs e)

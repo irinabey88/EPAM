@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Class provides data for event
+    /// </summary>
     public class ClockEventArgs : EventArgs
     {
         private int _milliMillisecondsToWait;

@@ -3,8 +3,16 @@
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Class provides fibonacci numbers list
+    /// </summary>
     public static class FibonacciNumbers
     {
+        /// <summary>
+        /// Generate fibonacci list
+        /// </summary>
+        /// <param name="count">Count of numbers in list</param>
+        /// <returns>Fibonacci list</returns>
         public static IEnumerable<ulong> Generate(ulong count)
         {
             if (count < 1)

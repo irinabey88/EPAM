@@ -4,7 +4,7 @@
     using System.Globalization;
 
     /// <summary>
-    /// Provides bank book object
+    /// Provides book object
     /// </summary>
     public abstract class Book : IEquatable<Book>, IComparable, IComparable<Book>, IFormattable
     {

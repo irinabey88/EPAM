@@ -3,6 +3,9 @@
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Provides compararor for <see cref="Book"/> by property name
+    /// </summary>
     public class NameComparer : IComparer<Book>
     {
         public int Compare(Book obj1, Book obj2)
