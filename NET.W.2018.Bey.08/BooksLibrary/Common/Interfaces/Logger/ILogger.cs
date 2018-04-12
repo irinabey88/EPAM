@@ -10,6 +10,6 @@
 
         void Error(string message);
 
-        void Fatal(string message);
+        void Fatal(string message);       
     }
 }

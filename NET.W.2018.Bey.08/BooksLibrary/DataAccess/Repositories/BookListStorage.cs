@@ -40,11 +40,11 @@
             this._listBooks = this.Load();
             if (_listBooks == null)
             {
-                Logger.Fatal($"{nameof(BookListStorage)} wasn't created");        
+                BookLogger.Fatal($"{nameof(BookListStorage)} wasn't created");        
                 throw new ArgumentNullException(nameof(_listBooks));
             }
 
-            Logger.Debug($"{nameof(BookListStorage)} was created");
+            BookLogger.Debug($"{nameof(BookListStorage)} was created");
         }    
 
         public Book Get(string id)
@@ -70,13 +70,13 @@
 
             if (!findElement.Any())
             {
-                Logger.Warn($"{nameof(findElement)} with ISBN {model.ISBN} doesn't exists in the storage");
+                BookLogger.Warn($"{nameof(findElement)} with ISBN {model.ISBN} doesn't exists in the storage");
                 return null;
             }
 
             if (findElement.Count() > 1)
             {
-                Logger.Error($"{nameof(findElement)} with ISBN {model.ISBN} shoud be one");
+                BookLogger.Error($"{nameof(findElement)} with ISBN {model.ISBN} shoud be one");
                 throw new GetBookException(model.ISBN);
             }
 
@@ -87,13 +87,13 @@
         {
             if (model == null)
             {
-                Logger.Error($"{nameof(model)}is null");
+                BookLogger.Error($"{nameof(model)}is null");
                 throw new ArgumentNullException(nameof(model));
             }
 
             if (this._listBooks.ToList().Contains(model))
             {
-                Logger.Error($"Book with ISBN {model.ISBN} is alredy exists");
+                BookLogger.Error($"Book with ISBN {model.ISBN} is alredy exists");
                 throw new AddBookException(model.Name, model.ISBN);
             }
 
@@ -102,7 +102,7 @@
                 using (BinaryWriter writer = new BinaryWriter(fs))
                 {                  
                     SaveBook(writer, model);
-                    Logger.Info($"Book with ISBN {model.ISBN} was added to storage");
+                    BookLogger.Info($"Book with ISBN {model.ISBN} was added to storage");
                 }
             }
 
@@ -115,14 +115,14 @@
         {
             if (model == null)
             {
-                Logger.Error($"{nameof(model)} is null");
+                BookLogger.Error($"{nameof(model)} is null");
                 throw new ArgumentNullException(nameof(model));
             }
 
             var deletedBook = Get(model.ISBN);
             if (deletedBook == null)
             {
-                Logger.Error($"Book with ISBN {model.ISBN} doesn't exists in the storage");
+                BookLogger.Error($"Book with ISBN {model.ISBN} doesn't exists in the storage");
                 throw new DeleteBookException(model.Name, model.ISBN);
             }
 
@@ -131,12 +131,12 @@
             if (!this._listBooks.Any())
             {
                 File.Delete(this._fileStorage);
-                Logger.Info($"Book with ISBN {model.ISBN} was deleted");
+                BookLogger.Info($"Book with ISBN {model.ISBN} was deleted");
                 return model;
             }
 
             SaveBookList();
-            Logger.Info($"Book with ISBN {model.ISBN} was deleted");
+            BookLogger.Info($"Book with ISBN {model.ISBN} was deleted");
             return model;
         }
 
@@ -144,14 +144,14 @@
         {
             if (model == null)
             {
-                Logger.Error($"{nameof(model)} is null");
+                BookLogger.Error($"{nameof(model)} is null");
                 throw new ArgumentNullException(nameof(model));
             }
 
             var deletedBook = Get(model.ISBN);
             if (deletedBook == null)
             {
-                Logger.Error($"Book with ISBN {model.ISBN} doesn't exists in the storage");
+                BookLogger.Error($"Book with ISBN {model.ISBN} doesn't exists in the storage");
                 throw new DeleteBookException(model.Name, model.ISBN);
             }
 
@@ -159,7 +159,7 @@
             this._listBooks = this._listBooks.Concat(new[] { model });
 
             SaveBookList();
-            Logger.Info($"Book with ISBN {model.ISBN} was updated");
+            BookLogger.Info($"Book with ISBN {model.ISBN} was updated");
             return model;
         }
 
@@ -172,6 +172,7 @@
 
         public IEnumerable<Book> GetAllElements()
         {
+            BookLogger.Info($"Method runs GetAllElements");
             return this._listBooks;
         }
 
@@ -189,7 +190,7 @@
 
                         if (readedBook == null)
                         {
-                            Logger.Error($"{nameof(readedBook)} is null");
+                            BookLogger.Error($"{nameof(readedBook)} is null");
                             throw new ArgumentNullException(nameof(readedBook));
                         }
 
@@ -198,7 +199,7 @@
                 }
             }
 
-            Logger.Info($"List books was loaded");
+            BookLogger.Info($"List books was loaded");
             return bookList;
         }
 
@@ -206,14 +207,14 @@
         {
             if (comparer == null)
             {
-                Logger.Error($"{nameof(comparer)} is null");
+                BookLogger.Error($"{nameof(comparer)} is null");
                 throw new ArgumentNullException(nameof(comparer));
             }
          
             var sortedList = this._listBooks.ToList();
             sortedList.Sort(comparer);
 
-            Logger.Info($"Books list was sorted");
+            BookLogger.Info($"Books list was sorted");
             return sortedList;
         }
 
@@ -229,7 +230,7 @@
             var pageCount = reader.ReadUInt32();
             var price = reader.ReadDecimal();
 
-            Logger.Info($"Book with {isbn} was loaded");
+            BookLogger.Info($"Book with {isbn} was loaded");
             return new ScientificBook(isbn, author, name, publishing, year, pageCount, price);
         }
 
@@ -244,7 +245,7 @@
             writer.Write(book.Price);   
             writer.Flush();
 
-            Logger.Info($"Book with {book.ISBN} was saved");
+            BookLogger.Info($"Book with {book.ISBN} was saved");
         }
 
         private void SaveBookList()
@@ -258,7 +259,7 @@
                         SaveBook(writer, book);
                     }
 
-                    Logger.Info($"Books list was saved");
+                    BookLogger.Info($"Books list was saved");
                 }
             }
         }

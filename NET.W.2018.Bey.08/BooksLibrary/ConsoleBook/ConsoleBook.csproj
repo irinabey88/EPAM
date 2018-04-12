@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6F515FF7-EB81-4A3C-A1AB-AD2AD84377AC}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CustomLogger</RootNamespace>
-    <AssemblyName>CustomLogger</AssemblyName>
+    <ProjectGuid>{167FFF31-DE43-4CA4-B726-7E6A0D326D71}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleBook</RootNamespace>
+    <AssemblyName>ConsoleBook</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.5.2\lib\net45\NLog.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -48,21 +47,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultLogger.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookFormater\BookFormatter.csproj">
+      <Project>{d5949409-3c57-4471-b7fd-4544c293e296}</Project>
+      <Name>BookFormatter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookStorageTests\BookStorageTests.csproj">
+      <Project>{e7f3fa9d-82b3-402b-acf7-290fc454234a}</Project>
+      <Name>BookStorageTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BuisnessLogic\BuisnessLogic.csproj">
+      <Project>{7d855ae6-71f6-424c-8ab3-b2ea588bf1f9}</Project>
+      <Name>BuisnessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{c932f7a2-08e6-45c1-a5b1-0c04b8ccbb9b}</Project>
       <Name>Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\CustomLogger\CustomLogger.csproj">
+      <Project>{6f515ff7-eb81-4a3c-a1ab-ad2ad84377ac}</Project>
+      <Name>CustomLogger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{f2c9b18b-e560-4371-90b5-8e23a8873e14}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{5d44f607-3d32-4d8c-b9c3-8738a074c17e}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

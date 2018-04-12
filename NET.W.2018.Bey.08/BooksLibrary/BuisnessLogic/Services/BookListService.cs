@@ -19,26 +19,26 @@
         private readonly IBookRepository _bookRepository;
 
         /// <summary>
-        /// Provides an instance of BookListService
+        /// Initialize a new instance of <see cref="BookListService"/>
         /// </summary>
         /// <param name="bookRepository">Books storage</param>
         public BookListService(IBookRepository bookRepository)
         {
             if (bookRepository == null)
             {
-                Logger.Fatal($"{nameof(bookRepository)} is null value");
+                BookLogger.Fatal($"{nameof(bookRepository)} is null value");
                 throw new ArgumentNullException(nameof(bookRepository));
             }
 
             this._bookRepository = bookRepository;
-            Logger.Debug($"{nameof(BookListService)} was created");
+            BookLogger.Debug($"{nameof(BookListService)} was created");
         }
 
         public Book AddBook(Book book)
         {
             if (book == null)
             {
-                Logger.Error($"{nameof(book)} is null value");
+                BookLogger.Error($"{nameof(book)} is null value");
                 throw new ArgumentNullException(nameof(book));
             }
 
@@ -49,7 +49,7 @@
         {
             if (book == null)
             {
-                Logger.Error($"{nameof(book)} is null value");
+                BookLogger.Error($"{nameof(book)} is null value");
                 throw new ArgumentNullException(nameof(book));
             }
 
@@ -60,11 +60,10 @@
         {
             if (filter == null)
             {
-                Logger.Error($"{nameof(filter)} is null value");
+                BookLogger.Error($"{nameof(filter)} is null value");
                 throw new ArgumentNullException(nameof(filter));
             }
            
-
             return this._bookRepository.Find(filter);
         }
 
@@ -72,7 +71,7 @@
         {
             if (comparer == null)
             {
-                Logger.Error($"{nameof(comparer)} is null value");
+                BookLogger.Error($"{nameof(comparer)} is null value");
                 throw new ArgumentNullException(nameof(comparer));
             }
 

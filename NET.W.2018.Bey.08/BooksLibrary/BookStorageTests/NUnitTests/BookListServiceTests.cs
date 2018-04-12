@@ -1,14 +1,15 @@
-﻿using Models.Comparer;
-
-namespace NET.W._2018.Bey._08.Tests.NUnitTests
+﻿namespace BookStorageTests.NUnitTests
 {
     using System;
     using System.IO;
     using System.Linq;
+
     using BuisnesLogic.Services;
     using BuisnessLogic;
+    using CustomLogger;
     using DataAccess.Repositories;
     using Models;
+    using Models.Comparer;
     using NUnit.Framework;
 
     [TestFixture]
@@ -30,6 +31,26 @@ namespace NET.W._2018.Bey._08.Tests.NUnitTests
             _bookService.AddBook(new ScientificBook("978-5-84592087-4", "Albahary", "C# in nutshell", "O'REILlY", 2017, 1040, 250));
             _bookService.AddBook(new ScientificBook("0-321-12742-0", "Fauler", "Architecture of corporate software applications", "Williams", 2006, 541, 90));
             _bookService.AddBook(new ScientificBook("978-1509304066", "Chambers", "ASP .Net Core application development", "Microsot Press", 2017, 464, 70));
+
+            BookLogger.Debug("Tests");
+        }
+
+        [SetUp]
+        public void InitialisationsTestMethod()
+        {
+            BookLogger.Debug("Test run");
+        }
+
+        [TearDown]
+        public void ClearTest()
+        {
+            BookLogger.Debug("Test done");
+        }
+
+        [Test]
+        public void BookListService_GetAllBooks_Test()
+        {
+            Assert.AreEqual(this._bookService.GetAllBooks().Count(), 5);
         }
 
         [Test]
@@ -55,13 +76,7 @@ namespace NET.W._2018.Bey._08.Tests.NUnitTests
         public void BookListService_FindBookByTag_ValidData_Test()
         {
             Assert.AreEqual(1, this._bookService.FindBookByTag(x => x.Author.Equals("Richter")).Count());
-        }
-
-        [Test]
-        public void BookListService_GetAllBooks_Test()
-        {
-            Assert.AreEqual(this._bookService.GetAllBooks().Count(), 5);
-        }
+        }     
 
         [Test]
         public void BookListService_SortBookByTag_Test()

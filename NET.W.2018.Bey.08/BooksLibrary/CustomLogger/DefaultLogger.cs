@@ -1,46 +1,34 @@
 ﻿namespace CustomLogger
 {
-    using System;
-
-    using Serilog;
-    using Serilog.Events;
+    using NLog;
 
     public class DefaultLogger : ILogger
     {
-        public DefaultLogger()
-        {
-            new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.Console(LogEventLevel.Information)
-                .WriteTo.RollingFile(_baseDir + "\\log-{Date}.txt", LogEventLevel.Debug)
-                .CreateLogger();
-        }
-
-        private static string _baseDir = AppDomain.CurrentDomain.BaseDirectory;
-
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
+      
         public void Debug(string message)
         {
-            Log.Debug($"Debug message: {message} ");
+            _logger.Debug($"Debug message: {message} ");         
         }
 
         public void Info(string message)
         {
-            Log.Information($"Info message: {message} ");
+            _logger.Info($"Info message: {message} ");            
         }
 
         public void Warn(string message)
         {
-            Log.Warning($"Warning message: {message} ");
+            _logger.Warn($"Warning message: {message} ");            
         }
 
         public void Error(string message)
         {
-            Log.Error($"Error message: {message} ");
+            _logger.Error($"Error message: {message} ");            
         }
 
         public void Fatal(string message)
         {
-            Log.Information($"Fatal message: {message} ");
-        }
+            _logger.Fatal($"Fatal message: {message} ");            
+        }       
     }
 }

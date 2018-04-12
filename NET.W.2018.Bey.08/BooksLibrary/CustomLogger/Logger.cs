@@ -2,7 +2,7 @@
 {
     using System;
 
-    public static class Logger
+    public static class BookLogger
     {      
         private static ILogger _defaulLogger = new DefaultLogger();
 
@@ -10,7 +10,6 @@
 
         public static void Debug(string message)
         {
-
             if (_customLogger == null)
             {
                 _defaulLogger.Debug(message);
@@ -86,6 +85,10 @@
             {
                 _defaulLogger.Warn($"CustomLogger wasn't setup !");
             }           
+        }
+
+        public static void Close()
+        {
         }
     }
 }
