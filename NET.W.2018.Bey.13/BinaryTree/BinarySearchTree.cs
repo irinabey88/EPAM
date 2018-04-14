@@ -122,9 +122,9 @@ namespace BinaryTree
                                         stack.Push(parent);
                                         parent = parent.Right;
                                     }
-                                }
 
-                                wasInRight = true;
+                                    wasInRight = true;
+                                }                               
                             }
                             else
                             {
@@ -238,7 +238,7 @@ namespace BinaryTree
 
         private void Insert(T data, BinarySearchTree<T> node, BinarySearchTree<T> parent)
         {
-            if (this._comparer.Compare(node.Data, default(T)) == 0)
+            if ((typeof(T).IsValueType && node.Data.Equals(default(T))) || (!typeof(T).IsValueType && node.Data == null))
             {
                 node.Data = data;
                 node.Parent = parent;
