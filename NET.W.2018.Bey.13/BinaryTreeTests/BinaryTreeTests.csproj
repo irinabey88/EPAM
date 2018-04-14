@@ -56,8 +56,11 @@
     <Compile Include="Comparer\Int\ComparerIntDefault.cs" />
     <Compile Include="Comparer\StringComparer\ComparerStringDefault.cs" />
     <Compile Include="Comparer\StringComparer\ComparerStringLength.cs" />
+    <Compile Include="Comparer\Struct\ComparerStruct.cs" />
+    <Compile Include="CustomObject\Point.cs" />
     <Compile Include="NUnit\BinaryTreeIntTests.cs" />
     <Compile Include="NUnit\BinaryTreeStringTests.cs" />
+    <Compile Include="NUnit\BinaryTreeStructTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
