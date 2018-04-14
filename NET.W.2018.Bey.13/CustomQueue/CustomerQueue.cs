@@ -14,25 +14,9 @@ namespace CustomQueue
 
         private const int INCREASE_VALUE = 2;
 
-        private const int HEAD = 0;
+        private const int HEAD = 0;                    
 
-        public CustomQueue()
-        {
-            this._container = new T[DEFAULT_SIZE];
-            this._capacity = DEFAULT_SIZE;
-            this._count = 0;
-            this._end = 0;
-        }
-
-        public int Count => this._count;
-
-        public int Capacity => this._capacity;
-
-        public object SyncRoot { get; }
-
-        public bool IsSynchronized { get; }
-
-        private T [] _container ;
+        private T[] _container;
 
         private int _count;
 
@@ -42,7 +26,22 @@ namespace CustomQueue
 
         private int _capacity;
 
-            
+        public CustomQueue()
+        {
+            this._container = new T[DEFAULT_SIZE];
+            this._capacity = DEFAULT_SIZE;
+            this._count = 0;
+            this._end = 0;
+        }
+
+        public object SyncRoot { get; }
+
+        public bool IsSynchronized { get; }
+
+        public int Count => this._count;
+
+        public int Capacity => this._capacity;
+
         public IEnumerator GetEnumerator()
         {
             return this._container.GetEnumerator();
@@ -137,7 +136,7 @@ namespace CustomQueue
             var deletedElement = this._container[_head];
 
             T[] changedQueue = new T[this._capacity];
-            Array.Copy(this._container, 1,changedQueue, 0, this._capacity - 1);
+            Array.Copy(this._container, 1, changedQueue, 0, this._capacity - 1);
             this._container = changedQueue;
             this._count--;
 
@@ -188,7 +187,7 @@ namespace CustomQueue
         public T[] ToArray()
         {
             T[] copyArray = new T[this._count];
-            Array.Copy(this._container, copyArray, this._count );
+            Array.Copy(this._container, copyArray, this._count);
 
             return copyArray;
         }

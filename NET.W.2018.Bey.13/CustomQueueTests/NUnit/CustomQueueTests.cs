@@ -31,7 +31,6 @@ namespace CustomQueueTests.NUnit
             Assert.AreEqual(customQueue.Count, 5);
         }
 
-
         [Test]
         public void CustomQueue_Peek_Int_Test()
         {
@@ -60,8 +59,7 @@ namespace CustomQueueTests.NUnit
             customQueue.Enqueue(7);
 
             Assert.AreEqual(customQueue.Deque(), 1);
-            Assert.AreEqual(customQueue.Count, 6);
-            
+            Assert.AreEqual(customQueue.Count, 6);            
         }
 
         [Test]
@@ -79,7 +77,6 @@ namespace CustomQueueTests.NUnit
 
             Assert.IsTrue(customQueue.Contains(4));
             Assert.IsFalse(customQueue.Contains(18));
-
         }
 
         [Test]
@@ -114,7 +111,7 @@ namespace CustomQueueTests.NUnit
         [Test]
         public void CustomQueue_CopyTo_Int_Test()
         {
-            var array = new[] {7, 7, 7, 7, 7, 7, 7, 7};
+            var array = new[] { 7, 7, 7, 7, 7, 7, 7, 7 };
             var resultArray = new[] { 7, 7, 1, 2, 3, 4, 7, 7 };
             var customQueue = new CustomQueue<int>();
 
@@ -186,7 +183,7 @@ namespace CustomQueueTests.NUnit
         [Test]
         public void CustomQueue_ToArray_Int_Test()
         {
-            var resultArray = new[] {1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7};
+            var resultArray = new[] { 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7 };
             var customQueue = new CustomQueue<int>();
 
             customQueue.Enqueue(1);
@@ -206,6 +203,5 @@ namespace CustomQueueTests.NUnit
 
             CollectionAssert.AreEqual(customQueue.ToArray(), resultArray);
         }
-
     }
 }
