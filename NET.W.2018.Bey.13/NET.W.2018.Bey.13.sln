@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\Bi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeTests", "BinaryTreeTests\BinaryTreeTests.csproj", "{89905CE8-E8AD-471D-9D41-553A4CD1BEE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix", "Matrix\Matrix.csproj", "{0C9B1759-F1D1-4264-8642-10839A9AD4E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTests", "MatrixTests\MatrixTests.csproj", "{BDF96F04-1F93-47D6-8F19-A317B7EFECCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +42,14 @@ Global
 		{89905CE8-E8AD-471D-9D41-553A4CD1BEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89905CE8-E8AD-471D-9D41-553A4CD1BEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89905CE8-E8AD-471D-9D41-553A4CD1BEE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C9B1759-F1D1-4264-8642-10839A9AD4E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C9B1759-F1D1-4264-8642-10839A9AD4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C9B1759-F1D1-4264-8642-10839A9AD4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C9B1759-F1D1-4264-8642-10839A9AD4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF96F04-1F93-47D6-8F19-A317B7EFECCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF96F04-1F93-47D6-8F19-A317B7EFECCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF96F04-1F93-47D6-8F19-A317B7EFECCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF96F04-1F93-47D6-8F19-A317B7EFECCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
