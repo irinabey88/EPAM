@@ -9,6 +9,15 @@
     /// </summary>
     public class BookFormatter : IFormatProvider, ICustomFormatter
     {
+        private IFormatProvider root;
+
+        public BookFormatter() : this(CultureInfo.CurrentCulture) { }
+
+        public BookFormatter(IFormatProvider provider)
+        {
+            this.root = provider;
+        }
+
         public object GetFormat(Type formatType)
         {
             if (formatType == typeof(ICustomFormatter))
@@ -37,10 +46,14 @@
                 throw new InvalidCastException($"Input argument {nameof(arg)} isn't a book");
             }
 
-            switch (format.ToUpper())
+            switch (format.ToUpperInvariant())
             {
-                case "IANP":
-                    return $"{book.ISBN} {book.Author} {book.Name} {string.Format(book.Price.ToString(CultureInfo.CurrentCulture))}";
+                case "G":
+                    return book.ToString();
+                case "IAN":
+                    return $"/{book.ISBN} /{book.Author} /{book.Name}";
+                case "I":
+                    return $"/{book.ISBN}";
                 default:
                     throw new FormatException($"Incorrect string format {format}");
             }

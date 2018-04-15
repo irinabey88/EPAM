@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="NUnitTests\BookListServiceTests.cs" />
     <Compile Include="NUnitTests\BookToStringTests.cs" />
+    <Compile Include="NUnitTests\BookFormatterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
