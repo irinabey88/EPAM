@@ -18,13 +18,14 @@ namespace BinaryTreeTests.NUnit
             var book4 = new Book { Author = "gromov", ISBN = "4562", Name = "book4", Price = 789, Year = 2013 };
             var book5 = new Book { Author = "samoilov", ISBN = "666", Name = "book5", Price = 234, Year = 2014 };
 
-            Book[] result = { book1, book2, book3, book4, book5 };
+            Book[] result = { book1, book3, book4, book5, book2 };
 
-            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new ComparerBookDefault(), book1);
-            binarySearchTree.Insert(book2);
-            binarySearchTree.Insert(book3);
-            binarySearchTree.Insert(book4);
-            binarySearchTree.Insert(book5);
+            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new ComparerBookDefault());
+            binarySearchTree.Add(book1);
+            binarySearchTree.Add(book2);
+            binarySearchTree.Add(book3);
+            binarySearchTree.Add(book4);
+            binarySearchTree.Add(book5);
 
             Book[] array = new Book[5];
             var i = 0;
@@ -46,13 +47,14 @@ namespace BinaryTreeTests.NUnit
             var book4 = new Book { Author = "gromov", ISBN = "4562", Name = "book4", Price = 789, Year = 2013 };
             var book5 = new Book { Author = "samoilov", ISBN = "666", Name = "book5", Price = 234, Year = 2014 };
 
-            Book[] result = { book1, book2, book3, book4, book5 };
+            Book[] result = { book1, book4, book5, book2, book3 };
 
-            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new CompareBookCustom(), book1);
-            binarySearchTree.Insert(book2);
-            binarySearchTree.Insert(book3);
-            binarySearchTree.Insert(book4);
-            binarySearchTree.Insert(book5);
+            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new CompareBookCustom());
+            binarySearchTree.Add(book1);
+            binarySearchTree.Add(book2);
+            binarySearchTree.Add(book3);
+            binarySearchTree.Add(book4);
+            binarySearchTree.Add(book5);
 
             Book[] array = new Book[5];
             var i = 0;
@@ -74,13 +76,14 @@ namespace BinaryTreeTests.NUnit
             var book4 = new Book { Author = "gromov", ISBN = "4562", Name = "book4", Price = 789, Year = 2013 };
             var book5 = new Book { Author = "samoilov", ISBN = "666", Name = "book5", Price = 234, Year = 2014 };
 
-            Book[] result = { book2, book1, book4, book5, book3 };
+            Book[] result = { book5, book4, book3, book2, book1 };
 
-            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new ComparerBookDefault(), book1);
-            binarySearchTree.Insert(book2);
-            binarySearchTree.Insert(book3);
-            binarySearchTree.Insert(book4);
-            binarySearchTree.Insert(book5);
+            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new ComparerBookDefault());
+            binarySearchTree.Add(book1);
+            binarySearchTree.Add(book2);
+            binarySearchTree.Add(book3);
+            binarySearchTree.Add(book4);
+            binarySearchTree.Add(book5);
 
             Book[] array = new Book[5];
             var i = 0;
@@ -102,13 +105,14 @@ namespace BinaryTreeTests.NUnit
             var book4 = new Book { Author = "gromov", ISBN = "4562", Name = "book4", Price = 789, Year = 2013 };
             var book5 = new Book { Author = "samoilov", ISBN = "666", Name = "book5", Price = 234, Year = 2014 };
 
-            Book[] result = { book1, book2, book3, book4, book5 };
+            Book[] result = {  book3, book5, book4, book1, book2 };
 
-            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new ComparerBookDefault(), book1);
-            binarySearchTree.Insert(book2);
-            binarySearchTree.Insert(book3);
-            binarySearchTree.Insert(book4);
-            binarySearchTree.Insert(book5);
+            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new ComparerBookDefault());
+            binarySearchTree.Add(book1);
+            binarySearchTree.Add(book2);
+            binarySearchTree.Add(book3);
+            binarySearchTree.Add(book4);
+            binarySearchTree.Add(book5);
 
             Book[] array = new Book[5];
             var i = 0;
@@ -130,13 +134,14 @@ namespace BinaryTreeTests.NUnit
             var book4 = new Book { Author = "gromov", ISBN = "4562", Name = "book4", Price = 789, Year = 2013 };
             var book5 = new Book { Author = "samoilov", ISBN = "666", Name = "book5", Price = 234, Year = 2014 };
 
-            Book[] result = { book1, book2, book4, book3, book5 };
+            Book[] result = {  book5, book4, book1, book3, book2 };
 
-            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new CompareBookCustom(), book1);
-            binarySearchTree.Insert(book2);
-            binarySearchTree.Insert(book3);
-            binarySearchTree.Insert(book4);
-            binarySearchTree.Insert(book5);
+            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new CompareBookCustom());
+            binarySearchTree.Add(book1);
+            binarySearchTree.Add(book2);
+            binarySearchTree.Add(book3);
+            binarySearchTree.Add(book4);
+            binarySearchTree.Add(book5);
 
             Book[] array = new Book[5];
             var i = 0;

@@ -11,13 +11,14 @@ namespace BinaryTreeTests.NUnit
         [Test]
         public void BinaryTree_Create_CustomStringComparer_Preoder_Test()
         {
-            string[] result = { "adcd", "aaaaa", "dfge", "rt", "rtyeuyyu" };
+            string[] result = { "adcd", "dfge", "rt", "rtyeuyyu", "aaaaa" };
 
-            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault(), "adcd");
-            binarySearchTree.Insert("dfge");
-            binarySearchTree.Insert("aaaaa");
-            binarySearchTree.Insert("rt");
-            binarySearchTree.Insert("rtyeuyyu");
+            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault());
+            binarySearchTree.Add("adcd");
+            binarySearchTree.Add("dfge");
+            binarySearchTree.Add("aaaaa");
+            binarySearchTree.Add("rt");
+            binarySearchTree.Add("rtyeuyyu");
 
             string[] array = new string[5];
             var i = 0;
@@ -33,13 +34,14 @@ namespace BinaryTreeTests.NUnit
         [Test]
         public void BinaryTree_Create_DefaultStringComparer_Preoder_Test()
         {
-            string[] result = { "adcd", "aaaaa", "dfge", "rt", "rtyeuyyu" };
+            string[] result = { "adcd", "dfge", "rt", "rtyeuyyu", "aaaaa" };
 
-            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault(), "adcd");
-            binarySearchTree.Insert("dfge");
-            binarySearchTree.Insert("aaaaa");
-            binarySearchTree.Insert("rt");
-            binarySearchTree.Insert("rtyeuyyu");
+            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault());
+            binarySearchTree.Add("adcd");
+            binarySearchTree.Add("dfge");
+            binarySearchTree.Add("aaaaa");
+            binarySearchTree.Add("rt");
+            binarySearchTree.Add("rtyeuyyu");
 
             string[] array = new string[5];
             var i = 0;
@@ -55,13 +57,14 @@ namespace BinaryTreeTests.NUnit
         [Test]
         public void BinaryTree_Create_DefaultStringComparer_Postoder_Test()
         {
-            string[] result = { "aaaaa", "adcd", "rtyeuyyu", "rt", "dfge" };
+            string[] result = {  "rtyeuyyu", "rt", "dfge", "aaaaa", "adcd", };
 
-            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault(), "adcd");
-            binarySearchTree.Insert("dfge");
-            binarySearchTree.Insert("aaaaa");
-            binarySearchTree.Insert("rt");
-            binarySearchTree.Insert("rtyeuyyu");
+            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault());
+            binarySearchTree.Add("adcd");
+            binarySearchTree.Add("dfge");
+            binarySearchTree.Add("aaaaa");
+            binarySearchTree.Add("rt");
+            binarySearchTree.Add("rtyeuyyu");
 
             string[] array = new string[5];
             var i = 0;
@@ -77,13 +80,14 @@ namespace BinaryTreeTests.NUnit
         [Test]
         public void BinaryTree_Create_CustomStringComparer_Postoder_Test()
         {
-            string[] result = { "rt", "adcd", "rtyeuyyu", "aaaaa", "dfge" };
+            string[] result = { "rtyeuyyu", "aaaaa", "dfge", "rt", "adcd", };
 
-            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringLength(), "adcd");
-            binarySearchTree.Insert("dfge");
-            binarySearchTree.Insert("aaaaa");
-            binarySearchTree.Insert("rt");
-            binarySearchTree.Insert("rtyeuyyu");
+            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringLength());
+            binarySearchTree.Add("adcd");
+            binarySearchTree.Add("dfge");
+            binarySearchTree.Add("aaaaa");
+            binarySearchTree.Add("rt");
+            binarySearchTree.Add("rtyeuyyu");
 
             string[] array = new string[5];
             var i = 0;
@@ -99,13 +103,14 @@ namespace BinaryTreeTests.NUnit
         [Test]
         public void BinaryTree_Create_DefaultStringComparer_Inorder_Test()
         {
-            string[] result = { "adcd", "aaaaa", "dfge", "rt", "rtyeuyyu" };
+            string[] result = { "rtyeuyyu", "rt", "dfge", "adcd", "aaaaa" };
 
-            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault(), "adcd");
-            binarySearchTree.Insert("dfge");
-            binarySearchTree.Insert("aaaaa");
-            binarySearchTree.Insert("rt");
-            binarySearchTree.Insert("rtyeuyyu");
+            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault());
+            binarySearchTree.Add("adcd");
+            binarySearchTree.Add("dfge");
+            binarySearchTree.Add("aaaaa");
+            binarySearchTree.Add("rt");
+            binarySearchTree.Add("rtyeuyyu");
 
             string[] array = new string[5];
             var i = 0;
@@ -121,13 +126,14 @@ namespace BinaryTreeTests.NUnit
         [Test]
         public void BinaryTree_Create_CustomStringComparer_Inorder_Test()
         {
-            string[] result = { "adcd", "rt", "dfge", "aaaaa", "rtyeuyyu" };
+            string[] result = {  "rtyeuyyu", "aaaaa", "dfge", "adcd", "rt" };
 
-            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringLength(), "adcd");
-            binarySearchTree.Insert("dfge");
-            binarySearchTree.Insert("aaaaa");
-            binarySearchTree.Insert("rt");
-            binarySearchTree.Insert("rtyeuyyu");
+            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringLength());
+            binarySearchTree.Add("adcd");
+            binarySearchTree.Add("dfge");
+            binarySearchTree.Add("aaaaa");
+            binarySearchTree.Add("rt");
+            binarySearchTree.Add("rtyeuyyu");
 
             string[] array = new string[5];
             var i = 0;
