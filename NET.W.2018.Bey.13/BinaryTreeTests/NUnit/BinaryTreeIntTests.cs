@@ -35,7 +35,7 @@ namespace BinaryTreeTests
         {
             int[] result = { 1, 3, 8, 10, -5 };
 
-            BinarySearchTree<int> binarySearchTree = new BinarySearchTree<int>(new ComparerIntDefault());
+            BinarySearchTree<int> binarySearchTree = new BinarySearchTree<int>(null);
             binarySearchTree.Add(1);
             binarySearchTree.Add(3);
             binarySearchTree.Add(-5);
@@ -58,7 +58,7 @@ namespace BinaryTreeTests
         {
             int[] result = { 10, 8, 3, -5, 1 };
 
-            BinarySearchTree<int> binarySearchTree = new BinarySearchTree<int>(new ComparerIntDefault());
+            BinarySearchTree<int> binarySearchTree = new BinarySearchTree<int>(null);
             binarySearchTree.Add(1);
             binarySearchTree.Add(3);
             binarySearchTree.Add(-5);
@@ -104,7 +104,7 @@ namespace BinaryTreeTests
         {
             int[] result = { 10, 8, 3, 1, -5 };
 
-            BinarySearchTree<int> binarySearchTree = new BinarySearchTree<int>(new ComparerIntDefault());
+            BinarySearchTree<int> binarySearchTree = new BinarySearchTree<int>(null);
             binarySearchTree.Add(1);
             binarySearchTree.Add(3);
             binarySearchTree.Add(-5);

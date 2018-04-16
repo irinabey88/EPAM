@@ -20,7 +20,7 @@ namespace BinaryTreeTests.NUnit
 
             Book[] result = { book1, book3, book4, book5, book2 };
 
-            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new ComparerBookDefault());
+            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(null);
             binarySearchTree.Add(book1);
             binarySearchTree.Add(book2);
             binarySearchTree.Add(book3);
@@ -78,7 +78,7 @@ namespace BinaryTreeTests.NUnit
 
             Book[] result = { book5, book4, book3, book2, book1 };
 
-            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new ComparerBookDefault());
+            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(null);
             binarySearchTree.Add(book1);
             binarySearchTree.Add(book2);
             binarySearchTree.Add(book3);
@@ -107,7 +107,7 @@ namespace BinaryTreeTests.NUnit
 
             Book[] result = { book3, book5, book4, book1, book2 };
 
-            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new ComparerBookDefault());
+            BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(null);
             binarySearchTree.Add(book1);
             binarySearchTree.Add(book2);
             binarySearchTree.Add(book3);

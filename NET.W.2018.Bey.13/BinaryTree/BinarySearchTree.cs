@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using BinaryTree.Interfaces;
 
 namespace BinaryTree
 {
@@ -13,7 +13,7 @@ namespace BinaryTree
         /// <summary>
         /// Comparer 
         /// </summary>
-        private IBinaryComparer<T> _comparer;
+        private Comparison<T> _comparison;
 
         /// <summary>
         /// Tree root node
@@ -23,11 +23,19 @@ namespace BinaryTree
         /// <summary>
         /// Provides instance of binary tree and binary tree node
         /// </summary>
-        /// <param name="comparer"></param>
-        public BinarySearchTree(IBinaryComparer<T> comparer)
+        /// <param name="comparison"></param>
+        public BinarySearchTree(IComparer<T> comparison)
         {
             this._root = null;
-            this._comparer = comparer;
+
+            if (comparison == null)
+            {
+                this._comparison = Comparer<T>.Default.Compare;
+            }
+            else
+            {
+                this._comparison = comparison.Compare;
+            }            
         }
 
         /// <summary>
@@ -80,12 +88,12 @@ namespace BinaryTree
         /// <value>Null - otherwise</value></returns>
         public Node<T> Find(T data)
         {
-            if (this._comparer.Compare(this._root.Data, data) == 0)
+            if (this._comparison(this._root.Data, data) == 0)
             {
                 return this._root;
             }
 
-            if (this._comparer.Compare(this._root.Data, data) > 0)
+            if (this._comparison(this._root.Data, data) > 0)
             {
                 return Find(data, this._root.Left);
             }
@@ -111,7 +119,7 @@ namespace BinaryTree
                 return new Node<T>(data);
             }
 
-            if (this._comparer.Compare(node.Data, data) > 0)
+            if (this._comparison(node.Data, data) > 0)
             {
                 node.Right = AddNode(data, node.Right);
             }
@@ -137,12 +145,12 @@ namespace BinaryTree
                 return null;
             }
 
-            if (this._comparer.Compare(node.Data, data) == 0)
+            if (this._comparison(node.Data, data) == 0)
             {
                 return node;
             }
 
-            if (this._comparer.Compare(this._root.Data, data) > 0)
+            if (this._comparison(this._root.Data, data) > 0)
             {
                 return Find(data, node.Left);
             }

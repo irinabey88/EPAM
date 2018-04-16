@@ -53,10 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comparer\Class\CompareBookCustom.cs" />
-    <Compile Include="Comparer\Class\ComparerBookDefault.cs" />
     <Compile Include="Comparer\Int\ComparerIntCustom.cs" />
-    <Compile Include="Comparer\Int\ComparerIntDefault.cs" />
-    <Compile Include="Comparer\StringComparer\ComparerStringDefault.cs" />
     <Compile Include="Comparer\StringComparer\ComparerStringLength.cs" />
     <Compile Include="Comparer\Struct\ComparerStruct.cs" />
     <Compile Include="CustomObject\Book.cs" />

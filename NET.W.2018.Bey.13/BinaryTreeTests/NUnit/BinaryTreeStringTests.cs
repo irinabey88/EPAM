@@ -13,7 +13,7 @@ namespace BinaryTreeTests.NUnit
         {
             string[] result = { "adcd", "dfge", "rt", "rtyeuyyu", "aaaaa" };
 
-            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault());
+            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(null);
             binarySearchTree.Add("adcd");
             binarySearchTree.Add("dfge");
             binarySearchTree.Add("aaaaa");
@@ -36,7 +36,7 @@ namespace BinaryTreeTests.NUnit
         {
             string[] result = { "adcd", "dfge", "rt", "rtyeuyyu", "aaaaa" };
 
-            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault());
+            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(null);
             binarySearchTree.Add("adcd");
             binarySearchTree.Add("dfge");
             binarySearchTree.Add("aaaaa");
@@ -59,7 +59,7 @@ namespace BinaryTreeTests.NUnit
         {
             string[] result = { "rtyeuyyu", "rt", "dfge", "aaaaa", "adcd" };
 
-            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault());
+            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(null);
             binarySearchTree.Add("adcd");
             binarySearchTree.Add("dfge");
             binarySearchTree.Add("aaaaa");
@@ -105,7 +105,7 @@ namespace BinaryTreeTests.NUnit
         {
             string[] result = { "rtyeuyyu", "rt", "dfge", "adcd", "aaaaa" };
 
-            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault());
+            BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(null);
             binarySearchTree.Add("adcd");
             binarySearchTree.Add("dfge");
             binarySearchTree.Add("aaaaa");

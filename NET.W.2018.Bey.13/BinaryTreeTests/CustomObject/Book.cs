@@ -1,5 +1,4 @@
 ﻿using System;
-using BinaryTree.Interfaces;
 
 namespace BinaryTreeTests.CustomObject
 {

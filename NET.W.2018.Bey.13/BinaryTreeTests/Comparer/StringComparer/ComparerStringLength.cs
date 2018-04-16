@@ -1,8 +1,8 @@
-﻿using BinaryTree.Interfaces;
+﻿using System.Collections.Generic;
 
 namespace BinaryTreeTests.Comparer.StringComparer
 {
-    public class ComparerStringLength : IBinaryComparer<string>
+    public class ComparerStringLength : IComparer<string>
     {
         public int Compare(string x, string y)
         {
