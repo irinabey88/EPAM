@@ -9,7 +9,7 @@
         {
             Clock clock = new Clock(13);
             ClockHandler handler = new ClockHandler();
-            clock.Tick += handler.ShowMessage;
+            clock.ClockTick += handler.ShowMessage;
 
             clock.Start();
 

@@ -5,11 +5,11 @@
     /// <summary>
     /// Class provides data for event
     /// </summary>
-    public class ClockEventArgs : EventArgs
+    public class ClocTickEventArgs : EventArgs
     {
         private int _milliMillisecondsToWait;
 
-        public ClockEventArgs(int milliMilliseconds)
+        public ClocTickEventArgs(int milliMilliseconds)
         {
             this._milliMillisecondsToWait = milliMilliseconds;
         }

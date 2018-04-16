@@ -42,7 +42,7 @@ namespace Matrix
             this._matrix = matrix;
         }
 
-        public event EventHandler<ElementEventArgs<T>> ElementChaned;
+        public event EventHandler<ElementChanedEventArgs<T>> ElementChaned;
 
         public int Size
         {
@@ -69,20 +69,20 @@ namespace Matrix
             set
             {
                 CheckIndexes(i, j);
-                OnElementChanged(new ElementEventArgs<T>(i, j, this._matrix[i,j], value));
+                OnElementChanged(new ElementChanedEventArgs<T>(i, j, this._matrix[i,j], value));
 
                 this._matrix[i, j] = value;
             }
         }
 
-        protected void OnElementChanged(ElementEventArgs<T> eventArgs)
+        protected void OnElementChanged(ElementChanedEventArgs<T> chanedEventArgs)
         {
-            if (eventArgs == null)
+            if (chanedEventArgs == null)
             {
-                throw new ArgumentNullException(nameof(eventArgs));
+                throw new ArgumentNullException(nameof(chanedEventArgs));
             }
 
-            ElementChaned?.Invoke(this, eventArgs);
+            ElementChaned?.Invoke(this, chanedEventArgs);
         }
 
         protected virtual void CheckArray(T[,] inArray)

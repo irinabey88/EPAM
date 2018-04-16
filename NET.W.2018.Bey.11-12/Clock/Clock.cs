@@ -1,4 +1,6 @@
-﻿namespace ClockLibrary
+﻿using System;
+
+namespace ClockLibrary
 {
     using System.Threading;
 
@@ -18,11 +20,9 @@
         public Clock(int seconds)
         {
             _timeToWait = seconds * MILISECONDS;
-        }
+        }        
 
-        public delegate void ClockEventHandler(object sender, ClockEventArgs e);
-
-        public event ClockEventHandler Tick;
+        public event EventHandler<ClocTickEventArgs> ClockTick;
 
         /// <summary>
         /// Method starting timer
@@ -32,7 +32,7 @@
             Thread thread = new Thread(() =>
             {
                 Thread.Sleep(_timeToWait);               
-                OnTick(this, new ClockEventArgs(_timeToWait));
+                OnClockTick(this, new ClocTickEventArgs(_timeToWait));
             });
 
             thread.Start();
@@ -43,9 +43,9 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected virtual void OnTick(object sender, ClockEventArgs e)
+        protected virtual void OnClockTick(object sender, ClocTickEventArgs e)
         {
-            Tick?.Invoke(sender, e);
+            ClockTick?.Invoke(sender, e);
         }
     }
 }

@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClockEventArgs.cs" />
+    <Compile Include="ClocTickEventArgs.cs" />
     <Compile Include="Clock.cs" />
     <Compile Include="ClockHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

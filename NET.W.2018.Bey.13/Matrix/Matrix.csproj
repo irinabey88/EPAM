@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ElementEventArgs.cs" />
+    <Compile Include="ElementChanedEventArgs.cs" />
     <Compile Include="Extentions\MatrixExttention.cs" />
     <Compile Include="Interfaces\IMatrix.cs" />
     <Compile Include="Matrixes\DiagonalMatrix.cs" />

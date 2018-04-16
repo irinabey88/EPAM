@@ -2,13 +2,13 @@
 
 namespace Matrix
 {
-    public class ElementEventArgs<T> : EventArgs
+    public class ElementChanedEventArgs<T> : EventArgs
     {
         private int _i;
 
         private int _j;
 
-        public ElementEventArgs(int i, int j, T oldValue, T newValue)
+        public ElementChanedEventArgs(int i, int j, T oldValue, T newValue)
         {
             this.I = i;
             this.J = j;

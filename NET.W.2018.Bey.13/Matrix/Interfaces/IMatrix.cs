@@ -6,6 +6,6 @@ namespace Matrix.Interfaces
     {
         int Size { get; }       
 
-        event EventHandler<ElementEventArgs<T>> ElementChaned;  
+        event EventHandler<ElementChanedEventArgs<T>> ElementChaned;  
     }
 }
