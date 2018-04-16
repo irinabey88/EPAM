@@ -33,7 +33,7 @@ namespace BinaryTreeTests
         [Test]
         public void BinaryTree_Create_DefaultIntComparer_Preoder_Test()
         {
-            int[] result = { 1, 3, 8, 10, - 5 };
+            int[] result = { 1, 3, 8, 10, -5 };
 
             BinarySearchTree<int> binarySearchTree = new BinarySearchTree<int>(new ComparerIntDefault());
             binarySearchTree.Add(1);

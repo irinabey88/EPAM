@@ -105,7 +105,7 @@ namespace BinaryTreeTests.NUnit
             var book4 = new Book { Author = "gromov", ISBN = "4562", Name = "book4", Price = 789, Year = 2013 };
             var book5 = new Book { Author = "samoilov", ISBN = "666", Name = "book5", Price = 234, Year = 2014 };
 
-            Book[] result = {  book3, book5, book4, book1, book2 };
+            Book[] result = { book3, book5, book4, book1, book2 };
 
             BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new ComparerBookDefault());
             binarySearchTree.Add(book1);
@@ -134,7 +134,7 @@ namespace BinaryTreeTests.NUnit
             var book4 = new Book { Author = "gromov", ISBN = "4562", Name = "book4", Price = 789, Year = 2013 };
             var book5 = new Book { Author = "samoilov", ISBN = "666", Name = "book5", Price = 234, Year = 2014 };
 
-            Book[] result = {  book5, book4, book1, book3, book2 };
+            Book[] result = { book5, book4, book1, book3, book2 };
 
             BinarySearchTree<Book> binarySearchTree = new BinarySearchTree<Book>(new CompareBookCustom());
             binarySearchTree.Add(book1);

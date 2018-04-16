@@ -57,7 +57,7 @@ namespace BinaryTreeTests.NUnit
         [Test]
         public void BinaryTree_Create_DefaultStringComparer_Postoder_Test()
         {
-            string[] result = {  "rtyeuyyu", "rt", "dfge", "aaaaa", "adcd", };
+            string[] result = { "rtyeuyyu", "rt", "dfge", "aaaaa", "adcd" };
 
             BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringDefault());
             binarySearchTree.Add("adcd");
@@ -126,7 +126,7 @@ namespace BinaryTreeTests.NUnit
         [Test]
         public void BinaryTree_Create_CustomStringComparer_Inorder_Test()
         {
-            string[] result = {  "rtyeuyyu", "aaaaa", "dfge", "adcd", "rt" };
+            string[] result = { "rtyeuyyu", "aaaaa", "dfge", "adcd", "rt" };
 
             BinarySearchTree<string> binarySearchTree = new BinarySearchTree<string>(new ComparerStringLength());
             binarySearchTree.Add("adcd");

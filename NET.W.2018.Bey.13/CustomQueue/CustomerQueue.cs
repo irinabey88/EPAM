@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace CustomQueue
 {
@@ -38,10 +37,20 @@ namespace CustomQueue
 
         public bool IsSynchronized { get; }
 
+        /// <summary>
+        /// Count elements in queue
+        /// </summary>
         public int Count => this._count;
 
+        /// <summary>
+        /// Capacity of custom queue
+        /// </summary>
         public int Capacity => this._capacity;
 
+        /// <summary>
+        /// Get enumerator
+        /// </summary>
+        /// <returns>Enumerator</returns>
         public IEnumerator GetEnumerator()
         {
             return this._container.GetEnumerator();

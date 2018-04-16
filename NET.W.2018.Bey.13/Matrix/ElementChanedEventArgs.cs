@@ -25,6 +25,8 @@ namespace Matrix
                 {
                     throw new ArgumentOutOfRangeException($"Index i can't be negative");
                 }
+
+                this._i = value;
             }
         }
 
@@ -37,6 +39,8 @@ namespace Matrix
                 {
                     throw new ArgumentOutOfRangeException($"Index i can't be negative");
                 }
+
+                this._j = value;
             }
         }
 

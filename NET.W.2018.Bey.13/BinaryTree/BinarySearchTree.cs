@@ -63,6 +63,10 @@ namespace BinaryTree
             this._root = AddNode(data, this._root);
         }
 
+        /// <summary>
+        /// Create new binary node in binary tree
+        /// </summary>
+        /// <param name="data"></param>
         void IBinaryTree<T>.Add(T data)
         {
             Add(data);
@@ -87,7 +91,12 @@ namespace BinaryTree
             }
 
             return Find(data, this._root.Right);
-        }   
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
 
         /// <summary>
         /// Add node to binary tree
@@ -141,7 +150,6 @@ namespace BinaryTree
             return Find(data, node.Right);
         }
 
-
         private IEnumerable<T> PreOrderSequence(Node<T> node)
         {
             yield return node.Data;
@@ -159,8 +167,7 @@ namespace BinaryTree
                 foreach (var n in PreOrderSequence(node.Right))
                 {
                     yield return n;
-                }
-                
+                }                
             }
         }
 
@@ -171,8 +178,7 @@ namespace BinaryTree
                 foreach (var n in PostOderSequence(node.Left))
                 {
                     yield return n;
-                }
-                
+                }                
             }
 
             if (node.Right != null)
@@ -180,8 +186,7 @@ namespace BinaryTree
                 foreach (var n in PostOderSequence(node.Right))
                 {
                     yield return n;
-                }
-                
+                }                
             }
 
             yield return node.Data;
@@ -194,8 +199,7 @@ namespace BinaryTree
                 foreach (var n in InOderSequence(node.Left))
                 {
                     yield return n;
-                }
-                
+                }                
             }
 
             yield return node.Data;
@@ -205,15 +209,8 @@ namespace BinaryTree
                 foreach (var n in InOderSequence(node.Right))
                 {
                     yield return n;
-                }
-                
+                }                
             }
-        }
-      
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        }           
     }
 }

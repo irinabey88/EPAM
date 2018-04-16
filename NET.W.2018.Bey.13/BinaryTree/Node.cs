@@ -1,7 +1,15 @@
 ﻿namespace BinaryTree
 {
+    /// <summary>
+    /// Provides class node for <see cref="BinarySearchTree{T}"/>
+    /// </summary>
+    /// <typeparam name="T">Object type</typeparam>
     public class Node<T>
     {
+        /// <summary>
+        /// Provides instance of <see cref="Node{T}"/>
+        /// </summary>
+        /// <param name="data"></param>
         public Node(T data)
         {
             this.Data = data;

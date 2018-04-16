@@ -29,7 +29,7 @@ namespace MatrixTests.NUnitTests
 
             var matrix1 = new SquareMatrix<int>(matrixIn1);
             var matrix2 = new SquareMatrix<int>(matrixIn2);
-            Func<int, int, int > addFunc = (x1, x2) => x1 + x2;
+            Func<int, int, int> addFunc = (x1, x2) => x1 + x2;
 
             var sumMatrix = matrix1.Add(matrix2, addFunc);
 
@@ -37,7 +37,7 @@ namespace MatrixTests.NUnitTests
             {
                 for (int j = 0; j < sumMatrix.Size; j++)
                 {
-                    Assert.AreEqual(sumMatrix[i,j], matrix1[i,j]);
+                    Assert.AreEqual(sumMatrix[i, j], matrix1[i, j]);
                 }
             }
         }
@@ -63,8 +63,8 @@ namespace MatrixTests.NUnitTests
 
             int[,] result =
             {
-                {  2,  6, 10, 14 },
-                {  6, 10, 14, 18 },
+                { 2, 6, 10, 14 },
+                { 6, 10, 14, 18 },
                 { 10, 14, 18, 22 },
                 { 14, 18, 22, 26 }
             };

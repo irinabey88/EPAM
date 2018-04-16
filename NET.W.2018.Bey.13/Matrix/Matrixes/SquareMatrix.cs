@@ -34,6 +34,10 @@ namespace Matrix
             this._matrix = new T[this.Size, this.Size];
         }
 
+        /// <summary>
+        /// Create instance of <see cref="SquareMatrix{T}"/>
+        /// </summary>
+        /// <param name="matrix">Input array</param>
         public SquareMatrix(T[,] matrix)
         {
             CheckArray(matrix);
@@ -42,8 +46,14 @@ namespace Matrix
             this._matrix = matrix;
         }
 
+        /// <summary>
+        /// Event 
+        /// </summary>
         public event EventHandler<ElementChanedEventArgs<T>> ElementChaned;
 
+        /// <summary>
+        /// Number of rows, number of colums
+        /// </summary>
         public int Size
         {
             get => this._size;
@@ -58,6 +68,12 @@ namespace Matrix
             }
         }
 
+        /// <summary>
+        /// Indexator 
+        /// </summary>
+        /// <param name="i">Number row</param>
+        /// <param name="j">Number columc</param>
+        /// <returns>Element</returns>
         public T this[int i, int j]
         {
             get 
@@ -66,15 +82,20 @@ namespace Matrix
 
                 return this._matrix[i, j];
             }
+
             set
             {
                 CheckIndexes(i, j);
-                OnElementChanged(new ElementChanedEventArgs<T>(i, j, this._matrix[i,j], value));
+                OnElementChanged(new ElementChanedEventArgs<T>(i, j, this._matrix[i, j], value));
 
                 this._matrix[i, j] = value;
             }
         }
 
+        /// <summary>
+        /// Executes when event  <see cref="ElementChaned"/> arises
+        /// </summary>
+        /// <param name="chanedEventArgs">Object EventArgs for event <see cref="ElementChaned"/></param>
         protected void OnElementChanged(ElementChanedEventArgs<T> chanedEventArgs)
         {
             if (chanedEventArgs == null)
@@ -85,6 +106,10 @@ namespace Matrix
             ElementChaned?.Invoke(this, chanedEventArgs);
         }
 
+        /// <summary>
+        /// Checkes is data in array satisfies predetermined structure
+        /// </summary>
+        /// <param name="inArray">Innput array</param>
         protected virtual void CheckArray(T[,] inArray)
         {
             if (inArray == null)
@@ -109,7 +134,6 @@ namespace Matrix
             {
                 throw new ArgumentOutOfRangeException(nameof(j));
             }
-
         }
     }
 }
