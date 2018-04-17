@@ -34,7 +34,7 @@ namespace Matrix
             {
                 for (int j = 0; j < this.Size; j++)
                 {
-                    if (!this._matrix[i, j].Equals(this._matrix[j, i]))
+                    if (!this.Matrix[i, j].Equals(this.Matrix[j, i]))
                     {
                         throw new ArgumentException($"Matrix isn't simmetrical matrix");
                     }

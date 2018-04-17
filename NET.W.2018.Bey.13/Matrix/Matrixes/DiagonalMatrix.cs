@@ -36,7 +36,7 @@ namespace Matrix
                 {
                     if (i != j)
                     {
-                        if (!this._matrix[i, j].Equals(default(T)))
+                        if (!this.Matrix[i, j].Equals(default(T)))
                         {
                             throw new ArgumentException($"Matrix isn't diagonal matrix");
                         }

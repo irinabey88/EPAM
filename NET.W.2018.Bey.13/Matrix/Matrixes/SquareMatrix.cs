@@ -17,7 +17,7 @@ namespace Matrix
         /// <summary>
         /// Inner matrix
         /// </summary>
-        protected T[,] _matrix;
+        private T[,] _matrix;
 
         /// <summary>
         /// Number of row and colums in matrix
@@ -68,6 +68,21 @@ namespace Matrix
             }
         }
 
+
+        protected T[,] Matrix
+        {
+            get => this._matrix;
+
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
+
+                this._matrix = value;
+            }
+        }
         /// <summary>
         /// Indexator 
         /// </summary>
