@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace CustomQueue
 {
@@ -7,7 +8,7 @@ namespace CustomQueue
     /// Provides custom queue
     /// </summary>
     /// <typeparam name="T">Object type</typeparam>
-    public class CustomQueue<T> : IEnumerable
+    public class CustomQueue<T> : IEnumerable<T>
     {
         private const int DEFAULT_SIZE = 8;
 
@@ -45,26 +46,17 @@ namespace CustomQueue
         /// <summary>
         /// Capacity of custom queue
         /// </summary>
-        public int Capacity => this._capacity;
+        public int Capacity => this._capacity;       
 
         /// <summary>
-        /// Get enumerator
-        /// </summary>
-        /// <returns>Enumerator</returns>
-        public IEnumerator GetEnumerator()
-        {
-            return this._container.GetEnumerator();
-        }
-
-        /// <summary>
-        /// Copies all elements of queue to array 
+        /// Copies all elements of queue to Container 
         /// </summary>
         /// <param name="array">Array</param>
         /// <param name="index">Start index fo copy</param>
         /// <exception cref="ArgumentNullException">Array is null vallue</exception>
         /// <exception cref="ArgumentException">Array length is 0</exception>
         /// <exception cref="ArgumentOutOfRangeException">Index les than 0</exception>
-        /// <exception cref="InvalidOperationException">Index less tan array length</exception>
+        /// <exception cref="InvalidOperationException">Index less tan Container length</exception>
         public void CopyTo(Array array, int index)
         {
             if (array == null)
@@ -89,7 +81,7 @@ namespace CustomQueue
 
             if ((array.Length - index) < this._count)
             {
-                throw new ArgumentException($"There are not enough elements in array {nameof(array)} for copy");
+                throw new ArgumentException($"There are not enough elements in Container {nameof(array)} for copy");
             }
 
             var custedArray = array as T[] ?? throw new InvalidCastException(nameof(array));
@@ -190,7 +182,7 @@ namespace CustomQueue
         }
 
         /// <summary>
-        /// Gets array representation of queue
+        /// Gets Container representation of queue
         /// </summary>
         /// <returns>Array of queue elements</returns>
         public T[] ToArray()
@@ -202,7 +194,7 @@ namespace CustomQueue
         }
 
         /// <summary>
-        /// Increasses the array size
+        /// Increasses the Container size
         /// </summary>
         private void ChangeSizeQueue()
         {
@@ -210,6 +202,20 @@ namespace CustomQueue
             T[] changedQueue = new T[this._capacity];
             Array.Copy(this._container, changedQueue, this._container.Length);
             this._container = changedQueue;
+        }
+
+        /// <summary>
+        /// Get enumerator
+        /// </summary>
+        /// <returns>Enumerator</returns>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new CustomIterator<T>(this._container);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
         }
     }
 }
