@@ -14,5 +14,7 @@
 
         public int Type { get; set; }
 
+        public bool IsClosed { get; set; }
+
     }
 }

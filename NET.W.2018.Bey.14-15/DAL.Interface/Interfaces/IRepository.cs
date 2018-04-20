@@ -14,7 +14,7 @@ namespace DAL.Interface.Interfaces
         /// <param name="id">Element id</param>
         /// <returns><value>Element if it is found</value>
         /// <value>null - other wise</value></returns>
-        TModel Get(string id);
+        TModel Get(int id);
 
         /// <summary>
         /// Finds one element 
@@ -31,14 +31,6 @@ namespace DAL.Interface.Interfaces
         /// <returns><value>Element if it is added</value>
         /// <value>Null - other wise</value></returns>
         TModel Add(TModel model);
-
-        /// <summary>
-        /// Delets element from repository
-        /// </summary>
-        /// <param name="model">Element</param>
-        /// <returns><value>Element if it is deleted</value>
-        /// <value>Null - other wise</value></returns>
-        TModel Delete(TModel model);
 
         /// <summary>
         /// Updates element from repository

@@ -9,7 +9,7 @@ namespace BLL.Interface.Interfaces
     /// <summary>
     /// Describes bank account service logic
     /// </summary>
-    public interface IAccountService<TModel> where TModel : Account
+    public interface IAccountService<out TModel> where TModel : Account
     {
         /// <summary>
         /// Create bank account
@@ -24,10 +24,10 @@ namespace BLL.Interface.Interfaces
         /// <summary>
         /// Close account
         /// </summary>
-        /// <param name="number">Account number</param>
+        /// <param name="accountId">Account number</param>
         /// <returns><value>Account if it is closed</value>
         /// <value>null - otherwise</value></returns>
-        TModel CloseAccount(int number);
+        TModel CloseAccount(int accountId);
 
         /// <summary>
         /// Gets bank account
@@ -46,24 +46,17 @@ namespace BLL.Interface.Interfaces
         /// <summary>
         /// Withdraw money from account
         /// </summary>
-        /// <param name="number">Account id</param>
+        /// <param name="accountId">Account id</param>
         /// <param name="amount">Withdrawal amount</param>
         /// <returns>Account</returns>
-        TModel WithdrawMoney(int number, decimal amount);
+        TModel WithdrawMoney(int accountId, decimal amount);
 
         /// <summary>
         /// Deposits money to account
         /// </summary>
-        /// <param name="number">Account id</param>
+        /// <param name="accountId">Account id</param>
         /// <param name="amount">Deposit amount</param>
         /// <returns>Account</returns>
-        TModel DepositMoney(string number, decimal amount);
-
-        /// <summary>
-        /// Finds accounst by filter
-        /// </summary>
-        /// <param name="filter">Filter</param>
-        /// <returns>Enumeration of users account</returns>
-        IEnumerable<TModel> Find(Expression<Func<TModel, bool>> filter);
+        TModel DepositMoney(int accountId, decimal amount);     
     }
 }

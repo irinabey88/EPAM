@@ -45,6 +45,8 @@
     <Compile Include="Entities\GoldAccount.cs" />
     <Compile Include="Entities\PlatinumAccount.cs" />
     <Compile Include="Enumes\AccountType.cs" />
+    <Compile Include="Exception\NotFoundException.cs" />
+    <Compile Include="Exception\WithdrawException.cs" />
     <Compile Include="Interfaces\IAccountService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
