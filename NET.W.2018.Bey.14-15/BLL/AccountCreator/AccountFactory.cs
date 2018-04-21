@@ -6,7 +6,7 @@ namespace BLL.AccountCreator
 {
     public static class AccountFactory
     {
-        public static Account Create(string firstName, string lastName, AccountType typeAccount)
+        public static Account Create(int number,string firstName, string lastName, AccountType typeAccount)
         {
             if (string.IsNullOrWhiteSpace(firstName))
             {
@@ -21,11 +21,11 @@ namespace BLL.AccountCreator
             switch (typeAccount)
             {
                 case AccountType.Base:
-                    return new BaseAccount(firstName, lastName, typeAccount, 0, 0);
+                    return new BaseAccount(number, firstName, lastName, typeAccount, 0, 0);
                 case AccountType.Gold:
-                    return new GoldAccount(firstName, lastName, typeAccount, 0, 0);
+                    return new GoldAccount(number, firstName, lastName, typeAccount, 0, 0);
                 case AccountType.Platinum:
-                    return new PlatinumAccount(firstName, lastName, typeAccount, 0, 0);
+                    return new PlatinumAccount(number, firstName, lastName, typeAccount, 0, 0);
                 default:
                     throw new InvalidOperationException($"Type account isn't supported");
             }

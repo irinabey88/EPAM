@@ -17,12 +17,13 @@ namespace BLL.Interface.Entities
         /// <param name="typeAccount">Type account</param>
         /// <param name="amount">Amount</param>
         /// <param name="bonus">Bonus</param>
+        /// <param name="number">Account number</param>
         /// <param name="firstName">User first Name</param>
-        public Account(string firstName, string lastName, AccountType typeAccount, decimal amount, int bonus)
+        public Account(int number,string firstName, string lastName, AccountType typeAccount, decimal amount, int bonus)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.Number = $"{firstName}{lastName}".GetHashCode();
+            this.Number = number;
             this.TypeAccount = typeAccount;
             this.Amount = amount;
             this.Bonus = bonus;
@@ -31,12 +32,7 @@ namespace BLL.Interface.Entities
         /// <summary>
         /// Account id
         /// </summary>
-        public int Number
-        {
-            get => this._number;
-
-            private set => this._number = value;
-        }
+        public int Number { get; set; }
 
         /// <summary>
         /// User First name

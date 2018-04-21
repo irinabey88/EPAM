@@ -17,7 +17,7 @@ namespace BLL.Interface.Entities
         /// <param name="amount">Amount</param>
         /// <param name="bonus">Bonus</param>
         /// <param name="firstName">User first Name</param>
-        public BaseAccount(string firstName, string lastName, AccountType typeAccount, decimal amount, int bonus) : base(firstName, lastName, typeAccount, amount, bonus)
+        public BaseAccount(int number, string firstName, string lastName, AccountType typeAccount, decimal amount, int bonus) : base(number, firstName, lastName, typeAccount, amount, bonus)
         {
         }
 

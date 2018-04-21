@@ -48,6 +48,8 @@
     <Compile Include="Exception\NotFoundException.cs" />
     <Compile Include="Exception\WithdrawException.cs" />
     <Compile Include="Interfaces\IAccountService.cs" />
+    <Compile Include="Interfaces\INumberCreatorService.cs" />
+    <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

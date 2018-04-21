@@ -32,7 +32,8 @@ namespace BLL.Mappers
                 throw new InvalidCastException(nameof(account.Type));
             }
 
-            var accountMapped = AccountFactory.Create(account.FirstName, account.Lastname, accountType);
+            var accountMapped = AccountFactory.Create(0, account.FirstName, account.Lastname, accountType);
+            accountMapped.Number = account.Number;
             accountMapped.Amount = account.Amount;
             accountMapped.Bonus = account.Bonus;
             accountMapped.IsClosed = account.IsClosed;

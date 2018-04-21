@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using BLL.Interface.Entities;
+using BLL.Interface.Enumes;
 using BLL.Interface.Interfaces;
 using DependencyResolver;
 using Ninject;
@@ -20,18 +20,18 @@ namespace ConsolePL
         static void Main(string[] args)
         {
             IAccountService service = resolver.Get<IAccountService>();
-            IAccountNumberCreateService creator = resolver.Get<IAccountNumberCreateService>();
+            INumberCreatorService creator = resolver.Get<INumberCreatorService>();
 
-            service.OpenAccount("Account owner 1", AccountType.Base, creator);
-            service.OpenAccount("Account owner 2", AccountType.Base, creator);
-            service.OpenAccount("Account owner 3", AccountType.Silver, creator);
-            service.OpenAccount("Account owner 4", AccountType.Base, creator);
+            service.CreateAccount("Owner1", "Owner1", AccountType.Base);
+            service.CreateAccount("Owner2", "Owner2", AccountType.Platinum);
+            service.CreateAccount("Owner3", "Owner3", AccountType.Gold);
+            service.CreateAccount("Owner4", "Owner4", AccountType.Base);
 
-            var creditNumbers = service.GetAllAccounts().Select(acc => acc.AccountNumber).ToArray();
+            var creditNumbers = service.GetAllAccounts().Select(acc => acc.Number);
 
             foreach (var t in creditNumbers)
             {
-                service.DepositAccount(t, 100);
+                service.DepositMoney(t, 100);
             }
 
             foreach (var item in service.GetAllAccounts())
@@ -41,13 +41,15 @@ namespace ConsolePL
 
             foreach (var t in creditNumbers)
             {
-                service.WithdrawAccount(t, 10);
+                service.WithdrawMoney(t, 10);
             }
 
             foreach (var item in service.GetAllAccounts())
             {
                 Console.WriteLine(item);
             }
+
+            Console.ReadLine();
         }
     }
 }

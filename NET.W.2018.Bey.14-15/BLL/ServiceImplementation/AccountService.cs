@@ -8,23 +8,25 @@ using BLL.Interface.Enumes;
 using BLL.Interface.Exception;
 using BLL.Interface.Interfaces;
 using BLL.Mappers;
-using DAL.Interface.DTO;
 using DAL.Interface.Interfaces;
 
 namespace BLL.ServiceImplementation
 {
-    public class AccountService : IAccountService<Account>
+    public class AccountService : IAccountService
     {
         private IAccountRepository _accountRepository;
+        private INumberCreatorService _numberCreatorService;
 
-        public AccountService(IAccountRepository accountRepository)
+        public AccountService(IAccountRepository accountRepository, INumberCreatorService numberCreatorService)
         {
             this._accountRepository = accountRepository ?? throw new ArgumentNullException(nameof(accountRepository));
+            this._numberCreatorService =
+                numberCreatorService ?? throw new ArgumentNullException(nameof(numberCreatorService));
         }
 
         public Account CreateAccount(string firstName, string lastName, AccountType typeAccount)
         {
-            var account = AccountFactory.Create(firstName, lastName, typeAccount);
+            var account = AccountFactory.Create(this._numberCreatorService.Create(firstName, lastName), firstName, lastName, typeAccount);
             var addedAccount = this._accountRepository.Add(account.MapBankAccount());
 
             return addedAccount.MapAccount();
@@ -70,9 +72,9 @@ namespace BLL.ServiceImplementation
             }
             bankAccount.Amount -= amount;
 
-            var accountClosed = this._accountRepository.Update(bankAccount);
+            var account = this._accountRepository.Update(bankAccount);
 
-            return accountClosed.MapAccount();
+            return account.MapAccount();
 
         }
 
@@ -82,9 +84,9 @@ namespace BLL.ServiceImplementation
            
             bankAccount.Amount += amount;
 
-            var accountClosed = this._accountRepository.Update(bankAccount);
+            var account = this._accountRepository.Update(bankAccount);
 
-            return accountClosed.MapAccount();
+            return account.MapAccount();
         }     
     }
 }

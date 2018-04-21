@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.Interface", "BLL.Interface\BLL.Interface.csproj", "{1B2D5675-D8C7-4295-AA6C-A0D7B7B8909E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{2C09A78F-009B-484B-BD9B-9D9449EF2DB9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.Interface", "DAL.Interface\DAL.Interface.csproj", "{9501E6EA-AA42-46B3-B9AA-EE8AEC8697C9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{FEA0D8B2-12D3-46CC-8248-9288D38C8F33}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePL", "ConsolePL\ConsolePL.csproj", "{595CEC1F-BA67-4AF8-995B-EE57DF9BAE7B}"
 EndProject
@@ -43,10 +41,6 @@ Global
 		{9501E6EA-AA42-46B3-B9AA-EE8AEC8697C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9501E6EA-AA42-46B3-B9AA-EE8AEC8697C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9501E6EA-AA42-46B3-B9AA-EE8AEC8697C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FEA0D8B2-12D3-46CC-8248-9288D38C8F33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FEA0D8B2-12D3-46CC-8248-9288D38C8F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FEA0D8B2-12D3-46CC-8248-9288D38C8F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FEA0D8B2-12D3-46CC-8248-9288D38C8F33}.Release|Any CPU.Build.0 = Release|Any CPU
 		{595CEC1F-BA67-4AF8-995B-EE57DF9BAE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{595CEC1F-BA67-4AF8-995B-EE57DF9BAE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{595CEC1F-BA67-4AF8-995B-EE57DF9BAE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
