@@ -9,7 +9,7 @@ namespace DAL.Fake.Repositories
 {
     public class AccountRepository : IAccountRepository
     {
-        private IList<BankAccount> _accounts;
+        private readonly IList<BankAccount> _accounts;
 
         public AccountRepository()
         {

@@ -14,8 +14,8 @@ namespace BLL.ServiceImplementation
 {
     public class AccountService : IAccountService
     {
-        private IAccountRepository _accountRepository;
-        private INumberCreatorService _numberCreatorService;
+        private readonly IAccountRepository _accountRepository;
+        private readonly INumberCreatorService _numberCreatorService;
 
         public AccountService(IAccountRepository accountRepository, INumberCreatorService numberCreatorService)
         {
