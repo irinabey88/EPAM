@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomNumberCreatorService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,6 +58,18 @@
     <ProjectReference Include="..\BLL.Interface\BLL.Interface.csproj">
       <Project>{1b2d5675-d8c7-4295-aa6c-a0d7b7b8909e}</Project>
       <Name>BLL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{2C09A78F-009B-484B-BD9B-9D9449EF2DB9}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.Fake\DAL.Fake.csproj">
+      <Project>{7A11CFC2-02C1-44CB-9DE0-5EF6A5B2FEDE}</Project>
+      <Name>DAL.Fake</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.Interface\DAL.Interface.csproj">
+      <Project>{9501e6ea-aa42-46b3-b9aa-ee8aec8697c9}</Project>
+      <Name>DAL.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\DependencyResolver\DependencyResolver.csproj">
       <Project>{06c2fa6a-50a1-41ba-843f-ee2fef7e09de}</Project>

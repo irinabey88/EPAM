@@ -1,5 +1,7 @@
 ﻿using System;
 using BLL.Interface.Enumes;
+using BLL.Interface.Interfaces;
+using DAL.Interface.Interfaces;
 
 namespace BLL.Interface.Entities
 {
@@ -8,7 +10,7 @@ namespace BLL.Interface.Entities
     /// </summary>
     public abstract class Account : IEquatable<Account>, IComparable, IComparable<Account>
     {
-        private int _number;
+        private IBonusCounter _bonusCounter;
 
         /// <summary>
         /// Provides loaded from storage instance of bank account
@@ -19,14 +21,16 @@ namespace BLL.Interface.Entities
         /// <param name="bonus">Bonus</param>
         /// <param name="number">Account number</param>
         /// <param name="firstName">User first Name</param>
-        public Account(int number,string firstName, string lastName, AccountType typeAccount, decimal amount, int bonus)
+        /// <param name="bonusCounter">Bonus counter</param>
+        public Account(int number,string firstName, string lastName, AccountType typeAccount, decimal amount, int bonus, IBonusCounter bonusCounter)
         {
+            this._bonusCounter = bonusCounter ?? throw new ArgumentNullException(nameof(bonusCounter));
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Number = number;
             this.TypeAccount = typeAccount;
             this.Amount = amount;
-            this.Bonus = bonus;
+            this.Bonus = bonus;            
         }
 
         /// <summary>
@@ -49,10 +53,6 @@ namespace BLL.Interface.Entities
         /// </summary>
         public AccountType TypeAccount { get; protected set; }
 
-      
-        /// <summary>
-        /// Amount
-        /// </summary>
         public decimal Amount { get; set; }
 
         /// <summary>
@@ -63,12 +63,7 @@ namespace BLL.Interface.Entities
         /// <summary>
         /// Is account closed
         /// </summary>
-        public bool IsClosed { get; set; }
-
-        /// <summary>
-        /// Rate for calculating bonuses
-        /// </summary>
-        public virtual uint Rate { get; set; }
+        public bool IsClosed { get; set; }        
 
         #region Operations
 
@@ -172,6 +167,6 @@ namespace BLL.Interface.Entities
         public override string ToString()
         {
             return $"{this.Number} {this.FirstName} {this.LastName} {this.Amount} {this.Bonus}";
-        }
+        }      
     }
 }

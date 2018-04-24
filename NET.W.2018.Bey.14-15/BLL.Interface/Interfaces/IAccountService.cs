@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using BLL.Interface.Entities;
-using BLL.Interface.Enumes;
+﻿using BLL.Interface.Entities;
 
 namespace BLL.Interface.Interfaces
 {

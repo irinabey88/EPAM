@@ -2,6 +2,9 @@
 using System.Linq;
 using BLL.Interface.Enumes;
 using BLL.Interface.Interfaces;
+using BLL.ServiceImplementation;
+using DAL.Fake.Repositories;
+using DAL.Interface.Interfaces;
 using DependencyResolver;
 using Ninject;
 
@@ -19,8 +22,9 @@ namespace ConsolePL
 
         static void Main(string[] args)
         {
-            IAccountService service = resolver.Get<IAccountService>();
-            INumberCreatorService creator = resolver.Get<INumberCreatorService>();
+            IAccountService service = resolver.Get<AccountService>();
+            INumberCreatorService creator = resolver.Get<CustomNumberCreatorService>();
+            IBonusCounter bonusCounter = resolver.Get<BonusCounter>();
 
             service.CreateAccount("Owner1", "Owner1", AccountType.Base);
             service.CreateAccount("Owner2", "Owner2", AccountType.Platinum);

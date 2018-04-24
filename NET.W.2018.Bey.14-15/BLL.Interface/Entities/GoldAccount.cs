@@ -1,4 +1,6 @@
 ﻿using BLL.Interface.Enumes;
+using BLL.Interface.Interfaces;
+using DAL.Interface.Interfaces;
 
 namespace BLL.Interface.Entities
 {
@@ -7,8 +9,6 @@ namespace BLL.Interface.Entities
     /// </summary>
     public sealed class GoldAccount : Account
     {
-        private readonly uint _rate = 10;
-
         /// <summary>
         /// Provides instance <see cref="GoldAccount"/>
         /// </summary>
@@ -18,10 +18,8 @@ namespace BLL.Interface.Entities
         /// <param name="bonus">Bonus</param>
         /// <param name="number">Account number</param>
         /// <param name="firstName">User first Name</param>
-        public GoldAccount(int number, string firstName, string lastName, AccountType typeAccount, decimal amount, int bonus) : base(number, firstName, lastName, typeAccount, amount, bonus)
+        public GoldAccount(int number, string firstName, string lastName, AccountType typeAccount, decimal amount, int bonus, IBonusCounter bonusCounter) : base(number, firstName, lastName, typeAccount, amount, bonus, bonusCounter)
         {
         }
-
-        public override uint Rate => this._rate;
     }
 }
