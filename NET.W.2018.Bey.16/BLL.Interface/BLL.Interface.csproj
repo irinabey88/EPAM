@@ -40,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IConverter.cs" />
     <Compile Include="Interfaces\IDataReceiver.cs" />
-    <Compile Include="Interfaces\IXmlCreator.cs" />
+    <Compile Include="Interfaces\IDataCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

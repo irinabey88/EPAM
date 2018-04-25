@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2CF8CA98-061E-4AB0-B1BA-E15C5C4BA96B}</ProjectGuid>
+    <ProjectGuid>{43CC0305-73EF-4B22-8B3B-8FD1645A5209}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>DependencyResolver</RootNamespace>
+    <AssemblyName>DependencyResolver</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,9 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,18 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataConverter\UriStringToXmlConverter.cs" />
-    <Compile Include="DataCreator\XmlFileCreator.cs" />
-    <Compile Include="DataReceiver\TxtFileReceiver.cs" />
-    <Compile Include="Exceptions\UriException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResolverConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL.Interface\BLL.Interface.csproj">
       <Project>{93f97789-12d3-45aa-b503-cf8e6e85fd23}</Project>
       <Name>BLL.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{2cf8ca98-061e-4ab0-b1ba-e15c5c4ba96b}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,7 +6,7 @@ using BLL.Interface.Interfaces;
 
 namespace BLL.DataCreator
 {
-    public class XmlFileCreator : IXmlCreator<string>
+    public class DataFileCreator : IDataCreator<string, XElement>
     {
         public XElement Create(string data)
         {
@@ -38,9 +38,14 @@ namespace BLL.DataCreator
 
                 foreach (var segment in uri.Segments)
                 {
-                    var segmentElement = new XElement("segment");
-                    segmentElement.Add(new XAttribute("value", segment));
-                    uriPathElement.Add(segmentElement);
+                    var segmentValue = segment.Trim('/', ' ');
+
+                    if (!string.IsNullOrWhiteSpace(segmentValue))
+                    {
+                        var segmentElement = new XElement("segment");
+                        segmentElement.Add(new XAttribute("value", segmentValue));
+                        uriPathElement.Add(segmentElement);
+                    }
                 }
             }
 
@@ -50,10 +55,11 @@ namespace BLL.DataCreator
                 var paramsElement = new XElement("params");
                 hostElement.Add(paramsElement);
 
-                foreach (var param in paramsList)
+                foreach (var param in paramsList.AllKeys)
                 {
                     var paramElement = new XElement("param");
-                    paramElement.Add(new XAttribute("value", param.ToString()));
+                    paramElement.Add(new XAttribute("key", param));
+                    paramElement.Add(new XAttribute("value", paramsList[param]));
                     paramsElement.Add(paramElement);
                 }
             }

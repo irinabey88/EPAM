@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleXMlCreator", "ConsoleXMlCreator\ConsoleXMlCreator.csproj", "{F9F46DEC-B6CC-45B2-A019-0AF5BBD63EA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyResolver", "DependencyResolver\DependencyResolver.csproj", "{43CC0305-73EF-4B22-8B3B-8FD1645A5209}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,14 @@ Global
 		{2CF8CA98-061E-4AB0-B1BA-E15C5C4BA96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CF8CA98-061E-4AB0-B1BA-E15C5C4BA96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CF8CA98-061E-4AB0-B1BA-E15C5C4BA96B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F46DEC-B6CC-45B2-A019-0AF5BBD63EA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F46DEC-B6CC-45B2-A019-0AF5BBD63EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F46DEC-B6CC-45B2-A019-0AF5BBD63EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F46DEC-B6CC-45B2-A019-0AF5BBD63EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43CC0305-73EF-4B22-8B3B-8FD1645A5209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CC0305-73EF-4B22-8B3B-8FD1645A5209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CC0305-73EF-4B22-8B3B-8FD1645A5209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CC0305-73EF-4B22-8B3B-8FD1645A5209}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -32,7 +32,7 @@ namespace BLL.DataReceiver
         /// <returns></returns>
         public IEnumerable<string> GetData()
         {
-            return System.IO.File.ReadAllLines(this._fileName, Encoding.UTF8);
+            return System.IO.File.ReadAllLines(this._fileName);
         }
     }
 }
