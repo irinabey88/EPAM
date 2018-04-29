@@ -1,4 +1,4 @@
-﻿using BLL.Interface.Interfaces;
+﻿using BankAccounts.Common.Interfaces.Services;
 
 namespace ConsolePL
 {

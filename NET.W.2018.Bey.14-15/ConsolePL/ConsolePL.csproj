@@ -32,10 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.3\lib\net45\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,21 +62,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL.Interface\BLL.Interface.csproj">
-      <Project>{1b2d5675-d8c7-4295-aa6c-a0d7b7b8909e}</Project>
-      <Name>BLL.Interface</Name>
+    <ProjectReference Include="..\BankAccounts.BuisnessLogic\BankAccounts.BusinessLogic.csproj">
+      <Project>{3838a364-230b-468a-8143-53d397371a90}</Project>
+      <Name>BankAccounts.BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{2C09A78F-009B-484B-BD9B-9D9449EF2DB9}</Project>
-      <Name>BLL</Name>
+    <ProjectReference Include="..\BankAccounts.Common\BankAccounts.Common.csproj">
+      <Project>{d0f24e78-0a6d-40d7-9086-59565ee3e255}</Project>
+      <Name>BankAccounts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BankAccounts.DataAccess\BankAccounts.DataAccess.csproj">
+      <Project>{189b33c8-5dfb-498f-bd08-b2c700ceab6e}</Project>
+      <Name>BankAccounts.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL.Fake\DAL.Fake.csproj">
       <Project>{7A11CFC2-02C1-44CB-9DE0-5EF6A5B2FEDE}</Project>
       <Name>DAL.Fake</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL.Interface\DAL.Interface.csproj">
-      <Project>{9501e6ea-aa42-46b3-b9aa-ee8aec8697c9}</Project>
-      <Name>DAL.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\DependencyResolver\DependencyResolver.csproj">
       <Project>{06c2fa6a-50a1-41ba-843f-ee2fef7e09de}</Project>

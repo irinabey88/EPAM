@@ -54,21 +54,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL.Interface\BLL.Interface.csproj">
-      <Project>{1b2d5675-d8c7-4295-aa6c-a0d7b7b8909e}</Project>
-      <Name>BLL.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{2c09a78f-009b-484b-bd9b-9d9449ef2db9}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL.Interface\DAL.Interface.csproj">
-      <Project>{9501e6ea-aa42-46b3-b9aa-ee8aec8697c9}</Project>
-      <Name>DAL.Interface</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\BankAccounts.BuisnessLogic\BankAccounts.BusinessLogic.csproj">
+      <Project>{3838a364-230b-468a-8143-53d397371a90}</Project>
+      <Name>BankAccounts.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BankAccounts.Common\BankAccounts.Common.csproj">
+      <Project>{d0f24e78-0a6d-40d7-9086-59565ee3e255}</Project>
+      <Name>BankAccounts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.Fake\DAL.Fake.csproj">
+      <Project>{7a11cfc2-02c1-44cb-9de0-5ef6a5b2fede}</Project>
+      <Name>DAL.Fake</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

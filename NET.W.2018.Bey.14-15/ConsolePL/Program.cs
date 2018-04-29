@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq;
-using BLL.Interface.Enumes;
-using BLL.Interface.Interfaces;
-using BLL.ServiceImplementation;
-using DAL.Fake.Repositories;
-using DAL.Interface.Interfaces;
+using BankAccounts.BusinessLogic.Services;
+using BankAccounts.Common.BonusAdapter;
+using BankAccounts.Common.Enumes;
+using BankAccounts.Common.Interfaces.BonusCounter;
+using BankAccounts.Common.Interfaces.Repositories;
+using BankAccounts.Common.Interfaces.Services;
+using BankAccounts.DataAccess.Repositories;
 using DependencyResolver;
 using Ninject;
 
@@ -22,38 +24,47 @@ namespace ConsolePL
 
         static void Main(string[] args)
         {
-            IAccountService service = resolver.Get<AccountService>();
+            IAccountRepository repository = resolver.Get<AccountRepository>();
             INumberCreatorService creator = resolver.Get<CustomNumberCreatorService>();
-            IBonusCounter bonusCounter = resolver.Get<BonusCounter>();
+            IBonusCounter bonusCounter = resolver.Get<AdapterBonusCounter>();
+            IAccountService service = resolver.Get<AccountService>();
+
 
             service.CreateAccount("Owner1", "Owner1", AccountType.Base);
             service.CreateAccount("Owner2", "Owner2", AccountType.Platinum);
             service.CreateAccount("Owner3", "Owner3", AccountType.Gold);
             service.CreateAccount("Owner4", "Owner4", AccountType.Base);
 
-            var creditNumbers = service.GetAllAccounts().Select(acc => acc.Number);
+            //var accounts = repository.GetAllElements();
 
-            foreach (var t in creditNumbers)
-            {
-                service.DepositMoney(t, 100);
-            }
+            //service.CreateAccount("Owner1", "Owner1", AccountType.Base);
+            //service.CreateAccount("Owner2", "Owner2", AccountType.Platinum);
+            //service.CreateAccount("Owner3", "Owner3", AccountType.Gold);
+            //service.CreateAccount("Owner4", "Owner4", AccountType.Base);
 
-            foreach (var item in service.GetAllAccounts())
-            {
-                Console.WriteLine(item);
-            }
+            //var creditNumbers = service.GetAllAccounts().Select(acc => acc.Id);
 
-            foreach (var t in creditNumbers)
-            {
-                service.WithdrawMoney(t, 10);
-            }
+            //foreach (var t in creditNumbers)
+            //{
+            //    service.DepositMoney(t, 100);
+            //}
 
-            foreach (var item in service.GetAllAccounts())
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in service.GetAllAccounts())
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            Console.ReadLine();
+            //foreach (var t in creditNumbers)
+            //{
+            //    service.WithdrawMoney(t, 10);
+            //}
+
+            //foreach (var item in service.GetAllAccounts())
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Console.ReadLine();
         }
     }
 }

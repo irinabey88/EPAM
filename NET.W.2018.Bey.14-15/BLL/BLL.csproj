@@ -40,22 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountCreator\AccountFactory.cs" />
-    <Compile Include="Mappers\Mapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceImplementation\AccountService.cs" />
-    <Compile Include="ServiceImplementation\NumberCreatorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL.Interface\BLL.Interface.csproj">
       <Project>{1b2d5675-d8c7-4295-aa6c-a0d7b7b8909e}</Project>
       <Name>BLL.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL.Interface\DAL.Interface.csproj">
-      <Project>{9501e6ea-aa42-46b3-b9aa-ee8aec8697c9}</Project>
-      <Name>DAL.Interface</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ServiceImplementation\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

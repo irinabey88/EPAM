@@ -40,22 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BonusCounter.cs" />
     <Compile Include="Exceptions\AddException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\AccountFakeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL.Interface\BLL.Interface.csproj">
-      <Project>{1B2D5675-D8C7-4295-AA6C-A0D7B7B8909E}</Project>
-      <Name>BLL.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL.Interface\DAL.Interface.csproj">
-      <Project>{9501e6ea-aa42-46b3-b9aa-ee8aec8697c9}</Project>
-      <Name>DAL.Interface</Name>
+    <ProjectReference Include="..\BankAccounts.Common\BankAccounts.Common.csproj">
+      <Project>{d0f24e78-0a6d-40d7-9086-59565ee3e255}</Project>
+      <Name>BankAccounts.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
