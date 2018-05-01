@@ -7,6 +7,11 @@ namespace BankAccounts.Common.Models.EventArg
     {
         private readonly Func<decimal, int, int> _calcBonus;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AmountChangedEventArgs{T}" /> class.
+        /// </summary>
+        /// <param name="account">The account</param>
+        /// <param name="bonusCounter">The bonuscounter</param>
         public AmountChangedEventArgs(BankAccount account, IBonusCounter bonusCounter)
         {
             if (account == null)

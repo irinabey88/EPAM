@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 using BankAccounts.Common.Enumes;
-using BankAccounts.Common.Interfaces.BonusCounter;
-using BankAccounts.Common.Interfaces.Repositories;
 using BankAccounts.Common.Interfaces.Services;
 using DependencyResolver;
 using Ninject;
@@ -28,26 +26,29 @@ namespace BankAccounts.ConsolePl
             service.CreateAccount("Owner3", "Owner3", AccountType.Gold);
             service.CreateAccount("Owner4", "Owner4", AccountType.Base);
 
-            var creditNumbers = service.GetAllAccounts().Select(acc => acc.Id);
+            var creditNumbers = service.GetAllAccounts().Select(acc => acc.Id).ToList();
 
-            foreach (var t in creditNumbers)
+            if (creditNumbers.Any())
             {
-                service.DepositMoney(t, 100);
-            }
+                foreach (var t in creditNumbers)
+                {
+                    service.DepositMoney(t, 100);
+                }
 
-            foreach (var item in service.GetAllAccounts())
-            {
-                Console.WriteLine(item);
-            }
+                foreach (var item in service.GetAllAccounts())
+                {
+                    Console.WriteLine(item);
+                }
 
-            foreach (var t in creditNumbers)
-            {
-                service.WithdrawMoney(t, 10);
-            }
+                foreach (var t in creditNumbers)
+                {
+                    service.WithdrawMoney(t, 10);
+                }
 
-            foreach (var item in service.GetAllAccounts())
-            {
-                Console.WriteLine(item);
+                foreach (var item in service.GetAllAccounts())
+                {
+                    Console.WriteLine(item);
+                }
             }
 
             Console.ReadLine();

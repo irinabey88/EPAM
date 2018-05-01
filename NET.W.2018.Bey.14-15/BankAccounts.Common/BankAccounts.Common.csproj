@@ -47,6 +47,7 @@
     <Compile Include="Dto\GoldAccount.cs" />
     <Compile Include="Dto\PlatinumAccount.cs" />
     <Compile Include="Enumes\AccountType.cs" />
+    <Compile Include="Exception\ClosedAccountException.cs" />
     <Compile Include="Exception\NotFoundException.cs" />
     <Compile Include="Exception\WithdrawException.cs" />
     <Compile Include="Interfaces\BonusCounter\IBonusCounter.cs" />

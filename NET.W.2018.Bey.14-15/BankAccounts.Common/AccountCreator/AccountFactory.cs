@@ -7,6 +7,15 @@ namespace BankAccounts.Common.AccountCreator
 {
     public static class AccountFactory
     {
+        /// <summary>
+        /// Initializes a new instance of the child  <see cref="Account" /> class.
+        /// </summary>
+        /// <param name="id">The id</param>
+        /// <param name="firstName">The firstname</param>
+        /// <param name="lastName">The lastName</param>
+        /// <param name="typeAccount">Account type</param>
+        /// <param name="bonusCounter">The bonus counter</param>
+        /// <returns>The instance of the child <see cref="Account"/></returns>
         public static Account Create(int id, string firstName, string lastName, AccountType typeAccount, IBonusCounter bonusCounter)
         {
             if (string.IsNullOrWhiteSpace(firstName))

@@ -64,7 +64,7 @@ namespace BankAccounts.Common.Models
             AmountChanged?.Invoke(this, chanedEventArgs);
         }
 
-        protected virtual void BonusChanged(object sender, AmountChangedEventArgs<BankAccount> eventArgs)
+        protected void BonusChanged(object sender, AmountChangedEventArgs<BankAccount> eventArgs)
         {
             this.Bonus += eventArgs.CalcBonus(this.Amount, this.Type);
         }

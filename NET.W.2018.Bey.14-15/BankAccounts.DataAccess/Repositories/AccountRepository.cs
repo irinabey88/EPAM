@@ -38,6 +38,11 @@ namespace BankAccounts.DataAccess.Repositories
             Dispose(false);
         }
 
+        /// <summary>
+        /// Get account by id
+        /// </summary>
+        /// <param name="id">Account id</param>
+        /// <returns>Account</returns>
         public BankAccount Get(int id)
         {
             if (id <= 0)
@@ -48,6 +53,11 @@ namespace BankAccounts.DataAccess.Repositories
             return DbSet.SingleOrDefault(x => x.Id == id);
         }
 
+        /// <summary>
+        /// Gets account 
+        /// </summary>
+        /// <param name="model">Account to found</param>
+        /// <returns>Found account</returns>
         public BankAccount Get(BankAccount model)
         {
             if (model == null)
@@ -58,6 +68,11 @@ namespace BankAccounts.DataAccess.Repositories
             return this.Get(model.Id);
         }
 
+        /// <summary>
+        /// Addes new account to repository
+        /// </summary>
+        /// <param name="model">Account</param>
+        /// <returns>Added account</returns>
         public BankAccount Add(BankAccount model)
         {
             if (model == null)
@@ -70,6 +85,11 @@ namespace BankAccounts.DataAccess.Repositories
             return result;
         }
 
+        /// <summary>
+        /// Updates account in repository
+        /// </summary>
+        /// <param name="model">Account</param>
+        /// <returns>Updated account</returns>
         public BankAccount Update(BankAccount model)
         {
             if (model == null)
@@ -84,16 +104,27 @@ namespace BankAccounts.DataAccess.Repositories
             return entity;
         }
 
+        /// <summary>
+        /// Gets all accounts in repository
+        /// </summary>
+        /// <returns>List of accounts</returns>
         public IEnumerable<BankAccount> GetAllElements()
         {
             return this.DbSet.ToList();
         }
         
+        /// <summary>
+        /// Dispose
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
         }
 
+        /// <summary>
+        /// Dispose pattern
+        /// </summary>
+        /// <param name="flag">The flag</param>
         protected virtual void Dispose(bool flag)
         {
             if (_disposed)

@@ -6,11 +6,17 @@ namespace BankAccounts.DataAccess.Context
 {
     public class BankContext : DbContext
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BankContext" /> class.
+        /// </summary>
         public BankContext() : base()
         {
-            Database.SetInitializer<BankContext>(new DropCreateDatabaseAlways<BankContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<BankContext>());
         }
 
+        /// <summary>
+        /// Accounts list
+        /// </summary>
         public DbSet<BankAccount> Accounts { get; set; }
 
         /// <summary>
